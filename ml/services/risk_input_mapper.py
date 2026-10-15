@@ -18,12 +18,12 @@ def safe_float(value, default=None):
         return default
 
 
-def calculate_age(date_of_birth):
+def calculate_age(date_of_birth, as_of=None):
 
     if not date_of_birth:
         return None
 
-    today = timezone.localdate()
+    today = as_of or timezone.localdate()
 
     return (
         today.year
@@ -220,12 +220,12 @@ def map_alcohol_frequency(days_per_year):
 # GET LATEST RECORDS
 # ============================================================
 
-def get_latest_checkin(user):
+def get_latest_checkin(user, prediction_date=None):
     """Only today's check-in may supply a daily prediction."""
     try:
         return (
             user.daily_checkins
-            .filter(date=timezone.localdate())
+            .filter(date=prediction_date or timezone.localdate())
             .order_by("-date")
             .first()
         )
@@ -272,13 +272,13 @@ def get_profile(user):
 # COMMON FEATURE BUILDER
 # ============================================================
 
-def build_common_risk_input(user):
+def build_common_risk_input(user, *, checkin=None, prediction_date=None):
 
     profile = get_profile(user)
 
-    checkin = get_latest_checkin(user)
-
-    mental = get_latest_mental_assessment(user)
+    prediction_date = prediction_date or timezone.localdate()
+    if checkin is None:
+        checkin = get_latest_checkin(user, prediction_date)
 
 
     # --------------------------------------------------------
@@ -292,7 +292,7 @@ def build_common_risk_input(user):
     if profile:
 
         age = calculate_age(
-            profile.date_of_birth
+            profile.date_of_birth, as_of=prediction_date
         )
 
         sex = encode_gender(

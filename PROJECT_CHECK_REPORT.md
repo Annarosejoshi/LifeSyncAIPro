@@ -1,4 +1,22 @@
-# Latest runtime reliability review
+# Daily prediction review
+
+All 163 application tests passed. The model audit reproduced the recorded
+accuracy and ROC AUC, and offline desktop/mobile preview checks passed.
+
+- All four estimates are generated from one current-day profile/check-in
+  snapshot. No previous week of records or weekly average is required.
+- The request date is held consistent through input selection and age
+  calculation. Old-day results cannot overwrite the new day's history.
+- The dashboard displays the input day, today's wellness score, and a compact
+  expandable list of saved habits to verify edits without conflating daily
+  scores with disease probabilities.
+- First-day generation, historical-data isolation, midnight rollover, daily
+  score edits, and stale-history protection have dedicated regression tests.
+- Daily recomputation does not imply a different percentage for every habit
+  edit or a validated day-ahead disease forecast. Trained feature lists and
+  existing model artifacts remain unchanged.
+
+# Earlier runtime reliability review
 
 - All 157 application tests passed after the startup and offline-asset changes.
   The independent audit reproduced all four deployed model metrics unchanged.

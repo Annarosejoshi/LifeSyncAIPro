@@ -93,6 +93,13 @@ are machine-specific and must not be copied from another computer.
 
 ## Prediction behavior
 
+**Results work from the first saved daily check-in. No week of data is required.**
+The prediction page shows the input date, today's wellness score, and an
+expandable view of saved habits so changes can be verified. All four models use
+one current profile/check-in snapshot for that request. Past days appear only
+in progress charts and history; editing an older entry does not change today's
+model estimates. A new day requires a new check-in rather than reusing yesterday.
+
 The active models are `lifestyle_v10`. The four small model artifacts and their
 metadata are included in this repository; retraining is not required to run it.
 
@@ -107,6 +114,9 @@ Models are restricted to adults aged 18 and above. Missing required inputs
 keep a prediction unavailable. Updating sleep may change three estimates;
 cardiovascular output remains unchanged unless a profile input changes.
 Percentages can change without crossing the classification cutoff.
+These are recalculations from current inputs, not validated day-ahead forecasts
+of disease onset. Unchanged model inputs produce the same estimate; no random
+changes are added to make the dashboard appear reactive.
 
 **Mental wellness is shown separately:** the daily score uses eight assessment
 answers. Higher mood, energy, motivation, concentration, and social wellbeing
@@ -156,7 +166,7 @@ python manage.py test --noinput
 python ml/evaluation/audit_saved_models.py --version lifestyle_v10
 ```
 
-The latest application suite passed **157 tests**. Tests verify
+The latest application suite passed **163 tests**. Tests verify
 registration, authorization, daily saves and edits, input mapping, actual model
 outputs, score updates, missing inputs, and page workflows. They do not prove
 clinical accuracy. The included GitHub Actions workflow runs checks, tests,

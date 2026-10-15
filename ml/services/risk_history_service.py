@@ -209,6 +209,10 @@ def save_single_risk_history(
     )
 
     today = timezone.localdate()
+    # A request that crosses midnight must not overwrite the new day's record
+    # with the previous day's snapshot.
+    if result.get("input_date") and result["input_date"] != today.isoformat():
+        return None
 
     # --------------------------------------------------------
     # Avoid creating duplicates every dashboard refresh.

@@ -708,141 +708,50 @@ def predict_all_risks(
 # USER-LEVEL ALL-HEALTH-RISKS WRAPPER
 # ============================================================
 
-def get_all_health_risks(user):
-    """
-    Build the four model inputs from the current user data and
-    return one result dictionary for each screening model.
+def get_all_health_risks(user, *, prediction_date=None):
+    """Recalculate all models from one snapshot of today's saved inputs.
 
-    A failure in one model does not prevent the other models from
-    returning their results.
+    Past days feed progress charts only. One saved check-in is sufficient;
+    no weekly aggregation or cached prediction is used here.
     """
-
     from django.utils import timezone
-    if not user.daily_checkins.filter(date=timezone.localdate()).exists():
-        return {
-            name: {
-                "model": name,
-                "prediction_available": False,
-                "reason": "Complete today's daily check-in to see today's prediction.",
-                "readiness": {},
-            }
-            for name in ("diabetes", "hypertension", "cardiovascular", "mental_health")
-        }
-
-    from ml.services.risk_input_mapper import (
-        build_cardiovascular_input_from_user,
-        build_diabetes_input_from_user,
-        build_hypertension_input_from_user,
-        build_mental_health_input_from_user,
-    )
-
     from ml.services.risk_input_mapper import build_common_risk_input
-    common = build_common_risk_input(user)
-    if common.get("age") is not None and common["age"] < 18:
-        return {
-            name: {
-                "model": name, "prediction_available": False,
-                "reason": "These models were evaluated on adults aged 18 and above. Adult screening estimates are unavailable for this age.",
-                "readiness": {},
-            }
-            for name in ("diabetes", "hypertension", "cardiovascular", "mental_health")
-        }
-    labels = {
-        "age": "date of birth", "sex": "gender in your profile",
-        "bmi": "height and weight", "smoking_status": "smoking status",
-        "sleep_hours": "sleep today",
+
+    prediction_date = prediction_date or timezone.localdate()
+    predictors = {
+        "diabetes": predict_diabetes_risk,
+        "hypertension": predict_hypertension_risk,
+        "cardiovascular": predict_cardiovascular_risk,
+        "mental_health": predict_mental_health_risk,
     }
-    missing = [key for key in DIABETES_CORE_FEATURES if common.get(key) is None]
-    if missing:
+
+    def unavailable(reason):
         return {
-            name: {
-                "model": name, "prediction_available": False,
-                "reason": "Please enter: " + ", ".join(labels[key] for key in missing) + ".",
-                "readiness": {"missing_features": missing},
-            }
-            for name in ("diabetes", "hypertension", "cardiovascular", "mental_health")
+            name: dict(model=name, prediction_available=False, reason=reason,
+                       readiness={}, input_date=prediction_date.isoformat())
+            for name in predictors
         }
+
+    checkin = user.daily_checkins.filter(date=prediction_date).first()
+    if checkin is None:
+        return unavailable("Complete today's daily check-in to see today's prediction.")
+
+    common = build_common_risk_input(user, checkin=checkin, prediction_date=prediction_date)
+    if common.get("age") is not None and common["age"] < 18:
+        return unavailable("These models were evaluated on adults aged 18 and above. Adult screening estimates are unavailable for this age.")
+    labels = {"age": "date of birth", "sex": "gender in your profile",
+              "bmi": "height and weight", "smoking_status": "smoking status"}
+    missing = [key for key in labels if common.get(key) is None]
+    if missing:
+        return unavailable("Please enter: " + ", ".join(labels[key] for key in missing) + ".")
 
     results = {}
-
-    try:
-        diabetes_data = (
-            build_diabetes_input_from_user(
-                user
-            )
-        )
-
-        results["diabetes"] = (
-            predict_diabetes_risk(
-                diabetes_data
-            )
-        )
-
-    except Exception as exc:
-        results["diabetes"] = {
-            "model": "diabetes",
-            "prediction_available": False,
-            "reason": str(exc),
-        }
-
-    try:
-        hypertension_data = (
-            build_hypertension_input_from_user(
-                user
-            )
-        )
-
-        results["hypertension"] = (
-            predict_hypertension_risk(
-                hypertension_data
-            )
-        )
-
-    except Exception as exc:
-        results["hypertension"] = {
-            "model": "hypertension",
-            "prediction_available": False,
-            "reason": str(exc),
-        }
-
-    try:
-        cardiovascular_data = (
-            build_cardiovascular_input_from_user(
-                user
-            )
-        )
-
-        results["cardiovascular"] = (
-            predict_cardiovascular_risk(
-                cardiovascular_data
-            )
-        )
-
-    except Exception as exc:
-        results["cardiovascular"] = {
-            "model": "cardiovascular",
-            "prediction_available": False,
-            "reason": str(exc),
-        }
-
-    try:
-        mental_health_data = (
-            build_mental_health_input_from_user(
-                user
-            )
-        )
-
-        results["mental_health"] = (
-            predict_mental_health_risk(
-                mental_health_data
-            )
-        )
-
-    except Exception as exc:
-        results["mental_health"] = {
-            "model": "mental_health",
-            "prediction_available": False,
-            "reason": str(exc),
-        }
-
+    for name, predictor in predictors.items():
+        try:
+            result = predictor(common.copy())
+        except Exception as exc:
+            result = dict(model=name, prediction_available=False, reason=str(exc))
+        result["input_date"] = prediction_date.isoformat()
+        result["checkin_id"] = checkin.pk
+        results[name] = result
     return results

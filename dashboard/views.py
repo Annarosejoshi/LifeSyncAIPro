@@ -288,6 +288,7 @@ def dashboard_home(request, page="home"):
             try:
                 health_risks = get_all_health_risks(
                     request.user,
+                    prediction_date=today,
                 )
                 save_all_health_risk_history(request.user, health_risks)
             except Exception:
@@ -682,7 +683,7 @@ def dashboard_home(request, page="home"):
 
     try:
         risk_predictions = get_all_health_risks(
-            request.user
+            request.user, prediction_date=today
         )
         if any(result and result.get("prediction_available") for result in risk_predictions.values()):
             predictions_calculated_at = timezone.now()

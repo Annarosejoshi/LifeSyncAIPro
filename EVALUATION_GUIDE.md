@@ -11,11 +11,16 @@ CDN access once Python dependencies have been installed.
    height, weight, and smoking status. Adult estimates require age >=18.
 2. Save today's check-in. Reopen it to verify saved values. Screen time accepts
    direct decimal input without a spinner.
+   No previous entries or seven-day history are required. On Health Predictions,
+   use “Verify today's saved habits” to confirm the values used for this day.
 3. Open Health Predictions. Compare each result's displayed inputs with saved
    data. Expand “How these results work” and “Measured model performance”.
 4. Change sleep and save. Confirm the displayed sleep input changes. The heart
    model should remain unchanged because it does not use sleep. A risk category
    may remain unchanged even when its percentage changes.
+   Changing yesterday's entry must not change today's estimate. After midnight,
+   the new day needs its own check-in. Food, exercise, water and screen-time edits
+   update the daily wellness score; they do not fabricate different model outputs.
 5. Save a mental wellness assessment. It returns to predictions with a saved
    score confirmation. Change one answer and save again. Today's score should
    update; the separate profile/sleep estimate should remain unchanged. Higher

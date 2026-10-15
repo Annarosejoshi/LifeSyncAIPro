@@ -22,6 +22,26 @@
   </form>
 </section>
 {% endif %}
+{% if today_checkin %}
+<section class="card daily-input-status" aria-label="Today's saved prediction inputs">
+  <div><strong>Daily results · {{ today|date:"j M Y" }}</strong><p>Uses today's saved entries. No week of history is required.</p></div>
+  {% if ai_health_score is not None %}<div><strong>Today's wellness score: {{ ai_health_score }} / 100</strong><p>Habit-based score, separate from model probabilities.</p></div>{% endif %}
+  <a class="text-btn" href="{% url 'dashboard:checkin' %}">Update today's inputs →</a>
+</section>
+<details class="card prediction-about"><summary>Verify today's saved habits</summary>
+  <dl class="daily-input-values">
+    <div><dt>Sleep</dt><dd>{{ today_checkin.sleep_hours }} hours</dd></div>
+    <div><dt>Water</dt><dd>{{ today_checkin.water_liters }} litres</dd></div>
+    <div><dt>Exercise</dt><dd>{{ today_checkin.exercise_minutes }} minutes</dd></div>
+    <div><dt>Screen time</dt><dd>{{ today_checkin.screen_time_hours }} hours</dd></div>
+    <div><dt>Food variety</dt><dd>{{ today_checkin.fruit_vegetable_servings }} estimated servings</dd></div>
+    <div><dt>Meals</dt><dd>Breakfast: {{ today_checkin.breakfast_taken|yesno:"Yes,No" }} · Lunch: {{ today_checkin.lunch_taken|yesno:"Yes,No" }} · Dinner: {{ today_checkin.dinner_taken|yesno:"Yes,No" }}</dd></div>
+    <div><dt>Mood</dt><dd>{{ today_checkin.get_mood_display }}</dd></div>
+    <div><dt>Stress</dt><dd>{{ today_checkin.stress_level }} / 5</dd></div>
+    <div><dt>Energy</dt><dd>{{ today_checkin.energy_level }} / 5</dd></div>
+  </dl>
+</details>
+{% endif %}
 {% if not today_checkin %}<div class="results-prompt"><div><strong>Start with today's daily check-in</strong><p>Enter your habits to generate today's four predictions.</p></div><a class="btn" href="{% url 'dashboard:checkin' %}">Complete daily check-in →</a></div>{% elif not risk_ready_count and not prediction_profile_form %}<div class="results-prompt"><div><strong>Complete today's prediction inputs</strong><p>{{ risk_cards.0.1.reason }}</p></div><a class="btn" href="{% url 'dashboard:checkin' %}">Update today's check-in →</a></div>{% endif %}
 <nav class="prompt-chips" aria-label="Choose a prediction"><button type="button" data-condition-filter="all" aria-pressed="true">All results</button><button type="button" data-condition-filter="1" aria-pressed="false">🍃 Diabetes</button><button type="button" data-condition-filter="2" aria-pressed="false">💚 Hypertension</button><button type="button" data-condition-filter="3" aria-pressed="false">❤️ Heart health</button><button type="button" data-condition-filter="4" aria-pressed="false">💛 Mental wellness</button></nav>
 <section class="card overall-screening" id="overall-screening" aria-labelledby="overall-screening-title">
@@ -42,6 +62,7 @@
   <p>Diabetes, blood pressure and mental lifestyle estimates use age, gender, BMI, smoking status and today's sleep. Heart screening uses the same profile inputs without sleep.</p>
   <p>Mental wellness answers update your daily score separately. Food, water, exercise and screen time contribute to daily wellness tracking, not these model percentages.</p>
   <p>Changing an input may change an estimate without changing its risk category. Unchanged inputs produce the same estimate.</p>
+  <p>Daily results are recalculated from today's inputs. Seven-day charts show history only; they are not required to generate a result. These estimates do not predict whether a disease will develop tomorrow.</p>
 </details>
 <details class="card prediction-about">
   <summary>Measured model performance</summary>

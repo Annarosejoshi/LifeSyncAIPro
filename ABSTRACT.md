@@ -7,6 +7,10 @@ scikit-learn, the system provides authenticated user accounts, health profiles,
 BMI calculation, daily check-ins, medication tracking, interactive progress
 charts, and personalized lifestyle guidance.
 
+The application recalculates screening estimates from the current day's saved
+profile and check-in inputs without requiring a week of records. Historical
+entries support progress visualization and do not replace today's inputs.
+
 Four deployed models estimate diabetes, hypertension, cardiovascular, and
 depression-related screening risk from profile measurements and sleep
 information where supported. Preprocessing and model selection use three-fold
