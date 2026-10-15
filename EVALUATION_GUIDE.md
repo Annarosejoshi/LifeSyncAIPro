@@ -2,6 +2,11 @@
 
 Use a separate demo account; keep real user records intact.
 
+On Windows, start with `run_windows.bat --check`, then `run_windows.bat`.
+The launcher checks dependencies and all four model pipelines. Frontend styles,
+icons and chart assets are bundled locally, so the demonstration can run without
+CDN access once Python dependencies have been installed.
+
 1. Register, sign in, and complete the profile with date of birth, gender,
    height, weight, and smoking status. Adult estimates require age >=18.
 2. Save today's check-in. Reopen it to verify saved values. Screen time accepts
@@ -43,6 +48,7 @@ individual cannot be established merely from their inputs.
 
 ```powershell
 python manage.py check
+python manage.py check_models
 python manage.py makemigrations --check --dry-run
 python manage.py test --noinput
 python ml/evaluation/audit_saved_models.py --version lifestyle_v10

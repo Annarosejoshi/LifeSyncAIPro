@@ -13,7 +13,7 @@ from history. Historical removal would require a separately reviewed rewrite.
 
 ## Preparation verified locally
 
-- Git-visible package: 380 files, approximately 25.05 MiB.
+- Current Git-visible package: 398 files, approximately 25.96 MiB.
 - A separate copy of only Git-visible files passed all 153 tests without the
   live user database, raw sources, or large historical model binaries.
 - Independent artifact audit reproduced all four current models' metrics.
@@ -25,6 +25,9 @@ from history. Historical removal would require a separately reviewed rewrite.
   check. This is not a comprehensive security audit.
 - The optional legacy BRFSS page shows a current-screening link when its separate
   historical model is not installed; it is not required for the main dashboard.
+- The latest runtime update passed all 157 application tests. Frontend assets
+  are now bundled locally, and the Windows launcher performs readiness checks.
+  The clean export also passed the 17 targeted asset/model/assessment tests.
 
 ## Review the upload first
 

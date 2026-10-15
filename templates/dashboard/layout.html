@@ -7,9 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LifeSync AI | {% block title %}Dashboard{% endblock %}</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{% static 'vendor/chartjs/chart.umd.js' %}"></script>
 
 <style>
 html{scroll-behavior:smooth;scroll-padding-top:22px}
@@ -230,7 +228,7 @@ footer{text-align:center;padding:24px;font-size:16px;color:var(--muted)}
   .dashboard-panel{animation:none!important}
 }
 </style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"><link rel="stylesheet" href="{% static 'css/polish.css' %}?v=review-15">{% block extra_css %}{% endblock %}</head>
+<link rel="stylesheet" href="{% static 'vendor/bootstrap/bootstrap.min.css' %}"><link rel="stylesheet" href="{% static 'css/polish.css' %}?v=offline-16">{% block extra_css %}{% endblock %}</head>
 <body><div class="app lifesync-layout">{% include "components/sidebar.html" %}
 <div class="main">
 <header class="topbar">

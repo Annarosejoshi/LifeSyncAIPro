@@ -10,3 +10,7 @@
 *.ps1 text eol=crlf
 *.joblib binary
 *.png binary
+*.woff binary
+*.woff2 binary
+# Preserve upstream bytes so vendored integrity hashes survive every checkout.
+static/vendor/** -text

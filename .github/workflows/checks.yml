@@ -22,6 +22,7 @@ jobs:
       - name: Check configuration and migrations
         run: |
           python manage.py check
+          python manage.py check_models
           python manage.py makemigrations --check --dry-run
       - name: Run application tests
         run: python manage.py test --noinput

@@ -30,12 +30,27 @@ intended for academic demonstration and lifestyle awareness.
 | Verification | Django tests, saved-model audit, GitHub Actions |
 
 Exact environment versions are recorded in [requirements.txt](requirements.txt).
-Bootstrap, icons, fonts, and Chart.js currently load from external CDNs, so an
-internet connection is needed for the complete visual presentation and charts.
+Bootstrap, icon fonts, and Chart.js are bundled under `static/vendor/` with
+their licenses. The interface and charts work without CDN access after setup.
+An internet connection is required only for installing Python dependencies or
+explicitly refreshing vendored libraries.
 
 ## Quick start on Windows
 
 Open the folder containing `manage.py`, not the outer parent folder.
+
+With Python 3.13 installed, use the checked Windows launcher:
+
+```powershell
+.\run_windows.bat
+```
+
+It checks the project environment, runs setup when the environment or required
+packages are missing, exercises all four models, applies existing migrations,
+and starts Django. Setup can repair a copied environment in place without
+deleting user records. Keep the terminal open while using the application.
+
+For manual setup instead:
 
 ```powershell
 python --version
@@ -135,16 +150,18 @@ From an activated environment, or using its Python executable:
 
 ```powershell
 python manage.py check
+python manage.py check_models
 python manage.py makemigrations --check --dry-run
 python manage.py test --noinput
 python ml/evaluation/audit_saved_models.py --version lifestyle_v10
 ```
 
-The clean GitHub package passed **153 tests**. Tests verify
+The latest application suite passed **157 tests**. Tests verify
 registration, authorization, daily saves and edits, input mapping, actual model
 outputs, score updates, missing inputs, and page workflows. They do not prove
 clinical accuracy. The included GitHub Actions workflow runs checks, tests,
-and a model audit on pushes and pull requests; its first remote run is pending.
+and a model audit on pushes and pull requests. Check the repository's Actions
+tab for remote run results; local verification does not assert a remote CI status.
 
 To repeat the latest training experiment:
 
@@ -187,23 +204,50 @@ virtual environments, browser profiles, and large historical models. Existing
 local records are preserved. Screenshots use synthetic demonstration data.
 Only load trusted joblib model artifacts.
 
-## Troubleshooting
+## Startup checks and saved-data updates
 
-- **Page cannot load:** start the development server and keep its terminal open.
-- **Missing xgboost:** install the complete requirements using the same Python
-  executable that starts Django.
-- **Prediction unavailable:** complete your profile and today's check-in.
-- **Mental score unchanged:** save today's assessment; opposing answer changes
-  can offset each other. The separate model estimate uses profile and sleep.
-- **Copied environment fails:** rebuild `venv` using your working Python installation.
-- **Unstyled page or missing chart:** check connectivity to the external CDNs.
+Check the runtime before a demonstration without starting the server:
 
-## Documentation and GitHub upload
+```powershell
+.\run_windows.bat --check
+```
 
-- [Project abstract](ABSTRACT.md)
-- [Evaluator demonstration guide](EVALUATION_GUIDE.md)
-- [Review evidence](PROJECT_CHECK_REPORT.md)
-- [GitHub upload instructions](GITHUB_UPLOAD.md)
+The check uses the project interpreter and identifies missing packages, missing
+model artifacts, and invalid model outputs before showing a prediction page.
+To reinstall dependencies explicitly, use that same project interpreter:
+
+```powershell
+.\venv\Scripts\python.exe -m pip install -r requirements.txt
+.\venv\Scripts\python.exe manage.py check_models
+```
+
+New accounts must complete their profile and today's check-in before a model
+estimate is available. This is an intentional missing-data state. The page
+provides links to complete those details.
+
+Saving a mental assessment returns to predictions with the saved score in a
+confirmation message. Today's overview and assessment card read the saved
+answers. The separate profile-and-sleep estimate is expandable and does not
+change merely because questionnaire answers change. Opposing answer edits can
+produce the same weighted score; no artificial probability changes are added.
+
+Styles, icons, and charts are served locally. If an older cached page remains
+after updating the code, refresh with **Ctrl+F5**. Production hosting must serve
+the collected static files; the Windows launcher uses Django's development server.
+
+## Project documentation
+
+| Document | Purpose |
+| --- | --- |
+| [Abstract](ABSTRACT.md) | Submission-ready project description and measured results |
+| [Demonstration guide](EVALUATION_GUIDE.md) | Account-to-prediction workflow and expected update behavior |
+| [Review evidence](PROJECT_CHECK_REPORT.md) | Test results, browser checks, and known evaluation limits |
+| [GitHub guide](GITHUB_UPLOAD.md) | Repository setup, safe updates, and clean-checkout instructions |
+| [Frontend dependencies](static/vendor/README.md) | Pinned local assets, licenses, and integrity manifest |
+
+The project is published at [Annarosejoshi/LifeSyncAIPro](https://github.com/Annarosejoshi/LifeSyncAIPro).
+For future changes in this checkout, review the diff, commit, and push to the
+existing `origin` remote; do not add a placeholder remote URL again.
 
 A software license has not yet been selected. Choose an appropriate license
 before inviting reuse; dataset/source terms remain separate from code licensing.

@@ -34,6 +34,8 @@ try {
     }
     $reviewPage = $reviewPages | Where-Object type -eq 'page' | Select-Object -First 1
     $null = $reviewSocket.ConnectAsync([Uri]$reviewPage.webSocketDebuggerUrl, [Threading.CancellationToken]::None).GetAwaiter().GetResult()
+    $null = Send-ReviewCommand 'Network.enable' @{}
+    $null = Send-ReviewCommand 'Network.setBlockedURLs' @{urls=@('http://*','https://*')}
     $null = Send-ReviewCommand 'Emulation.setDeviceMetricsOverride' @{width=390; height=844; deviceScaleFactor=1; mobile=$true}
     foreach ($name in @('predictions','checkin','dashboard','wellness','bmi','mental','profile','medication')) {
         $reviewFile = [Uri]::new((Join-Path $reviewOutput "$name.html"))
@@ -43,7 +45,9 @@ try {
         Write-Output "$name $($metrics.result.value)"
         $interaction = @'
 (() => {
- const results = {errors:window.reviewErrors || []};
+ const results = {errors:window.reviewErrors || [], chartLibrary:typeof Chart!=='undefined'};
+ const trend=document.getElementById('trendMetric');
+ if(trend && typeof Chart!=='undefined'){trend.value='water';trend.dispatchEvent(new Event('change'));results.chartUpdates=Object.values(Chart.instances).some(chart=>chart.data.datasets.some(data=>data.label==='Water (litres)'));}
  const filter=document.querySelector('[data-condition-filter="1"]');
  if(filter){filter.click();results.filter=[...document.querySelectorAll('[data-condition]')].filter(x=>!x.hidden).length===1;document.querySelector('[data-condition-filter="all"]').click();}
  const launch=document.querySelector('[data-open-chat]');

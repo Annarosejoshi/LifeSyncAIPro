@@ -4,6 +4,8 @@ Run with working Python: python tools/review_ui.py
 Screenshots use an installed Chrome; these are visual checks, not a live E2E test.
 """
 import os
+import base64
+import mimetypes
 from pathlib import Path
 import re
 import subprocess
@@ -31,7 +33,19 @@ OUT.mkdir(parents=True, exist_ok=True)
 def inline_assets(html):
     def stylesheet(match):
         path = ROOT / "static" / match[1]
-        return "<style>" + path.read_text(encoding="utf-8-sig") + "</style>" if path.exists() else match[0]
+        if not path.exists():
+            return match[0]
+        def local_url(asset):
+            url = asset[1].strip("\"'")
+            if url.startswith("data:"):
+                return asset[0]
+            local = path.parent / url.split("?")[0]
+            if local.is_file():
+                mime = mimetypes.guess_type(str(local))[0] or "application/octet-stream"
+                return f'url("data:{mime};base64,{base64.b64encode(local.read_bytes()).decode()}")'
+            return asset[0]
+        css = re.sub(r'url\(([^)]+)\)', local_url, path.read_text(encoding="utf-8-sig"))
+        return "<style>" + css + "</style>"
     html = re.sub(r'<link[^>]*href="/static/([^"?]+)(?:\?[^" ]*)?"[^>]*>', stylesheet, html)
     def javascript(match):
         path = ROOT / "static" / match[1]

@@ -36,43 +36,48 @@ if not exist "venv\Scripts\python.exe" (
     python -m venv venv
     if errorlevel 1 exit /b 1
 ) else (
-    echo [1/7] Virtual environment already exists.
-)
-
-call "venv\Scripts\activate.bat"
-if errorlevel 1 (
-    echo ERROR: Could not activate virtual environment.
-    exit /b 1
+    "venv\Scripts\python.exe" --version >nul 2>nul
+    if errorlevel 1 (
+        echo [1/7] Repairing the copied virtual environment with this computer's Python...
+        python -m venv venv
+        if errorlevel 1 exit /b 1
+    ) else (
+        echo [1/7] Existing virtual environment works.
+    )
 )
 
 echo.
 echo [2/7] Upgrading pip...
-python -m pip install --upgrade pip
+"venv\Scripts\python.exe" -m pip install --upgrade pip
 if errorlevel 1 exit /b 1
 
 echo.
 echo [3/7] Installing project dependencies...
-python -m pip install -r requirements.txt
+"venv\Scripts\python.exe" -m pip install -r requirements.txt
+if errorlevel 1 exit /b 1
+"venv\Scripts\python.exe" -m pip check
+if errorlevel 1 exit /b 1
+"venv\Scripts\python.exe" manage.py check_models
 if errorlevel 1 exit /b 1
 
 echo.
 echo [4/7] Applying database migrations...
-python manage.py migrate
+"venv\Scripts\python.exe" manage.py migrate
 if errorlevel 1 exit /b 1
 
 echo.
 echo [5/7] Collecting static files...
-python manage.py collectstatic --noinput
+"venv\Scripts\python.exe" manage.py collectstatic --noinput
 if errorlevel 1 exit /b 1
 
 echo.
 echo [6/7] Running Django system check...
-python manage.py check
+"venv\Scripts\python.exe" manage.py check
 if errorlevel 1 exit /b 1
 
 echo.
 echo [7/7] Running automated tests...
-python manage.py test
+"venv\Scripts\python.exe" manage.py test
 if errorlevel 1 (
     echo.
     echo ERROR: Automated tests failed.
@@ -86,8 +91,7 @@ echo ============================================================
 echo.
 echo Start the development server with:
 echo.
-echo     venv\Scripts\activate
-echo     python manage.py runserver
+echo     run_windows.bat
 echo.
 echo Then open:
 echo     http://127.0.0.1:8000/

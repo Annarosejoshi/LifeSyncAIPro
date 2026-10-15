@@ -1,4 +1,29 @@
-# Current review — 15 October 2026
+# Latest runtime reliability review
+
+- All 157 application tests passed after the startup and offline-asset changes.
+  The independent audit reproduced all four deployed model metrics unchanged.
+- Bootstrap 5.3.8, Bootstrap Icons 1.13.1 and Chart.js 4.5.1 are served locally
+  with licenses and an integrity manifest. No templates load CDN assets or Google Fonts.
+- Eight synthetic page previews passed browser checks with external HTTP/HTTPS
+  requests blocked. Local charts loaded, the progress metric selector updated
+  the chart, and filtering, chat controls and mobile navigation worked without
+  JavaScript errors. No horizontal overflow occurred at a 390-pixel viewport.
+- A temporary live Django server served the login page and local CSS, icon font
+  and chart script with HTTP 200 responses. It was stopped after verification.
+- `run_windows.bat --check` passed. The launcher consistently uses the project
+  environment, runs readiness checks and starts the server. Setup repairs an
+  invalid copied environment in place and installs missing dependencies into
+  that same environment. Initial dependency installation requires internet.
+- `manage.py check_models` exercises all four pipelines without user database
+  access and reports actionable missing-dependency or missing-artifact errors.
+- Mental assessment create/edit flows remain covered by integration tests;
+  questionnaire scores and profile/sleep model estimates remain separate.
+- Django found no system issues or model migration changes. No schema changes
+  or new prediction targets were introduced.
+
+The earlier clean-package review and historical model evaluations follow.
+
+# Earlier review — 15 October 2026
 
 The active prediction models are lifestyle_v10. Independently reloaded artifacts
 reproduced test accuracies of 77.0% diabetes, 73.1% hypertension, 81.5%

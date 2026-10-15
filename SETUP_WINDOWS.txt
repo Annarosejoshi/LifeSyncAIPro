@@ -25,8 +25,14 @@ The script will:
 
 Start the project
 -----------------
-venv\Scripts\activate
-python manage.py runserver
+run_windows.bat
+
+The launcher checks the environment and all active models, repairs a missing
+or broken environment through setup, applies migrations, and starts Django.
+For a readiness check without starting the server, use:
+run_windows.bat --check
+
+Styles, icon fonts and charts are bundled locally and do not require CDN access.
 
 Open:
 http://127.0.0.1:8000/
