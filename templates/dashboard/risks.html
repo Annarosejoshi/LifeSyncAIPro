@@ -24,8 +24,7 @@
 {% endif %}
 {% if today_checkin %}
 <section class="card daily-input-status" aria-label="Today's saved prediction inputs">
-  <div><strong>Daily results · {{ today|date:"j M Y" }}</strong><p>Uses today's saved entries only.</p></div>
-  {% if ai_health_score is not None %}<div><strong>Today's wellness score: {{ ai_health_score }} / 100</strong><p>Habit-based score, separate from model probabilities.</p></div>{% endif %}
+  {% if ai_health_score is not None %}<div><strong>Today's wellness score: {{ ai_health_score }} / 100</strong></div>{% endif %}
   <a class="text-btn" href="{% url 'dashboard:checkin' %}">Update today's inputs →</a>
 </section>
 <details class="card prediction-about"><summary>Verify today's saved habits</summary>
