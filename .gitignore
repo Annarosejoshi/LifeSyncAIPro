@@ -1,0 +1,58 @@
+# Python environments and caches
+venv/
+venv_old/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Secrets and local credentials
+.env
+.env.*
+!.env.example
+!.env.example.txt
+.aws/
+*.pem
+*.key
+
+# User records, uploads, backups and generated output
+*.sqlite3
+*.sqlite3-*
+*.db
+media/
+backups/
+staticfiles/
+artifacts/
+*.log
+*.zip
+*.bak
+
+# Historical/large binaries: ship only the active models
+*.joblib
+!ml/models/*_lifestyle_v10.joblib
+*.pkl
+*.pickle
+
+# Original large survey sources and optional historical processed datasets
+ml/data/*
+!ml/data/README.md
+!ml/data/processed/
+ml/data/processed/*
+!ml/data/processed/diabetes_lifestyle_v2.csv
+!ml/data/processed/hypertension_lifestyle_v2.csv
+!ml/data/processed/cardiovascular_lifestyle_v2.csv
+!ml/data/processed/mental_health_lifestyle_v2.csv
+
+# Operating-system and editor-local files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.codex/
+*.code-workspace
+*.swp
+*.tmp
