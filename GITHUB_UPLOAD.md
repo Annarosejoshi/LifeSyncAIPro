@@ -1,8 +1,15 @@
 # Uploading the prepared project
 
 The repository root is the inner `LifeSyncAIPro` folder containing `manage.py`.
-A local Git repository has been initialized on branch `main`. No commit,
-GitHub repository, remote, or upload has been created by this preparation.
+The project is published on branch `main` at
+[Annarosejoshi/LifeSyncAIPro](https://github.com/Annarosejoshi/LifeSyncAIPro).
+The `origin` remote is already configured; do not add it again for this checkout.
+The complete project was merged with the earlier browser-upload history.
+
+The latest files exclude `db.sqlite3`, and the local database was preserved
+unchanged. A database copy from the earlier browser upload remains in the old
+GitHub commits; removing a file from the current version does not remove it
+from history. Historical removal would require a separately reviewed rewrite.
 
 ## Preparation verified locally
 
