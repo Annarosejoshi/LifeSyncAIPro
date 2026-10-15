@@ -228,7 +228,7 @@ footer{text-align:center;padding:24px;font-size:16px;color:var(--muted)}
   .dashboard-panel{animation:none!important}
 }
 </style>
-<link rel="stylesheet" href="{% static 'vendor/bootstrap/bootstrap.min.css' %}"><link rel="stylesheet" href="{% static 'css/polish.css' %}?v=daily-16">{% block extra_css %}{% endblock %}</head>
+<link rel="stylesheet" href="{% static 'vendor/bootstrap/bootstrap.min.css' %}"><link rel="stylesheet" href="{% static 'css/polish.css' %}?v=daily-inputs-17">{% block extra_css %}{% endblock %}</head>
 <body><div class="app lifesync-layout">{% include "components/sidebar.html" %}
 <div class="main">
 <header class="topbar">
@@ -250,4 +250,4 @@ footer{text-align:center;padding:24px;font-size:16px;color:var(--muted)}
 <footer>LifeSync AI | Lifestyle Management & Health Risk Prediction</footer></div></div></div>
 {{ dashboard_data|json_script:"dashboard-data" }}
 {% include 'components/chatbot.html' %}
-<script src="{% static 'js/dashboard.js' %}"></script><script src="{% static 'js/wellness-ui.js' %}?v=floating-chat-11"></script><script src="{% static 'js/chatbot.js' %}?v=floating-chat-11"></script>{% block extra_js %}{% endblock %}</body></html>
+<script src="{% static 'js/dashboard.js' %}?v=daily-inputs-17"></script><script src="{% static 'js/wellness-ui.js' %}?v=daily-inputs-17"></script><script src="{% static 'js/chatbot.js' %}?v=daily-inputs-17"></script>{% block extra_js %}{% endblock %}</body></html>

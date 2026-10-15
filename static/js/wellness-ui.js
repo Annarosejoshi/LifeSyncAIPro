@@ -25,3 +25,12 @@ for(const button of document.querySelectorAll('[data-condition-filter]'))button.
     for(const card of document.querySelectorAll('[data-condition]'))card.hidden=selected!=='all' && card.dataset.condition!==selected;
     for(const option of document.querySelectorAll('[data-condition-filter]'))option.setAttribute('aria-pressed',String(option===button));
 });
+for (const area of document.querySelectorAll('textarea')) {
+    const fit = () => {
+        area.style.height = 'auto';
+        area.style.height = Math.max(44, area.scrollHeight + 2) + 'px';
+    };
+    area.addEventListener('input', fit);
+    window.addEventListener('resize', fit);
+    fit();
+}

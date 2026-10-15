@@ -13,9 +13,12 @@ intended for academic demonstration and lifestyle awareness.
 - Account registration, login, logout, and personal health profiles.
 - Compact daily check-in for sleep, water, exercise, meals, mood, stress,
   energy, and screen time.
+- Plain numeric entry boxes without spinner arrows or wheel-based value changes.
+  Measurements accept whole and decimal values; exercise hours accept fractions
+  such as `1.5`. Whole-number counts and 1–5 ratings keep their validation rules.
 - Diabetes, hypertension, cardiovascular, and depression-related screening.
 - An eight-question mental wellness score that updates after assessment edits.
-- BMI calculation and history, medication tracking, and interactive progress charts.
+- BMI calculation and history, medication tracking, and interactive daily charts.
 - Floating wellness chat with local guidance and optional local Ollama support.
 - Responsive layouts, result filters, keyboard focus indicators, and clear empty states.
 
@@ -96,8 +99,9 @@ are machine-specific and must not be copied from another computer.
 **Results work from the first saved daily check-in. No week of data is required.**
 The prediction page shows the input date, today's wellness score, and an
 expandable view of saved habits so changes can be verified. All four models use
-one current profile/check-in snapshot for that request. Past days appear only
-in progress charts and history; editing an older entry does not change today's
+one current profile/check-in snapshot for that request. Daily Wellness displays
+today's values in a single-day bar chart; past entries remain in history.
+Editing an older entry does not change today's
 model estimates. A new day requires a new check-in rather than reusing yesterday.
 
 The active models are `lifestyle_v10`. The four small model artifacts and their
@@ -166,7 +170,7 @@ python manage.py test --noinput
 python ml/evaluation/audit_saved_models.py --version lifestyle_v10
 ```
 
-The latest application suite passed **163 tests**. Tests verify
+The latest application suite passed **168 tests**. Tests verify
 registration, authorization, daily saves and edits, input mapping, actual model
 outputs, score updates, missing inputs, and page workflows. They do not prove
 clinical accuracy. The included GitHub Actions workflow runs checks, tests,

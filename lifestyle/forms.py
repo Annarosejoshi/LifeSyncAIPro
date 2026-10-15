@@ -1,4 +1,5 @@
 from django import forms
+from config.form_inputs import PlainNumericInputsMixin
 
 from .models import (
     DailyCheckIn,
@@ -20,17 +21,18 @@ PRODUCE_CHOICES = [
 ]
 
 
-class DailyCheckInForm(forms.ModelForm):
-    exercise_hours = forms.IntegerField(
+class DailyCheckInForm(PlainNumericInputsMixin, forms.ModelForm):
+    exercise_hours = forms.DecimalField(
         required=False,
         min_value=0,
         max_value=10,
+        decimal_places=2,
         label="Exercise hours",
         widget=forms.NumberInput(attrs={
             "class": "form-control",
             "min": "0",
             "max": "10",
-            "placeholder": "0",
+            "placeholder": "Example: 0, 1 or 1.5",
         }),
     )
     exercise_extra_minutes = forms.IntegerField(
@@ -268,6 +270,9 @@ class DailyCheckInForm(forms.ModelForm):
         hours = cleaned_data.get("exercise_hours") or 0
         minutes = cleaned_data.get("exercise_extra_minutes") or 0
         total_minutes = hours * 60 + minutes
+        if total_minutes != int(total_minutes):
+            raise forms.ValidationError("Exercise duration must total whole minutes; for example, 0.5 hours is 30 minutes.")
+        total_minutes = int(total_minutes)
 
         if total_minutes > 600:
             raise forms.ValidationError(
@@ -329,7 +334,7 @@ class DailyCheckInForm(forms.ModelForm):
         return value
 
 
-class HabitGoalForm(forms.ModelForm):
+class HabitGoalForm(PlainNumericInputsMixin, forms.ModelForm):
 
     class Meta:
 
@@ -359,7 +364,7 @@ class HabitGoalForm(forms.ModelForm):
         }
 
 
-class BMIForm(forms.Form):
+class BMIForm(PlainNumericInputsMixin, forms.Form):
     height_cm = forms.FloatField(
         min_value=50,
         max_value=250,

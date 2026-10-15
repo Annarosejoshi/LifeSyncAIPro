@@ -29,6 +29,10 @@ CDN access once Python dependencies have been installed.
 6. Use the BMI calculator and confirm saved measurements reach prediction
    inputs. Review BMI history, medication tracking, profile editing, and Daily
    Wellness. Change the progress-chart metric using its selector.
+   Daily Wellness displays a single bar for today's chosen metric even on the
+   first day. Yesterday's entry cannot populate today's chart. Numeric fields
+   accept typed values without spinner arrows; use decimals for measurements
+   and fractional exercise hours, and whole numbers for counts.
 7. Open the floating chat and submit a daily-habit question. Verify a response
    grounded in the signed-in user's data. Sign out and confirm protected pages
    require authentication.

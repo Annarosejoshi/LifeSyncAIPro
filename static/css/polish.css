@@ -154,3 +154,5 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
 .daily-input-values dt{color:#526a60;font-weight:400}.daily-input-values dd{font-weight:600;margin:5px 0 0}
 @media(max-width:800px){.daily-input-values{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.daily-input-status{align-items:flex-start;flex-direction:column}}
+/* Notes expand with their contents instead of showing an internal scrollbar. */
+textarea{overflow-y:hidden}

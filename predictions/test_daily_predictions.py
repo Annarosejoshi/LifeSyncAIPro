@@ -111,7 +111,7 @@ class DailyPredictionTests(TestCase):
             mood='1', stress_level='5', energy_level='1'), follow=True)
         self.assertEqual(after.status_code, 200)
         self.assertLess(after.context['ai_health_score'], before.context['ai_health_score'])
-        self.assertContains(after, "No week of history is required.")
+        self.assertContains(after, "Uses today's saved entries only.")
         self.assertContains(after, "Verify today's saved habits")
         for (_, old), (_, new) in zip(before.context['risk_cards'], after.context['risk_cards']):
             self.assertEqual(old['probability'], new['probability'])

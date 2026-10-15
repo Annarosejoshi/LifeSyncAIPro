@@ -1,4 +1,5 @@
 from django import forms
+from config.form_inputs import PlainNumericInputsMixin
 
 
 YES_NO = [
@@ -7,7 +8,7 @@ YES_NO = [
 ]
 
 
-class DiabetesRiskForm(forms.Form):
+class DiabetesRiskForm(PlainNumericInputsMixin, forms.Form):
 
     high_bp = forms.ChoiceField(
         label="Have you been told you have high blood pressure?",

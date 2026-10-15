@@ -6,13 +6,14 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 
 from .models import UserProfile
+from config.form_inputs import PlainNumericInputsMixin
 
 
 # ============================================================
 # REGISTRATION FORM: ACCOUNT + HEALTH PROFILE
 # ============================================================
 
-class RegisterForm(UserCreationForm):
+class RegisterForm(PlainNumericInputsMixin, UserCreationForm):
 
     first_name = forms.CharField(
         max_length=100,
@@ -369,7 +370,7 @@ class LoginForm(AuthenticationForm):
 # EDIT HEALTH PROFILE FORM
 # ============================================================
 
-class UserProfileForm(forms.ModelForm):
+class UserProfileForm(PlainNumericInputsMixin, forms.ModelForm):
 
     class Meta:
         model = UserProfile

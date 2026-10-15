@@ -68,9 +68,9 @@ function createBmiChart(){
 
 const trendCanvas = $("trendChart");
 if(trendCanvas && typeof Chart !== "undefined") {
-    const choices = {sleep:["Sleep (hours)",dashboardData.sleepRaw,"#8b72e9"],water:["Water (litres)",dashboardData.waterRaw,"#42a5f5"],exercise:["Exercise (minutes)",dashboardData.exerciseRaw,"#24b78a"],score:["Health score",dashboardData.scoreTrend,"#e19443"]};
-    const chart = new Chart(trendCanvas,{type:"line",data:{labels:dashboardData.chartLabels,datasets:[]},options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:true}},plugins:{legend:{display:false}}}});
-    function updateTrend(){const [label,data,color]=choices[$("trendMetric").value];chart.data.datasets=[{label,data,borderColor:color,backgroundColor:color+"22",fill:true,tension:.3,pointRadius:5}];chart.options.scales.y.title={display:true,text:label};chart.update();}
+    const choices = {sleep:["Sleep (hours)",[dashboardData.sleep],"#8b72e9"],water:["Water (litres)",[dashboardData.water],"#42a5f5"],exercise:["Exercise (minutes)",[dashboardData.exercise],"#24b78a"],score:["Health score",[dashboardData.healthScore],"#e19443"]};
+    const chart = new Chart(trendCanvas,{type:"bar",data:{labels:["Today"],datasets:[]},options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:true}},plugins:{legend:{display:false}}}});
+    function updateTrend(){const [label,data,color]=choices[$("trendMetric").value];chart.data.datasets=[{label,data,borderColor:color,backgroundColor:color+"88",borderWidth:1,borderRadius:10,maxBarThickness:100}];chart.options.scales.y.title={display:true,text:label};text("dailyChartValue",label+": "+data[0]);chart.update();}
     $("trendMetric").addEventListener("change",updateTrend);updateTrend();
 }
 createBmiChart();

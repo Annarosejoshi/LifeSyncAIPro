@@ -1,4 +1,22 @@
-# Daily prediction review
+# Daily chart and plain input review
+
+All 168 application tests passed. Django found no system or migration issues,
+and the model audit reproduced all recorded metrics unchanged.
+
+Daily Wellness now displays a single-day bar chart for today's selected metric.
+It renders after the first saved check-in and never fills today's chart from
+yesterday's entry. Historical records remain separate from the daily display.
+
+All numeric form controls use plain text entry with appropriate decimal or
+numeric keyboard hints. Existing Django type/range validation is preserved.
+Fractional exercise hours are accepted when they total whole stored minutes;
+counts and ratings remain whole numbers. Notes expand to fit their contents.
+
+Offline browser checks across eight pages found no number inputs, textarea
+scrollbars, JavaScript errors or phone-layout overflow. The daily chart and its
+metric selector worked with external HTTP/HTTPS requests blocked.
+
+# Earlier daily prediction review
 
 All 163 application tests passed. The model audit reproduced the recorded
 accuracy and ROC AUC, and offline desktop/mobile preview checks passed.

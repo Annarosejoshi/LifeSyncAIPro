@@ -45,9 +45,9 @@ try {
         Write-Output "$name $($metrics.result.value)"
         $interaction = @'
 (() => {
- const results = {errors:window.reviewErrors || [], chartLibrary:typeof Chart!=='undefined'};
+ const results = {errors:window.reviewErrors || [], chartLibrary:typeof Chart!=='undefined', numberInputs:document.querySelectorAll('input[type="number"]').length, textareasFit:[...document.querySelectorAll('textarea')].every(area=>area.scrollHeight<=area.clientHeight+2)};
  const trend=document.getElementById('trendMetric');
- if(trend && typeof Chart!=='undefined'){trend.value='water';trend.dispatchEvent(new Event('change'));results.chartUpdates=Object.values(Chart.instances).some(chart=>chart.data.datasets.some(data=>data.label==='Water (litres)'));}
+ if(trend && typeof Chart!=='undefined'){trend.value='water';trend.dispatchEvent(new Event('change'));results.chartUpdates=Object.values(Chart.instances).some(chart=>chart.data.datasets.some(data=>data.label==='Water (litres)'));results.dailyChart=Object.values(Chart.instances).some(chart=>chart.config.type==='bar' && chart.data.labels.length===1 && chart.data.labels[0]==='Today');}
  const filter=document.querySelector('[data-condition-filter="1"]');
  if(filter){filter.click();results.filter=[...document.querySelectorAll('[data-condition]')].filter(x=>!x.hidden).length===1;document.querySelector('[data-condition-filter="all"]').click();}
  const launch=document.querySelector('[data-open-chat]');

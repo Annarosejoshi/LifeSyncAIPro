@@ -24,7 +24,7 @@
 {% endif %}
 {% if today_checkin %}
 <section class="card daily-input-status" aria-label="Today's saved prediction inputs">
-  <div><strong>Daily results · {{ today|date:"j M Y" }}</strong><p>Uses today's saved entries. No week of history is required.</p></div>
+  <div><strong>Daily results · {{ today|date:"j M Y" }}</strong><p>Uses today's saved entries only.</p></div>
   {% if ai_health_score is not None %}<div><strong>Today's wellness score: {{ ai_health_score }} / 100</strong><p>Habit-based score, separate from model probabilities.</p></div>{% endif %}
   <a class="text-btn" href="{% url 'dashboard:checkin' %}">Update today's inputs →</a>
 </section>
@@ -62,7 +62,7 @@
   <p>Diabetes, blood pressure and mental lifestyle estimates use age, gender, BMI, smoking status and today's sleep. Heart screening uses the same profile inputs without sleep.</p>
   <p>Mental wellness answers update your daily score separately. Food, water, exercise and screen time contribute to daily wellness tracking, not these model percentages.</p>
   <p>Changing an input may change an estimate without changing its risk category. Unchanged inputs produce the same estimate.</p>
-  <p>Daily results are recalculated from today's inputs. Seven-day charts show history only; they are not required to generate a result. These estimates do not predict whether a disease will develop tomorrow.</p>
+  <p>Daily results and the daily progress chart use today's saved entries. Past entries remain in your history. These estimates do not predict whether a disease will develop tomorrow.</p>
 </details>
 <details class="card prediction-about">
   <summary>Measured model performance</summary>
