@@ -1,0 +1,49 @@
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+
+from ml.services.risk_prediction_service import (
+    get_all_health_risks,
+)
+
+from ml.services.risk_history_service import (
+    save_all_health_risk_history,
+)
+
+
+@login_required
+def diabetes_risk(request):
+    """
+    Unified LifeSync AI risk-screening page.
+
+    No manual ML feature entry is required.
+    Profile + latest lifestyle data are used.
+    """
+
+    risks = get_all_health_risks(
+        request.user
+    )
+
+    save_all_health_risk_history(
+        request.user,
+        risks,
+    )
+
+    context = {
+        "diabetes_risk":
+            risks.get("diabetes"),
+
+        "hypertension_risk":
+            risks.get("hypertension"),
+
+        "cardiovascular_risk":
+            risks.get("cardiovascular"),
+
+        "mental_health_risk":
+            risks.get("mental_health"),
+    }
+
+    return render(
+        request,
+        "predictions/diabetes_risk.html",
+        context,
+    )

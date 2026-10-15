@@ -1,0 +1,31 @@
+{
+  "diabetes": {
+    "model": "XGBoostDepth2",
+    "accuracy": 0.7956852791878173,
+    "positive_recall": 0.4511627906976744,
+    "roc_auc": 0.7709652615211114,
+    "majority_baseline_accuracy": 0.8635786802030456
+  },
+  "hypertension": {
+    "model": "ExtraTrees",
+    "accuracy": 0.7236099919419823,
+    "positive_recall": 0.8134863701578192,
+    "roc_auc": 0.7687858680057389,
+    "majority_baseline_accuracy": 0.5616438356164384
+  },
+  "cardiovascular": {
+    "model": "XGBoostDepth3",
+    "accuracy": 0.8104304635761589,
+    "positive_recall": 0.41935483870967744,
+    "roc_auc": 0.8071960297766749,
+    "majority_baseline_accuracy": 0.8716887417218543
+  },
+  "mental_health": {
+    "model": "XGBoostDepth3",
+    "accuracy": 0.7571035747021082,
+    "positive_recall": 0.4896551724137931,
+    "roc_auc": 0.7202996281985856,
+    "majority_baseline_accuracy": 0.8670944087992667
+  },
+  "average_accuracy": 0.7717073273520167
+}

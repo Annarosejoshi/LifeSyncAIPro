@@ -1,0 +1,56 @@
+﻿{% extends 'dashboard/layout.html' %}
+{% block title %}Daily Check-In{% endblock %}
+{% block extra_css %}
+<style>
+#check-in-section{padding:20px;margin:0}
+#check-in-section .section-head{margin:0 0 12px;align-items:center}
+.checkin-entry-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 16px}
+#check-in-section .field{margin:0;min-width:0}
+#check-in-section .field label{margin-bottom:5px}
+#check-in-section .field input,#check-in-section .field select{padding:8px;min-height:40px}
+#check-in-section .field textarea{padding:8px;min-height:40px;height:40px}
+#check-in-section .produce-field{grid-column:span 2}
+#check-in-section .produce-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 12px}
+#check-in-section .produce-options label,#check-in-section .meal-option{display:flex;align-items:center;gap:8px;font-weight:400;margin:0;line-height:1.35}
+#check-in-section input[type=checkbox]{width:18px;min-height:18px;height:18px;flex:0 0 auto;padding:0}
+#check-in-section .meal-fields{display:flex;gap:16px;flex-wrap:wrap;align-items:center;min-height:40px}
+#check-in-section .notes-field{grid-column:span 2}
+#check-in-section .checkin-actions{margin-top:16px}
+@media(max-width:1100px){.checkin-entry-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.checkin-entry-grid{grid-template-columns:1fr}#check-in-section .produce-field,#check-in-section .notes-field{grid-column:auto}#check-in-section .section-head{align-items:flex-start;flex-direction:column}}
+</style>
+{% endblock %}
+{% block content %}
+<section class="card dashboard-panel" id="check-in-section">
+  <div class="section-head">
+    <h2>Daily check-in</h2>
+    <a class="text-btn" href="{% url 'lifestyle:checkin_history' %}">View history →</a>
+  </div>
+  <form method="post" action="{{ request.path }}">
+    {% csrf_token %}
+    <input type="hidden" name="action" value="daily_checkin">
+    {% if checkin_form.non_field_errors %}<div class="form-error">{{ checkin_form.non_field_errors }}</div>{% endif %}
+    <div class="checkin-entry-grid">
+      {% for section_id, section_title, section_description, section_fields in checkin_sections %}
+        {% if section_id == 'checkin-meals' %}
+          <div class="field"><label>Meals eaten</label><div class="meal-fields">
+          {% for field in section_fields %}
+            <label class="meal-option" for="{{ field.id_for_label }}">{{ field }}<span>{{ field.label }}</span></label>
+            {% for error in field.errors %}<div class="form-error">{{ error }}</div>{% endfor %}
+          {% endfor %}
+          </div></div>
+        {% else %}
+          {% for field in section_fields %}
+            <div class="field {% if field.name == 'fruit_vegetable_items' %}produce-field{% elif field.name == 'notes' %}notes-field{% endif %}">
+              {{ field.label_tag }}
+              {{ field }}
+              {% for error in field.errors %}<div class="form-error">{{ error }}</div>{% endfor %}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="checkin-actions"><button class="btn" type="submit">Save and see predictions →</button></div>
+  </form>
+</section>
+{% endblock %}

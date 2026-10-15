@@ -1,0 +1,9 @@
+﻿{% extends 'base.html' %}
+{% block title %}Edit My Profile | LifeSync AI{% endblock %}
+{% block content %}
+<div class="project-intro"><h2>👤 A profile that feels like you</h2><p>Basic personal details help your wellness score and lifestyle risk insights make sense.</p></div>
+<section class="card"><h2>Update your health profile</h2>
+{% if form.non_field_errors %}<div class="alert alert-danger">{{ form.non_field_errors }}</div>{% endif %}
+<form method="post">{% csrf_token %}<div class="row g-4">{% for field in form %}<div class="col-md-6"><label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% if field.help_text %}<p class="form-text">{{ field.help_text }}</p>{% endif %}{% for error in field.errors %}<p class="text-danger">{{ error }}</p>{% endfor %}</div>{% endfor %}</div>
+<div class="d-flex gap-3 mt-4"><button class="btn btn-success" type="submit">Save my profile 🌿</button><a class="btn btn-light" href="{% url 'accounts:profile' %}">Back to my profile</a></div></form></section>
+{% endblock %}

@@ -1,0 +1,90 @@
+{
+  "diabetes": {
+    "test_rows": 1576,
+    "accuracy": 0.7956852791878173,
+    "roc_auc": 0.7709652615211114,
+    "positive_precision": 0.3222591362126246,
+    "positive_recall": 0.4511627906976744,
+    "confusion_matrix": [
+      [
+        1157,
+        204
+      ],
+      [
+        118,
+        97
+      ]
+    ],
+    "artifact_matches_recorded_metrics": true,
+    "age_range": [
+      18.0,
+      80.0
+    ]
+  },
+  "hypertension": {
+    "test_rows": 1241,
+    "accuracy": 0.7236099919419823,
+    "roc_auc": 0.7687858680057389,
+    "positive_precision": 0.7269230769230769,
+    "positive_recall": 0.8134863701578192,
+    "confusion_matrix": [
+      [
+        331,
+        213
+      ],
+      [
+        130,
+        567
+      ]
+    ],
+    "artifact_matches_recorded_metrics": true,
+    "age_range": [
+      18.0,
+      80.0
+    ]
+  },
+  "cardiovascular": {
+    "test_rows": 1208,
+    "accuracy": 0.8104304635761589,
+    "roc_auc": 0.8071960297766749,
+    "positive_precision": 0.31862745098039214,
+    "positive_recall": 0.41935483870967744,
+    "confusion_matrix": [
+      [
+        914,
+        139
+      ],
+      [
+        90,
+        65
+      ]
+    ],
+    "artifact_matches_recorded_metrics": true,
+    "age_range": [
+      20.0,
+      80.0
+    ]
+  },
+  "mental_health": {
+    "test_rows": 1091,
+    "accuracy": 0.7571035747021082,
+    "roc_auc": 0.7202996281985856,
+    "positive_precision": 0.27099236641221375,
+    "positive_recall": 0.4896551724137931,
+    "confusion_matrix": [
+      [
+        755,
+        191
+      ],
+      [
+        74,
+        71
+      ]
+    ],
+    "artifact_matches_recorded_metrics": true,
+    "age_range": [
+      18.0,
+      80.0
+    ]
+  }
+}

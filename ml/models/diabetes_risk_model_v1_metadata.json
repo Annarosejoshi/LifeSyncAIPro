@@ -1,0 +1,52 @@
+{
+    "model_name": "XGBoost",
+    "model_version": "v1",
+    "prediction_type": "diagnosed_diabetes_risk",
+    "target": "diabetes",
+    "target_definition": "Self-reported doctor-diagnosed diabetes from NHANES DIQ010. Borderline responses are excluded.",
+    "features": [
+        "age",
+        "sex",
+        "income_ratio",
+        "bmi",
+        "waist_circumference",
+        "obesity_flag",
+        "ever_smoked_100",
+        "smoking_status",
+        "current_smoker",
+        "moderate_sessions_week",
+        "moderate_minutes_session",
+        "vigorous_sessions_week",
+        "vigorous_minutes_session",
+        "total_activity_minutes_week",
+        "sedentary_minutes_day",
+        "sleep_hours",
+        "short_sleep_flag",
+        "total_cholesterol",
+        "hdl_cholesterol",
+        "alcohol_past_year",
+        "alcohol_frequency",
+        "average_drinks",
+        "mental_symptom_score"
+    ],
+    "selected_threshold": 0.45000000000000023,
+    "dataset_rows": 7876,
+    "training_rows": 5513,
+    "validation_rows": 1181,
+    "test_rows": 1182,
+    "positive_prevalence": 0.13623666835957338,
+    "test_metrics": {
+        "accuracy": 0.7419627749576988,
+        "precision": 0.3153846153846154,
+        "recall": 0.7639751552795031,
+        "specificity": 0.7384916748285995,
+        "f1": 0.44646098003629764,
+        "roc_auc": 0.8150090338907781,
+        "pr_auc": 0.40808593599196386
+    },
+    "notes": [
+        "HbA1c and fasting glucose are not used as model features.",
+        "DIQ010 is used only to construct the target.",
+        "Missing predictor values are handled inside the preprocessing pipeline."
+    ]
+}

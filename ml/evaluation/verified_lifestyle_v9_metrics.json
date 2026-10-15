@@ -1,0 +1,24 @@
+{
+  "mental_health": {
+    "test_rows": 1091,
+    "accuracy": 0.7488542621448213,
+    "roc_auc": 0.7127761172267988,
+    "positive_precision": 0.26545454545454544,
+    "positive_recall": 0.503448275862069,
+    "confusion_matrix": [
+      [
+        744,
+        202
+      ],
+      [
+        72,
+        73
+      ]
+    ],
+    "artifact_matches_recorded_metrics": true,
+    "age_range": [
+      18.0,
+      80.0
+    ]
+  }
+}

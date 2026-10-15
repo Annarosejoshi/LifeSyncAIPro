@@ -1,0 +1,444 @@
+{
+  "model_name": "CategoricalLogistic_C0.03",
+  "model_version": "lifestyle_v8",
+  "features": [
+    "age",
+    "sex",
+    "bmi",
+    "smoking_status",
+    "sleep_hours"
+  ],
+  "target": "hypertension",
+  "selected_threshold": 0.5081284730956851,
+  "random_state": 42,
+  "dataset_rows": 6203,
+  "test_rows": 1241,
+  "fit_rows": 4962,
+  "validation_method": "3-fold out-of-fold on training rows, seed 127",
+  "comparison": [
+    {
+      "model": "CategoricalLogistic_C0.03",
+      "threshold": 0.5081284730956851,
+      "accuracy": 0.7313583232567513,
+      "recall": 0.8190305206463195,
+      "specificity": 0.619200734956362,
+      "balanced_accuracy": 0.7191156278013408,
+      "eligible": true,
+      "validation_roc_auc": 0.7781823024949096
+    },
+    {
+      "model": "CategoricalLogistic_C0.3",
+      "threshold": 0.5071998172479094,
+      "accuracy": 0.7311567916162838,
+      "recall": 0.8168761220825853,
+      "specificity": 0.6214974735875057,
+      "balanced_accuracy": 0.7191867978350455,
+      "eligible": true,
+      "validation_roc_auc": 0.7781852713491546
+    },
+    {
+      "model": "CategoricalLogistic_C3",
+      "threshold": 0.5072461663896828,
+      "accuracy": 0.7309552599758162,
+      "recall": 0.8161579892280072,
+      "specificity": 0.6219568213137345,
+      "balanced_accuracy": 0.7190574052708709,
+      "eligible": true,
+      "validation_roc_auc": 0.7781547581249707
+    },
+    {
+      "model": "CategoricalLogistic_C30",
+      "threshold": 0.5072444332192746,
+      "accuracy": 0.7309552599758162,
+      "recall": 0.8161579892280072,
+      "specificity": 0.6219568213137345,
+      "balanced_accuracy": 0.7190574052708709,
+      "eligible": true,
+      "validation_roc_auc": 0.7781504697799502
+    },
+    {
+      "model": "Interaction_D2_C0.01",
+      "threshold": 0.5128385045556034,
+      "accuracy": 0.7291414752116082,
+      "recall": 0.8283662477558348,
+      "specificity": 0.6022048690858981,
+      "balanced_accuracy": 0.7152855584208664,
+      "eligible": true,
+      "validation_roc_auc": 0.7808534466336079
+    },
+    {
+      "model": "Interaction_D2_C0.1",
+      "threshold": 0.516088331935835,
+      "accuracy": 0.7291414752116082,
+      "recall": 0.8226211849192101,
+      "specificity": 0.6095544327055581,
+      "balanced_accuracy": 0.7160878088123841,
+      "eligible": true,
+      "validation_roc_auc": 0.7804790411260534
+    },
+    {
+      "model": "Interaction_D2_C1",
+      "threshold": 0.5167175259312349,
+      "accuracy": 0.7285368802902056,
+      "recall": 0.8211849192100539,
+      "specificity": 0.6100137804317869,
+      "balanced_accuracy": 0.7155993498209203,
+      "eligible": true,
+      "validation_roc_auc": 0.7804049847062773
+    },
+    {
+      "model": "Interaction_D3_C0.01",
+      "threshold": 0.5128968623597221,
+      "accuracy": 0.7291414752116081,
+      "recall": 0.8208258527827648,
+      "specificity": 0.6118511713367019,
+      "balanced_accuracy": 0.7163385120597333,
+      "eligible": true,
+      "validation_roc_auc": 0.7789494214445289
+    },
+    {
+      "model": "Interaction_D3_C0.1",
+      "threshold": 0.5136602447193488,
+      "accuracy": 0.7277307537283354,
+      "recall": 0.8125673249551167,
+      "specificity": 0.619200734956362,
+      "balanced_accuracy": 0.7158840299557394,
+      "eligible": true,
+      "validation_roc_auc": 0.7772759772684726
+    },
+    {
+      "model": "Interaction_D3_C1",
+      "threshold": 0.5008248162922873,
+      "accuracy": 0.7277307537283354,
+      "recall": 0.8211849192100539,
+      "specificity": 0.6081763895268719,
+      "balanced_accuracy": 0.714680654368463,
+      "eligible": true,
+      "validation_roc_auc": 0.7769047055515099
+    },
+    {
+      "model": "CategoricalSpline_K3_C0.1",
+      "threshold": 0.4982072870355824,
+      "accuracy": 0.730552196694881,
+      "recall": 0.8265709156193896,
+      "specificity": 0.607717041800643,
+      "balanced_accuracy": 0.7171439787100162,
+      "eligible": true,
+      "validation_roc_auc": 0.7793271256790222
+    },
+    {
+      "model": "CategoricalSpline_K3_C1",
+      "threshold": 0.49378590849756837,
+      "accuracy": 0.7299476017734785,
+      "recall": 0.829443447037702,
+      "specificity": 0.6026642168121268,
+      "balanced_accuracy": 0.7160538319249143,
+      "eligible": true,
+      "validation_roc_auc": 0.7790780717951424
+    },
+    {
+      "model": "CategoricalSpline_K5_C0.1",
+      "threshold": 0.4885182027638646,
+      "accuracy": 0.7291414752116082,
+      "recall": 0.829802513464991,
+      "specificity": 0.600367478180983,
+      "balanced_accuracy": 0.715084995822987,
+      "eligible": true,
+      "validation_roc_auc": 0.7785535742118722
+    },
+    {
+      "model": "CategoricalSpline_K5_C1",
+      "threshold": 0.4904227021852862,
+      "accuracy": 0.728738411930673,
+      "recall": 0.8280071813285458,
+      "specificity": 0.6017455213596692,
+      "balanced_accuracy": 0.7148763513441074,
+      "eligible": true,
+      "validation_roc_auc": 0.7782065481379098
+    },
+    {
+      "model": "CategoricalSpline_K7_C0.1",
+      "threshold": 0.49271983425626403,
+      "accuracy": 0.7271261588069327,
+      "recall": 0.8262118491921006,
+      "specificity": 0.600367478180983,
+      "balanced_accuracy": 0.7132896636865418,
+      "eligible": true,
+      "validation_roc_auc": 0.7778448427290697
+    },
+    {
+      "model": "CategoricalSpline_K7_C1",
+      "threshold": 0.49252006855385705,
+      "accuracy": 0.7281338170092704,
+      "recall": 0.8272890484739677,
+      "specificity": 0.6012861736334405,
+      "balanced_accuracy": 0.7142876110537041,
+      "eligible": true,
+      "validation_roc_auc": 0.7773729598404735
+    },
+    {
+      "model": "HistBoost_L7_BalancedFalse",
+      "threshold": 0.5593210422859369,
+      "accuracy": 0.7267230955259976,
+      "recall": 0.7763016157989228,
+      "specificity": 0.6632981166743225,
+      "balanced_accuracy": 0.7197998662366226,
+      "eligible": true,
+      "validation_roc_auc": 0.7750962609754831
+    },
+    {
+      "model": "HistBoost_L7_BalancedTrue",
+      "threshold": 0.49488098714576123,
+      "accuracy": 0.7273276904474002,
+      "recall": 0.7770197486535009,
+      "specificity": 0.6637574644005513,
+      "balanced_accuracy": 0.7203886065270261,
+      "eligible": true,
+      "validation_roc_auc": 0.7751274339450548
+    },
+    {
+      "model": "HistBoost_L15_BalancedFalse",
+      "threshold": 0.4895462088979925,
+      "accuracy": 0.7295445384925434,
+      "recall": 0.8301615798922801,
+      "specificity": 0.6008268259072118,
+      "balanced_accuracy": 0.715494202899746,
+      "eligible": true,
+      "validation_roc_auc": 0.771078576500364
+    },
+    {
+      "model": "HistBoost_L15_BalancedTrue",
+      "threshold": 0.4443451700369392,
+      "accuracy": 0.7303506650544136,
+      "recall": 0.8175942549371634,
+      "specificity": 0.6187413872301333,
+      "balanced_accuracy": 0.7181678210836484,
+      "eligible": true,
+      "validation_roc_auc": 0.7712643772951924
+    },
+    {
+      "model": "HistBoost_L31_BalancedFalse",
+      "threshold": 0.506449813631153,
+      "accuracy": 0.7251108424022571,
+      "recall": 0.8107719928186714,
+      "specificity": 0.6155259531465319,
+      "balanced_accuracy": 0.7131489729826017,
+      "eligible": true,
+      "validation_roc_auc": 0.7632122673057401
+    },
+    {
+      "model": "HistBoost_L31_BalancedTrue",
+      "threshold": 0.44589066949941286,
+      "accuracy": 0.7247077791213221,
+      "recall": 0.8118491921005386,
+      "specificity": 0.6132292145153881,
+      "balanced_accuracy": 0.7125392033079634,
+      "eligible": true,
+      "validation_roc_auc": 0.7634543113948749
+    },
+    {
+      "model": "RandomForest_Leaf5_BalancedFalse",
+      "threshold": 0.49857829835985945,
+      "accuracy": 0.7226924627166466,
+      "recall": 0.8136445242369839,
+      "specificity": 0.6063389986219568,
+      "balanced_accuracy": 0.7099917614294704,
+      "eligible": true,
+      "validation_roc_auc": 0.7647698436980708
+    },
+    {
+      "model": "RandomForest_Leaf5_BalancedTrue",
+      "threshold": 0.4583614484498141,
+      "accuracy": 0.7230955259975816,
+      "recall": 0.8111310592459605,
+      "specificity": 0.6104731281580156,
+      "balanced_accuracy": 0.7108020937019881,
+      "eligible": true,
+      "validation_roc_auc": 0.7650271443992978
+    },
+    {
+      "model": "BalancedExtraTrees_Leaf5",
+      "threshold": 0.4746833585241079,
+      "accuracy": 0.7241031841999194,
+      "recall": 0.8190305206463195,
+      "specificity": 0.6026642168121268,
+      "balanced_accuracy": 0.7108473687292232,
+      "eligible": true,
+      "validation_roc_auc": 0.7725426339839796
+    },
+    {
+      "model": "RandomForest_Leaf20_BalancedFalse",
+      "threshold": 0.5146649361406026,
+      "accuracy": 0.7267230955259976,
+      "recall": 0.8122082585278276,
+      "specificity": 0.617363344051447,
+      "balanced_accuracy": 0.7147858012896373,
+      "eligible": true,
+      "validation_roc_auc": 0.7716803467621758
+    },
+    {
+      "model": "RandomForest_Leaf20_BalancedTrue",
+      "threshold": 0.45080604524062295,
+      "accuracy": 0.72652156388553,
+      "recall": 0.8215439856373429,
+      "specificity": 0.6049609554432706,
+      "balanced_accuracy": 0.7132524705403067,
+      "eligible": true,
+      "validation_roc_auc": 0.7716256703631651
+    },
+    {
+      "model": "BalancedExtraTrees_Leaf20",
+      "threshold": 0.5035129580225709,
+      "accuracy": 0.7216848045143087,
+      "recall": 0.7784560143626571,
+      "specificity": 0.6490583371612311,
+      "balanced_accuracy": 0.7137571757619441,
+      "eligible": true,
+      "validation_roc_auc": 0.7671394017263888
+    },
+    {
+      "model": "WeightedXGBoost_D2",
+      "threshold": 0.47953295707702637,
+      "accuracy": 0.7263200322450625,
+      "recall": 0.8154398563734291,
+      "specificity": 0.6123105190629307,
+      "balanced_accuracy": 0.7138751877181799,
+      "eligible": true,
+      "validation_roc_auc": 0.7748580104223278
+    },
+    {
+      "model": "WeightedXGBoost_D3",
+      "threshold": 0.48213428258895874,
+      "accuracy": 0.7289399435711407,
+      "recall": 0.8136445242369839,
+      "specificity": 0.6205787781350482,
+      "balanced_accuracy": 0.717111651186016,
+      "eligible": true,
+      "validation_roc_auc": 0.7749370149325122
+    },
+    {
+      "model": "NeuralNetwork_16",
+      "threshold": 0.5265759004338816,
+      "accuracy": 0.7277307537283353,
+      "recall": 0.8053859964093357,
+      "specificity": 0.628387689480937,
+      "balanced_accuracy": 0.7168868429451364,
+      "eligible": true,
+      "validation_roc_auc": 0.778979934668713
+    },
+    {
+      "model": "NeuralNetwork_32_16",
+      "threshold": 0.5524408751726518,
+      "accuracy": 0.7259169689641274,
+      "recall": 0.7870736086175942,
+      "specificity": 0.6476802939825448,
+      "balanced_accuracy": 0.7173769513000695,
+      "eligible": true,
+      "validation_roc_auc": 0.7777127287151706
+    },
+    {
+      "model": "AccuracyTop3",
+      "members": [
+        "CategoricalLogistic_C0.03",
+        "CategoricalLogistic_C0.3",
+        "CategoricalLogistic_C3"
+      ],
+      "threshold": 0.5082060950002482,
+      "accuracy": 0.7311567916162838,
+      "recall": 0.8168761220825853,
+      "specificity": 0.6214974735875057,
+      "balanced_accuracy": 0.7191867978350455,
+      "eligible": true,
+      "validation_roc_auc": 0.7781771894681544
+    },
+    {
+      "model": "AccuracyTop5",
+      "members": [
+        "CategoricalLogistic_C0.03",
+        "CategoricalLogistic_C0.3",
+        "CategoricalLogistic_C3",
+        "CategoricalLogistic_C30",
+        "CategoricalSpline_K3_C0.1"
+      ],
+      "threshold": 0.5051446141959637,
+      "accuracy": 0.7311567916162838,
+      "recall": 0.8204667863554758,
+      "specificity": 0.6169039963252182,
+      "balanced_accuracy": 0.718685391340347,
+      "eligible": true,
+      "validation_roc_auc": 0.7789944490672438
+    },
+    {
+      "model": "AUCTop3",
+      "members": [
+        "Interaction_D2_C0.01",
+        "Interaction_D2_C0.1",
+        "Interaction_D2_C1"
+      ],
+      "threshold": 0.5151415339881583,
+      "accuracy": 0.7287384119306731,
+      "recall": 0.8226211849192101,
+      "specificity": 0.6086357372531006,
+      "balanced_accuracy": 0.7156284610861554,
+      "eligible": true,
+      "validation_roc_auc": 0.7806070317312791
+    }
+  ],
+  "selected_validation_metrics": {
+    "model": "CategoricalLogistic_C0.03",
+    "threshold": 0.5081284730956851,
+    "accuracy": 0.7313583232567513,
+    "recall": 0.8190305206463195,
+    "specificity": 0.619200734956362,
+    "balanced_accuracy": 0.7191156278013408,
+    "eligible": true,
+    "validation_roc_auc": 0.7781823024949096
+  },
+  "test_metrics": {
+    "roc_auc": 0.7761493585956621,
+    "average_precision": 0.783000508022762,
+    "positive_prevalence": 0.5616438356164384,
+    "threshold": 0.5081284730956851,
+    "majority_baseline_accuracy": 0.5616438356164384,
+    "classification": {
+      "0": {
+        "precision": 0.7115789473684211,
+        "recall": 0.6213235294117647,
+        "f1-score": 0.6633954857703631,
+        "support": 544.0
+      },
+      "1": {
+        "precision": 0.7310704960835509,
+        "recall": 0.8034433285509326,
+        "f1-score": 0.7655502392344498,
+        "support": 697.0
+      },
+      "accuracy": 0.7236099919419823,
+      "macro avg": {
+        "precision": 0.7213247217259859,
+        "recall": 0.7123834289813487,
+        "f1-score": 0.7144728625024064,
+        "support": 1241.0
+      },
+      "weighted avg": {
+        "precision": 0.7225262555508912,
+        "recall": 0.7236099919419823,
+        "f1-score": 0.7207700733323844,
+        "support": 1241.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        338,
+        206
+      ],
+      [
+        137,
+        560
+      ]
+    ]
+  },
+  "deployment_target_met": false,
+  "threshold_selection": "OOF accuracy maximum subject to positive recall >=50% and specificity >=60%, then refit on all training rows.",
+  "limitations": "Repeatedly evaluated internal test split, not external validation. OOF cutoff may transfer imperfectly after final refit. Probabilities are not clinically calibrated; report minority recall and precision."
+}

@@ -1,0 +1,191 @@
+{
+  "model_name": "SplineElasticNet_C0.3",
+  "model_version": "lifestyle_v10",
+  "features": [
+    "age",
+    "sex",
+    "bmi",
+    "smoking_status",
+    "sleep_hours"
+  ],
+  "target": "hypertension",
+  "random_state": 42,
+  "selected_threshold": 0.48773854641671194,
+  "fit_rows": 4962,
+  "test_rows": 1241,
+  "validation_method": "3-fold training OOF, seed 127; preprocessing inside folds",
+  "selected_validation_metrics": {
+    "model": "SplineElasticNet_C0.3",
+    "threshold": 0.48773854641671194,
+    "accuracy": 0.730149133413946,
+    "recall": 0.8312387791741472,
+    "specificity": 0.6008268259072118,
+    "balanced_accuracy": 0.7160328025406795,
+    "eligible": true,
+    "validation_roc_auc": 0.7784976607902596
+  },
+  "comparison": [
+    {
+      "model": "BoostBudget150_L21",
+      "threshold": 0.5095146036712304,
+      "accuracy": 0.7255139056831923,
+      "recall": 0.821903052064632,
+      "specificity": 0.6022048690858981,
+      "balanced_accuracy": 0.712053960575265,
+      "eligible": true,
+      "validation_roc_auc": 0.7728374577041356
+    },
+    {
+      "model": "BoostBudget150_L230",
+      "threshold": 0.514084601212205,
+      "accuracy": 0.7249093107617897,
+      "recall": 0.8150807899461401,
+      "specificity": 0.6095544327055581,
+      "balanced_accuracy": 0.7123176113258491,
+      "eligible": true,
+      "validation_roc_auc": 0.7705694179973593
+    },
+    {
+      "model": "BoostBudget150_L2100",
+      "threshold": 0.5120503269620899,
+      "accuracy": 0.7190648931882306,
+      "recall": 0.8025134649910234,
+      "specificity": 0.6123105190629307,
+      "balanced_accuracy": 0.707411992026977,
+      "eligible": true,
+      "validation_roc_auc": 0.7664360306748619
+    },
+    {
+      "model": "BoostBudget450_L21",
+      "threshold": 0.5013668571292905,
+      "accuracy": 0.7273276904474002,
+      "recall": 0.8258527827648114,
+      "specificity": 0.6012861736334405,
+      "balanced_accuracy": 0.713569478199126,
+      "eligible": true,
+      "validation_roc_auc": 0.7738254264223079
+    },
+    {
+      "model": "BoostBudget450_L230",
+      "threshold": 0.49056942509481943,
+      "accuracy": 0.7269246271664652,
+      "recall": 0.8244165170556553,
+      "specificity": 0.6022048690858981,
+      "balanced_accuracy": 0.7133106930707767,
+      "eligible": true,
+      "validation_roc_auc": 0.7732468297172413
+    },
+    {
+      "model": "BoostBudget450_L2100",
+      "threshold": 0.49436346556081284,
+      "accuracy": 0.7269246271664651,
+      "recall": 0.8168761220825853,
+      "specificity": 0.6118511713367019,
+      "balanced_accuracy": 0.7143636467096436,
+      "eligible": true,
+      "validation_roc_auc": 0.772083286257751
+    },
+    {
+      "model": "BoostBudget900_L21",
+      "threshold": 0.5013668571292905,
+      "accuracy": 0.7273276904474002,
+      "recall": 0.8258527827648114,
+      "specificity": 0.6012861736334405,
+      "balanced_accuracy": 0.713569478199126,
+      "eligible": true,
+      "validation_roc_auc": 0.7738254264223079
+    },
+    {
+      "model": "BoostBudget900_L230",
+      "threshold": 0.49056942509481943,
+      "accuracy": 0.7269246271664652,
+      "recall": 0.8244165170556553,
+      "specificity": 0.6022048690858981,
+      "balanced_accuracy": 0.7133106930707767,
+      "eligible": true,
+      "validation_roc_auc": 0.7732468297172413
+    },
+    {
+      "model": "BoostBudget900_L2100",
+      "threshold": 0.495287072296429,
+      "accuracy": 0.7263200322450625,
+      "recall": 0.8154398563734291,
+      "specificity": 0.6123105190629307,
+      "balanced_accuracy": 0.7138751877181799,
+      "eligible": true,
+      "validation_roc_auc": 0.7714663418520207
+    },
+    {
+      "model": "SplineElasticNet_C0.03",
+      "threshold": 0.5070675908154704,
+      "accuracy": 0.7277307537283353,
+      "recall": 0.8190305206463195,
+      "specificity": 0.6109324758842444,
+      "balanced_accuracy": 0.714981498265282,
+      "eligible": true,
+      "validation_roc_auc": 0.7779854509648365
+    },
+    {
+      "model": "SplineElasticNet_C0.3",
+      "threshold": 0.48773854641671194,
+      "accuracy": 0.730149133413946,
+      "recall": 0.8312387791741472,
+      "specificity": 0.6008268259072118,
+      "balanced_accuracy": 0.7160328025406795,
+      "eligible": true,
+      "validation_roc_auc": 0.7784976607902596
+    },
+    {
+      "model": "SplineElasticNet_C3",
+      "threshold": 0.49208839824104444,
+      "accuracy": 0.7285368802902056,
+      "recall": 0.8269299820466787,
+      "specificity": 0.6026642168121268,
+      "balanced_accuracy": 0.7147970994294027,
+      "eligible": true,
+      "validation_roc_auc": 0.7781719115050525
+    }
+  ],
+  "test_metrics": {
+    "classification": {
+      "0": {
+        "precision": 0.7302631578947368,
+        "recall": 0.6121323529411765,
+        "f1-score": 0.666,
+        "support": 544.0
+      },
+      "1": {
+        "precision": 0.7312101910828025,
+        "recall": 0.8235294117647058,
+        "f1-score": 0.7746288798920378,
+        "support": 697.0
+      },
+      "accuracy": 0.7308622078968574,
+      "macro avg": {
+        "precision": 0.7307366744887697,
+        "recall": 0.7178308823529411,
+        "f1-score": 0.7203144399460188,
+        "support": 1241.0
+      },
+      "weighted avg": {
+        "precision": 0.730795053246938,
+        "recall": 0.7308622078968574,
+        "f1-score": 0.7270107407612815,
+        "support": 1241.0
+      }
+    },
+    "roc_auc": 0.7802609924888175,
+    "confusion_matrix": [
+      [
+        333,
+        211
+      ],
+      [
+        123,
+        574
+      ]
+    ],
+    "majority_baseline_accuracy": 0.5616438356164384
+  },
+  "limitations": "Previously evaluated internal test split; selection scores are optimistic after model/threshold search. Not external validation. Probabilities are not clinically calibrated."
+}

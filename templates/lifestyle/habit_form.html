@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}
+Create Goal | LifeSync AI Pro
+{% endblock %}
+
+
+{% block content %}
+
+
+<header class="page-header">
+
+    <div class="eyebrow">
+        Habit Builder
+    </div>
+
+    <h1 class="page-title">
+        Create a Health Goal
+    </h1>
+
+    <p class="page-description">
+        Set a measurable lifestyle target and
+        LifeSync will automatically compare it
+        with your daily health data.
+    </p>
+
+</header>
+
+
+<section class="card">
+
+    <div class="section-heading">
+
+        <div class="section-icon">
+            🎯
+        </div>
+
+        <div>
+
+            <h2>
+                Goal Configuration
+            </h2>
+
+            <p>
+                Choose a health category and define your target.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <div class="card-grid">
+
+            {% for field in form %}
+
+            <div class="field">
+
+                {{ field.label_tag }}
+                {{ field }}
+                {{ field.errors }}
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        <div class="actions">
+
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                Save Health Goal
+            </button>
+
+            <a
+                href="{% url 'lifestyle:habit_list' %}"
+                class="btn btn-secondary"
+            >
+                Cancel
+            </a>
+
+        </div>
+
+    </form>
+
+</section>
+
+
+{% endblock %}

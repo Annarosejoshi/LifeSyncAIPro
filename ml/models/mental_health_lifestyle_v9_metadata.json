@@ -1,0 +1,1008 @@
+{
+  "model_name": "AccuracyTop3",
+  "model_version": "lifestyle_v9",
+  "features": [
+    "age",
+    "sex",
+    "bmi",
+    "smoking_status",
+    "sleep_hours"
+  ],
+  "target": "depression_risk",
+  "selected_threshold": 0.17475144706458945,
+  "random_state": 42,
+  "dataset_rows": 5455,
+  "test_rows": 1091,
+  "fit_rows": 4364,
+  "comparison": [
+    {
+      "model": "CalibratedSVM_C0.1_G0.1",
+      "accuracy_selection": {
+        "threshold": 0.1792230394907058,
+        "accuracy": 0.7403758020164986,
+        "recall": 0.5,
+        "specificity": 0.7770734284204965,
+        "balanced_accuracy": 0.6385367142102483,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.3805677097909468,
+        "accuracy": 0.8686984417965169,
+        "recall": 0.02768166089965398,
+        "specificity": 0.997094558901215,
+        "balanced_accuracy": 0.5123881099004345,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.7004274535394468,
+      "members": null
+    },
+    {
+      "model": "CalibratedSVM_C0.1_G1",
+      "accuracy_selection": {
+        "threshold": 0.18283237346916817,
+        "accuracy": 0.7225022914757103,
+        "recall": 0.5,
+        "specificity": 0.7564712097200211,
+        "balanced_accuracy": 0.6282356048600106,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.286573056265552,
+        "accuracy": 0.8677818515123739,
+        "recall": 0.00865051903114187,
+        "specificity": 0.9989434759640782,
+        "balanced_accuracy": 0.50379699749761,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6792256848670296,
+      "members": null
+    },
+    {
+      "model": "CalibratedSVM_C1_G0.1",
+      "accuracy_selection": {
+        "threshold": 0.17951094450877406,
+        "accuracy": 0.7467919340054996,
+        "recall": 0.5,
+        "specificity": 0.7844690966719493,
+        "balanced_accuracy": 0.6422345483359746,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.3960507084674805,
+        "accuracy": 0.867781851512374,
+        "recall": 0.01730103806228374,
+        "specificity": 0.9976228209191759,
+        "balanced_accuracy": 0.5074619294907298,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6962365443986861,
+      "members": null
+    },
+    {
+      "model": "CalibratedSVM_C1_G1",
+      "accuracy_selection": {
+        "threshold": 0.1452598939159978,
+        "accuracy": 0.6613198900091659,
+        "recall": 0.5,
+        "specificity": 0.6859482303222398,
+        "balanced_accuracy": 0.5929741151611199,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.2944403323153966,
+        "accuracy": 0.8675527039413382,
+        "recall": 0.0017301038062283738,
+        "specificity": 0.9997358689910195,
+        "balanced_accuracy": 0.500732986398624,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6366293044671957,
+      "members": null
+    },
+    {
+      "model": "CalibratedSVM_C10_G0.1",
+      "accuracy_selection": {
+        "threshold": 0.1599125967568582,
+        "accuracy": 0.7241063244729606,
+        "recall": 0.5034602076124568,
+        "specificity": 0.7577918647649234,
+        "balanced_accuracy": 0.6306260361886902,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.3643467561008282,
+        "accuracy": 0.8684692942254812,
+        "recall": 0.01730103806228374,
+        "specificity": 0.9984152139461173,
+        "balanced_accuracy": 0.5078581260042005,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6787659689586658,
+      "members": null
+    },
+    {
+      "model": "CalibratedSVM_C10_G1",
+      "accuracy_selection": {
+        "threshold": 0.13497700985952585,
+        "accuracy": 0.593263061411549,
+        "recall": 0.5,
+        "specificity": 0.6075013206550449,
+        "balanced_accuracy": 0.5537506603275224,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.2154342240057384,
+        "accuracy": 0.8675527039413383,
+        "recall": 0.0034602076124567475,
+        "specificity": 0.9994717379820391,
+        "balanced_accuracy": 0.5014659727972479,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.5808866941947842,
+      "members": null
+    },
+    {
+      "model": "CalibratedSVM_C100_G0.1",
+      "accuracy_selection": {
+        "threshold": 0.14848348021806346,
+        "accuracy": 0.7007332722273144,
+        "recall": 0.5,
+        "specificity": 0.731378763866878,
+        "balanced_accuracy": 0.615689381933439,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.3027765443180949,
+        "accuracy": 0.8689275893675528,
+        "recall": 0.015570934256055362,
+        "specificity": 0.9992076069730587,
+        "balanced_accuracy": 0.507389270614557,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6476606583716735,
+      "members": null
+    },
+    {
+      "model": "CalibratedSVM_C100_G1",
+      "accuracy_selection": {
+        "threshold": 0.23329871397244548,
+        "accuracy": 0.8675527039413382,
+        "recall": 0.0017301038062283738,
+        "specificity": 0.9997358689910195,
+        "balanced_accuracy": 0.500732986398624,
+        "eligible": false
+      },
+      "screening_selection": {
+        "threshold": 0.23329871397244548,
+        "accuracy": 0.8675527039413382,
+        "recall": 0.0017301038062283738,
+        "specificity": 0.9997358689910195,
+        "balanced_accuracy": 0.500732986398624,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.5603936922956,
+      "members": null
+    },
+    {
+      "model": "KNN_K25_uniform",
+      "accuracy_selection": {
+        "threshold": 0.16,
+        "accuracy": 0.6741521539871678,
+        "recall": 0.5380622837370242,
+        "specificity": 0.6949286846275753,
+        "balanced_accuracy": 0.6164954841822998,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.44,
+        "accuracy": 0.868698441796517,
+        "recall": 0.0328719723183391,
+        "specificity": 0.9963021658742737,
+        "balanced_accuracy": 0.5145870690963064,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6557395028487764,
+      "members": null
+    },
+    {
+      "model": "KNN_K25_distance",
+      "accuracy_selection": {
+        "threshold": 0.15118523100983766,
+        "accuracy": 0.6970669110907425,
+        "recall": 0.5,
+        "specificity": 0.7271526677231908,
+        "balanced_accuracy": 0.6135763338615954,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.6380125307055492,
+        "accuracy": 0.8673235563703026,
+        "recall": 0.0034602076124567475,
+        "specificity": 0.9992076069730587,
+        "balanced_accuracy": 0.5013339072927577,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.647603079639612,
+      "members": null
+    },
+    {
+      "model": "KNN_K75_uniform",
+      "accuracy_selection": {
+        "threshold": 0.14666666666666667,
+        "accuracy": 0.7066911090742438,
+        "recall": 0.532871972318339,
+        "specificity": 0.7332276809297411,
+        "balanced_accuracy": 0.6330498266240401,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.4,
+        "accuracy": 0.8677818515123741,
+        "recall": 0.005190311418685121,
+        "specificity": 0.9994717379820391,
+        "balanced_accuracy": 0.5023310247003622,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6760421750503128,
+      "members": null
+    },
+    {
+      "model": "KNN_K75_distance",
+      "accuracy_selection": {
+        "threshold": 0.14970040828016018,
+        "accuracy": 0.7211274060494958,
+        "recall": 0.5,
+        "specificity": 0.7548864236661383,
+        "balanced_accuracy": 0.6274432118330692,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.4113059194791019,
+        "accuracy": 0.8675527039413382,
+        "recall": 0.01384083044982699,
+        "specificity": 0.9978869519281564,
+        "balanced_accuracy": 0.5058638911889917,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.669863657218271,
+      "members": null
+    },
+    {
+      "model": "KNN_K150_uniform",
+      "accuracy_selection": {
+        "threshold": 0.13333333333333333,
+        "accuracy": 0.6986709440879926,
+        "recall": 0.532871972318339,
+        "specificity": 0.7239830956154252,
+        "balanced_accuracy": 0.6284275339668821,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.32,
+        "accuracy": 0.8682401466544455,
+        "recall": 0.006920415224913495,
+        "specificity": 0.9997358689910195,
+        "balanced_accuracy": 0.5033281421079665,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6780715968684481,
+      "members": null
+    },
+    {
+      "model": "KNN_K150_distance",
+      "accuracy_selection": {
+        "threshold": 0.13835336820739588,
+        "accuracy": 0.7094408799266727,
+        "recall": 0.5,
+        "specificity": 0.7414157422081352,
+        "balanced_accuracy": 0.6207078711040677,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.3299215032251515,
+        "accuracy": 0.8680109990834097,
+        "recall": 0.015570934256055362,
+        "specificity": 0.9981510829371368,
+        "balanced_accuracy": 0.5068610085965961,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6755698923551895,
+      "members": null
+    },
+    {
+      "model": "KNN_K300_uniform",
+      "accuracy_selection": {
+        "threshold": 0.13333333333333333,
+        "accuracy": 0.7199816681943171,
+        "recall": 0.5103806228373703,
+        "specificity": 0.7519809825673534,
+        "balanced_accuracy": 0.6311808027023618,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.24,
+        "accuracy": 0.8689275893675527,
+        "recall": 0.02422145328719723,
+        "specificity": 0.9978869519281564,
+        "balanced_accuracy": 0.5110542026076768,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6861301059997038,
+      "members": null
+    },
+    {
+      "model": "KNN_K300_distance",
+      "accuracy_selection": {
+        "threshold": 0.1331928606723032,
+        "accuracy": 0.7160861594867095,
+        "recall": 0.5017301038062284,
+        "specificity": 0.748811410459588,
+        "balanced_accuracy": 0.6252707571329081,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.26274808696587065,
+        "accuracy": 0.8684692942254812,
+        "recall": 0.020761245674740483,
+        "specificity": 0.9978869519281564,
+        "balanced_accuracy": 0.5093240988014485,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6829226050446282,
+      "members": null
+    },
+    {
+      "model": "GaussianNB_1e-09",
+      "accuracy_selection": {
+        "threshold": 0.15363191969829854,
+        "accuracy": 0.7325847846012833,
+        "recall": 0.5034602076124568,
+        "specificity": 0.7675647120972002,
+        "balanced_accuracy": 0.6355124598548285,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.9658339048395798,
+        "accuracy": 0.8689275893675527,
+        "recall": 0.01903114186851211,
+        "specificity": 0.9986793449550977,
+        "balanced_accuracy": 0.5088552434118049,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6851690895431539,
+      "members": null
+    },
+    {
+      "model": "GaussianNB_0.0001",
+      "accuracy_selection": {
+        "threshold": 0.15363568830731011,
+        "accuracy": 0.7325847846012833,
+        "recall": 0.5034602076124568,
+        "specificity": 0.7675647120972002,
+        "balanced_accuracy": 0.6355124598548285,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.9657473127445035,
+        "accuracy": 0.8689275893675527,
+        "recall": 0.01903114186851211,
+        "specificity": 0.9986793449550977,
+        "balanced_accuracy": 0.5088552434118049,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6851846266613292,
+      "members": null
+    },
+    {
+      "model": "GaussianNB_0.01",
+      "accuracy_selection": {
+        "threshold": 0.1539122966277767,
+        "accuracy": 0.7330430797433547,
+        "recall": 0.5,
+        "specificity": 0.768621236133122,
+        "balanced_accuracy": 0.634310618066561,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.9628809307068328,
+        "accuracy": 0.8689275893675528,
+        "recall": 0.015570934256055362,
+        "specificity": 0.9992076069730587,
+        "balanced_accuracy": 0.507389270614557,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6866789318505438,
+      "members": null
+    },
+    {
+      "model": "RegularizedQDA_0.1",
+      "accuracy_selection": {
+        "threshold": 0.150108603560638,
+        "accuracy": 0.7403758020164987,
+        "recall": 0.5051903114186851,
+        "specificity": 0.7762810353935552,
+        "balanced_accuracy": 0.6407356734061201,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.9338023363891886,
+        "accuracy": 0.8684692942254811,
+        "recall": 0.01384083044982699,
+        "specificity": 0.9989434759640782,
+        "balanced_accuracy": 0.5063921532069526,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6965696784913274,
+      "members": null
+    },
+    {
+      "model": "RegularizedQDA_0.5",
+      "accuracy_selection": {
+        "threshold": 0.15202129044418283,
+        "accuracy": 0.7353345554537122,
+        "recall": 0.5,
+        "specificity": 0.7712625462229266,
+        "balanced_accuracy": 0.6356312731114633,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.7330440971786968,
+        "accuracy": 0.8682401466544455,
+        "recall": 0.015570934256055362,
+        "specificity": 0.9984152139461173,
+        "balanced_accuracy": 0.5069930741010863,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6872295855976398,
+      "members": null
+    },
+    {
+      "model": "RegularizedQDA_0.9",
+      "accuracy_selection": {
+        "threshold": 0.15427304732232658,
+        "accuracy": 0.7021081576535289,
+        "recall": 0.5,
+        "specificity": 0.7329635499207607,
+        "balanced_accuracy": 0.6164817749603804,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.5078057084371157,
+        "accuracy": 0.867781851512374,
+        "recall": 0.0017301038062283738,
+        "specificity": 1.0,
+        "balanced_accuracy": 0.5008650519031141,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6561169634256239,
+      "members": null
+    },
+    {
+      "model": "SMOTENC_0.4_Logistic",
+      "accuracy_selection": {
+        "threshold": 0.33228016443973146,
+        "accuracy": 0.7190650779101742,
+        "recall": 0.5,
+        "specificity": 0.7525092445853143,
+        "balanced_accuracy": 0.6262546222926572,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.759850106951666,
+        "accuracy": 0.8680109990834097,
+        "recall": 0.0034602076124567475,
+        "specificity": 1.0,
+        "balanced_accuracy": 0.5017301038062284,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6675646207023874,
+      "members": null
+    },
+    {
+      "model": "SMOTENC_0.4_Boost_L7",
+      "accuracy_selection": {
+        "threshold": 0.3065194184152125,
+        "accuracy": 0.7160861594867094,
+        "recall": 0.5,
+        "specificity": 0.7490755414685684,
+        "balanced_accuracy": 0.6245377707342842,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.7728450116225776,
+        "accuracy": 0.8675527039413383,
+        "recall": 0.0034602076124567475,
+        "specificity": 0.9994717379820391,
+        "balanced_accuracy": 0.5014659727972479,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6770287820544458,
+      "members": null
+    },
+    {
+      "model": "SMOTENC_0.4_Boost_L15",
+      "accuracy_selection": {
+        "threshold": 0.28275952279050054,
+        "accuracy": 0.712878093492209,
+        "recall": 0.5,
+        "specificity": 0.745377707342842,
+        "balanced_accuracy": 0.622688853671421,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.8253287231909213,
+        "accuracy": 0.867781851512374,
+        "recall": 0.0034602076124567475,
+        "specificity": 0.9997358689910195,
+        "balanced_accuracy": 0.5015980383017381,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6687262487730246,
+      "members": null
+    },
+    {
+      "model": "SMOTENC_0.7_Logistic",
+      "accuracy_selection": {
+        "threshold": 0.463014349671834,
+        "accuracy": 0.7197525206232813,
+        "recall": 0.5,
+        "specificity": 0.7533016376122557,
+        "balanced_accuracy": 0.6266508188061278,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.8489644500237125,
+        "accuracy": 0.8680109990834097,
+        "recall": 0.0034602076124567475,
+        "specificity": 1.0,
+        "balanced_accuracy": 0.5017301038062284,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6679804671006092,
+      "members": null
+    },
+    {
+      "model": "SMOTENC_0.7_Boost_L7",
+      "accuracy_selection": {
+        "threshold": 0.38681335833097485,
+        "accuracy": 0.7060036663611365,
+        "recall": 0.5,
+        "specificity": 0.7374537770734284,
+        "balanced_accuracy": 0.6187268885367142,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.7529904452552808,
+        "accuracy": 0.8684692942254812,
+        "recall": 0.03460207612456748,
+        "specificity": 0.9957739038563127,
+        "balanced_accuracy": 0.5151879899904401,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6719111295119334,
+      "members": null
+    },
+    {
+      "model": "SMOTENC_0.7_Boost_L15",
+      "accuracy_selection": {
+        "threshold": 0.33264687152050315,
+        "accuracy": 0.6862969752520623,
+        "recall": 0.5,
+        "specificity": 0.7147385103011094,
+        "balanced_accuracy": 0.6073692551505547,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.799111212542113,
+        "accuracy": 0.8682401466544455,
+        "recall": 0.031141868512110725,
+        "specificity": 0.9960380348652932,
+        "balanced_accuracy": 0.5135899516887019,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6605377305205665,
+      "members": null
+    },
+    {
+      "model": "SMOTENC_1_Logistic",
+      "accuracy_selection": {
+        "threshold": 0.554893263353673,
+        "accuracy": 0.7229605866177818,
+        "recall": 0.5,
+        "specificity": 0.756999471737982,
+        "balanced_accuracy": 0.628499735868991,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.8797452781811548,
+        "accuracy": 0.8675527039413383,
+        "recall": 0.0034602076124567475,
+        "specificity": 0.9994717379820391,
+        "balanced_accuracy": 0.5014659727972479,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6673192256300302,
+      "members": null
+    },
+    {
+      "model": "SMOTENC_1_Boost_L7",
+      "accuracy_selection": {
+        "threshold": 0.45336337919597375,
+        "accuracy": 0.7005041246562785,
+        "recall": 0.5,
+        "specificity": 0.7311146328578975,
+        "balanced_accuracy": 0.6155573164289487,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.809344777708011,
+        "accuracy": 0.8684692942254812,
+        "recall": 0.031141868512110725,
+        "specificity": 0.9963021658742737,
+        "balanced_accuracy": 0.5137220171931922,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.671185911672397,
+      "members": null
+    },
+    {
+      "model": "SMOTENC_1_Boost_L15",
+      "accuracy_selection": {
+        "threshold": 0.39567939992028045,
+        "accuracy": 0.6961503208065994,
+        "recall": 0.5,
+        "specificity": 0.7260961436872688,
+        "balanced_accuracy": 0.6130480718436344,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.882470710396456,
+        "accuracy": 0.8684692942254812,
+        "recall": 0.010380622837370242,
+        "specificity": 0.9994717379820391,
+        "balanced_accuracy": 0.5049261804097047,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6609892208957788,
+      "members": null
+    },
+    {
+      "model": "BalancedForest_Leaf5",
+      "accuracy_selection": {
+        "threshold": 0.5287348962366609,
+        "accuracy": 0.7190650779101742,
+        "recall": 0.5017301038062284,
+        "specificity": 0.7522451135763338,
+        "balanced_accuracy": 0.6269876086912811,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.8178688440235858,
+        "accuracy": 0.8689275893675528,
+        "recall": 0.02249134948096886,
+        "specificity": 0.9981510829371368,
+        "balanced_accuracy": 0.5103212162090528,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6752027136947816,
+      "members": null
+    },
+    {
+      "model": "BalancedForest_Leaf15",
+      "accuracy_selection": {
+        "threshold": 0.5424374531844262,
+        "accuracy": 0.7257103574702108,
+        "recall": 0.5034602076124568,
+        "specificity": 0.7596407818277866,
+        "balanced_accuracy": 0.6315504947201217,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.7769397070805593,
+        "accuracy": 0.8689275893675527,
+        "recall": 0.025951557093425604,
+        "specificity": 0.9976228209191759,
+        "balanced_accuracy": 0.5117871890063007,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6811198423622268,
+      "members": null
+    },
+    {
+      "model": "BalancedForest_Leaf30",
+      "accuracy_selection": {
+        "threshold": 0.5422054764745827,
+        "accuracy": 0.7186067827681026,
+        "recall": 0.5,
+        "specificity": 0.7519809825673534,
+        "balanced_accuracy": 0.6259904912836767,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.7458495180429318,
+        "accuracy": 0.8691567369385885,
+        "recall": 0.02249134948096886,
+        "specificity": 0.9984152139461173,
+        "balanced_accuracy": 0.5104532817135431,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6836167486478137,
+      "members": null
+    },
+    {
+      "model": "CalibratedBoost_L7",
+      "accuracy_selection": {
+        "threshold": 0.16250311525012864,
+        "accuracy": 0.7254812098991751,
+        "recall": 0.5051903114186851,
+        "specificity": 0.7591125198098256,
+        "balanced_accuracy": 0.6321514156142554,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.34907863518512355,
+        "accuracy": 0.8682401466544455,
+        "recall": 0.05190311418685121,
+        "specificity": 0.9928684627575277,
+        "balanced_accuracy": 0.5223857884721894,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.682945910721891,
+      "members": null
+    },
+    {
+      "model": "CalibratedBoost_L15",
+      "accuracy_selection": {
+        "threshold": 0.15913988670888446,
+        "accuracy": 0.7199816681943172,
+        "recall": 0.5,
+        "specificity": 0.7535657686212361,
+        "balanced_accuracy": 0.626782884310618,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.3984186604787608,
+        "accuracy": 0.867781851512374,
+        "recall": 0.0034602076124567475,
+        "specificity": 0.9997358689910195,
+        "balanced_accuracy": 0.5015980383017381,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.672769098317056,
+      "members": null
+    },
+    {
+      "model": "Neural_relu_A0.1",
+      "accuracy_selection": {
+        "threshold": 0.16303369819512414,
+        "accuracy": 0.7360219981668193,
+        "recall": 0.5,
+        "specificity": 0.7720549392498679,
+        "balanced_accuracy": 0.636027469624934,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.4886721885608569,
+        "accuracy": 0.8703024747937672,
+        "recall": 0.025951557093425604,
+        "specificity": 0.9992076069730587,
+        "balanced_accuracy": 0.5125795820332422,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6877400256271056,
+      "members": null
+    },
+    {
+      "model": "Neural_relu_A1",
+      "accuracy_selection": {
+        "threshold": 0.459933804120923,
+        "accuracy": 0.8677818515123741,
+        "recall": 0.006920415224913495,
+        "specificity": 0.9992076069730587,
+        "balanced_accuracy": 0.5030640110989861,
+        "eligible": false
+      },
+      "screening_selection": {
+        "threshold": 0.459933804120923,
+        "accuracy": 0.8677818515123741,
+        "recall": 0.006920415224913495,
+        "specificity": 0.9992076069730587,
+        "balanced_accuracy": 0.5030640110989861,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.5253561198880597,
+      "members": null
+    },
+    {
+      "model": "Neural_tanh_A0.1",
+      "accuracy_selection": {
+        "threshold": 0.37887835487209004,
+        "accuracy": 0.867781851512374,
+        "recall": 0.0017301038062283738,
+        "specificity": 1.0,
+        "balanced_accuracy": 0.5008650519031141,
+        "eligible": false
+      },
+      "screening_selection": {
+        "threshold": 0.37887835487209004,
+        "accuracy": 0.867781851512374,
+        "recall": 0.0017301038062283738,
+        "specificity": 1.0,
+        "balanced_accuracy": 0.5008650519031141,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.495013042039786,
+      "members": null
+    },
+    {
+      "model": "Neural_tanh_A1",
+      "accuracy_selection": {
+        "threshold": 0.3765821617602403,
+        "accuracy": 0.867781851512374,
+        "recall": 0.0017301038062283738,
+        "specificity": 1.0,
+        "balanced_accuracy": 0.5008650519031141,
+        "eligible": false
+      },
+      "screening_selection": {
+        "threshold": 0.3765821617602403,
+        "accuracy": 0.867781851512374,
+        "recall": 0.0017301038062283738,
+        "specificity": 1.0,
+        "balanced_accuracy": 0.5008650519031141,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.49068184186138336,
+      "members": null
+    },
+    {
+      "model": "AccuracyTop3",
+      "accuracy_selection": {
+        "threshold": 0.17475144706458945,
+        "accuracy": 0.754582951420715,
+        "recall": 0.5,
+        "specificity": 0.7934495509772848,
+        "balanced_accuracy": 0.6467247754886424,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.5267100145591435,
+        "accuracy": 0.8684692942254812,
+        "recall": 0.01730103806228374,
+        "specificity": 0.9984152139461173,
+        "balanced_accuracy": 0.5078581260042005,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.7013605945780942,
+      "members": [
+        "CalibratedSVM_C1_G0.1",
+        "RegularizedQDA_0.1",
+        "CalibratedSVM_C0.1_G0.1"
+      ]
+    },
+    {
+      "model": "ScreeningTop3",
+      "accuracy_selection": {
+        "threshold": 0.2882914032938297,
+        "accuracy": 0.7360219981668193,
+        "recall": 0.5,
+        "specificity": 0.7720549392498679,
+        "balanced_accuracy": 0.636027469624934,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.49074555378097884,
+        "accuracy": 0.8696150320806599,
+        "recall": 0.015570934256055362,
+        "specificity": 1.0,
+        "balanced_accuracy": 0.5077854671280276,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6909415859193495,
+      "members": [
+        "Neural_relu_A0.1",
+        "BalancedForest_Leaf30",
+        "CalibratedSVM_C100_G0.1"
+      ]
+    },
+    {
+      "model": "AUCTop5",
+      "accuracy_selection": {
+        "threshold": 0.1683248485481959,
+        "accuracy": 0.7520623281393217,
+        "recall": 0.5017301038062284,
+        "specificity": 0.7902799788695193,
+        "balanced_accuracy": 0.6460050413378738,
+        "eligible": true
+      },
+      "screening_selection": {
+        "threshold": 0.5501155762794567,
+        "accuracy": 0.8691567369385885,
+        "recall": 0.015570934256055362,
+        "specificity": 0.9994717379820391,
+        "balanced_accuracy": 0.5075213361190473,
+        "eligible": false
+      },
+      "validation_roc_auc": 0.6995930188986195,
+      "members": [
+        "CalibratedSVM_C0.1_G0.1",
+        "RegularizedQDA_0.1",
+        "CalibratedSVM_C1_G0.1",
+        "Neural_relu_A0.1",
+        "RegularizedQDA_0.5"
+      ]
+    }
+  ],
+  "selected_validation_metrics": {
+    "model": "AccuracyTop3",
+    "accuracy_selection": {
+      "threshold": 0.17475144706458945,
+      "accuracy": 0.754582951420715,
+      "recall": 0.5,
+      "specificity": 0.7934495509772848,
+      "balanced_accuracy": 0.6467247754886424,
+      "eligible": true
+    },
+    "screening_selection": {
+      "threshold": 0.5267100145591435,
+      "accuracy": 0.8684692942254812,
+      "recall": 0.01730103806228374,
+      "specificity": 0.9984152139461173,
+      "balanced_accuracy": 0.5078581260042005,
+      "eligible": false
+    },
+    "validation_roc_auc": 0.7013605945780942,
+    "members": [
+      "CalibratedSVM_C1_G0.1",
+      "RegularizedQDA_0.1",
+      "CalibratedSVM_C0.1_G0.1"
+    ]
+  },
+  "test_metrics": {
+    "roc_auc": 0.7127761172267988,
+    "average_precision": 0.3017807149410456,
+    "positive_prevalence": 0.13290559120073328,
+    "threshold": 0.17475144706458945,
+    "majority_baseline_accuracy": 0.8670944087992667,
+    "classification": {
+      "0": {
+        "precision": 0.9117647058823529,
+        "recall": 0.7864693446088795,
+        "f1-score": 0.8444948921679909,
+        "support": 946.0
+      },
+      "1": {
+        "precision": 0.26545454545454544,
+        "recall": 0.503448275862069,
+        "f1-score": 0.3476190476190476,
+        "support": 145.0
+      },
+      "accuracy": 0.7488542621448213,
+      "macro avg": {
+        "precision": 0.5886096256684492,
+        "recall": 0.6449588102354742,
+        "f1-score": 0.5960569698935192,
+        "support": 1091.0
+      },
+      "weighted avg": {
+        "precision": 0.8258664719116544,
+        "recall": 0.7488542621448213,
+        "f1-score": 0.7784573142948499,
+        "support": 1091.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        744,
+        202
+      ],
+      [
+        72,
+        73
+      ]
+    ]
+  },
+  "validation_method": "3-fold OOF on training data, seed 127; resampling only inside fitting folds",
+  "threshold_selection": "OOF accuracy maximum with positive recall >=50% and specificity >=60%; both winners locked before test evaluation.",
+  "limitations": "Repeatedly evaluated internal test split, not independent clinical validation. SMOTENC samples only training-fold data; source and test rows are unchanged. OOF cutoffs may transfer imperfectly after refit. Probabilities are not clinically calibrated."
+}

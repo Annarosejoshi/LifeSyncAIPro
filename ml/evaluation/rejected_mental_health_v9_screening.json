@@ -1,0 +1,15 @@
+{
+    "rejected":  true,
+    "reason":  "Failed validation requirement: at least 70% positive recall and 60% specificity.",
+    "observed_test_metrics":  {
+                                  "model":  "Neural_relu_A0.1",
+                                  "accuracy":  0.8634280476626948,
+                                  "positive_recall":  0.006896551724137931,
+                                  "positive_precision":  0.16666666666666666,
+                                  "specificity":  0.9947145877378436,
+                                  "roc_auc":  0.6995006196690238,
+                                  "majority_baseline_accuracy":  0.8670944087992667,
+                                  "above_80_percent":  true,
+                                  "deployed":  false
+                              }
+}

@@ -1,0 +1,41 @@
+{
+    "model_name": "Random Forest",
+    "model_version": "1.0",
+    "problem_type": "multiclass_classification",
+    "target": "Diabetes_012",
+    "classes": {
+        "0": "No Diabetes",
+        "1": "Prediabetes",
+        "2": "Diabetes"
+    },
+    "features": [
+        "HighBP",
+        "HighChol",
+        "CholCheck",
+        "BMI",
+        "Smoker",
+        "Stroke",
+        "HeartDiseaseorAttack",
+        "PhysActivity",
+        "Fruits",
+        "Veggies",
+        "HvyAlcoholConsump",
+        "AnyHealthcare",
+        "NoDocbcCost",
+        "GenHlth",
+        "MentHlth",
+        "PhysHlth",
+        "DiffWalk",
+        "Sex",
+        "Age",
+        "Education",
+        "Income"
+    ],
+    "metrics": {
+        "accuracy": 0.7338970356354463,
+        "precision_weighted": 0.8354188873603349,
+        "recall_weighted": 0.7338970356354463,
+        "f1_weighted": 0.7670395504964035,
+        "f1_macro": 0.43952622766967914
+    }
+}

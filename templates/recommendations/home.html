@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Wellness Coach | LifeSync AI{% endblock %}
+{% block content %}
+<header class="simple-wellness-heading"><h1>🌱 Your Wellness Coach</h1><p>Small actions for a healthier day.</p></header>
+{% if checkin %}
+<section class="wellness-action-section"><h2>Your actions for today</h2>{% include 'components/daily_actions.html' %}</section>
+{% else %}
+<section class="card"><h2>Start with today's check-in</h2><p>Record your habits to get your personal action list.</p><a class="btn btn-success" href="{% url 'dashboard:checkin' %}">Daily check-in →</a></section>
+{% endif %}
+<section class="card simple-coach-question"><h2>💬 Ask your coach</h2><p>Choose a question or type your own.</p><div class="prompt-chips"><button type="button" data-coach-prompt="How can I improve my sleep?">🌙 Sleep</button><button type="button" data-coach-prompt="How can I improve hydration?">💧 Water</button><button type="button" data-coach-prompt="How can I improve exercise?">🚶 Exercise</button><button type="button" data-coach-prompt="Help me manage stress">💛 Stress</button></div>
+<form method="post">{% csrf_token %}<label for="coachQuestion" class="form-label">Your question</label><div class="coach-question-form"><input class="form-control" id="coachQuestion" name="coach_question" value="{{ coach_question }}" maxlength="500" placeholder="How can I improve my routine today?" required><button class="btn btn-success" type="submit">Ask Coach</button></div></form>
+{% if coach_answer %}<div class="coach-answer" role="status">{{ coach_answer }}</div>{% endif %}
+</section>
+<p class="prediction-note">Lifestyle guidance supports well-being; it does not replace medical advice.</p>
+{% endblock %}

@@ -1,0 +1,138 @@
+{
+  "model_name": "XGBoostDepth2",
+  "model_version": "lifestyle_v6",
+  "features": [
+    "age",
+    "sex",
+    "bmi",
+    "smoking_status",
+    "sleep_hours"
+  ],
+  "target": "depression_risk",
+  "selected_threshold": 0.12,
+  "threshold_selection": "Validation only: prefer accuracy >=76%, sensitivity >=60% and specificity >=60%; maximize balanced_accuracy. Fallback maximizes balanced_accuracy.",
+  "dataset_rows": 5455,
+  "random_state": 42,
+  "test_rows": 1091,
+  "fit_rows": 3273,
+  "validation_rows": 1091,
+  "comparison": [
+    {
+      "model": "LogisticRegression",
+      "threshold": 0.125,
+      "accuracy": 0.6196150320806599,
+      "recall": 0.7083333333333334,
+      "specificity": 0.6061246040126715,
+      "balanced_accuracy": 0.6572289686730024,
+      "validation_roc_auc": 0.6929411592162384
+    },
+    {
+      "model": "PolynomialLogisticRegression",
+      "threshold": 0.13,
+      "accuracy": 0.6709440879926672,
+      "recall": 0.6527777777777778,
+      "specificity": 0.6737064413938754,
+      "balanced_accuracy": 0.6632421095858265,
+      "validation_roc_auc": 0.7048134459697291
+    },
+    {
+      "model": "RandomForest",
+      "threshold": 0.115,
+      "accuracy": 0.6251145737855178,
+      "recall": 0.7152777777777778,
+      "specificity": 0.6114044350580782,
+      "balanced_accuracy": 0.663341106417928,
+      "validation_roc_auc": 0.711281239000352
+    },
+    {
+      "model": "ExtraTrees",
+      "threshold": 0.135,
+      "accuracy": 0.6791934005499541,
+      "recall": 0.6388888888888888,
+      "specificity": 0.6853220696937699,
+      "balanced_accuracy": 0.6621054792913293,
+      "validation_roc_auc": 0.7084506629121201
+    },
+    {
+      "model": "HistGradientBoosting",
+      "threshold": 0.12,
+      "accuracy": 0.6828597616865261,
+      "recall": 0.625,
+      "specificity": 0.6916578669482577,
+      "balanced_accuracy": 0.6583289334741289,
+      "validation_roc_auc": 0.6935424733075208
+    },
+    {
+      "model": "XGBoostDepth2",
+      "threshold": 0.12,
+      "accuracy": 0.6461961503208066,
+      "recall": 0.6875,
+      "specificity": 0.6399155227032735,
+      "balanced_accuracy": 0.6637077613516367,
+      "validation_roc_auc": 0.7163777425789041
+    },
+    {
+      "model": "XGBoostDepth3",
+      "threshold": 0.135,
+      "accuracy": 0.6782768102658112,
+      "recall": 0.6388888888888888,
+      "specificity": 0.6842661034846885,
+      "balanced_accuracy": 0.6615774961867886,
+      "validation_roc_auc": 0.7125095330282764
+    }
+  ],
+  "selected_validation_metrics": {
+    "model": "XGBoostDepth2",
+    "threshold": 0.12,
+    "accuracy": 0.6461961503208066,
+    "recall": 0.6875,
+    "specificity": 0.6399155227032735,
+    "balanced_accuracy": 0.6637077613516367,
+    "validation_roc_auc": 0.7163777425789041
+  },
+  "test_metrics": {
+    "roc_auc": 0.6994787489975943,
+    "average_precision": 0.29664013944665935,
+    "positive_prevalence": 0.13290559120073328,
+    "threshold": 0.12,
+    "majority_baseline_accuracy": 0.8670944087992667,
+    "classification": {
+      "0": {
+        "precision": 0.9246794871794872,
+        "recall": 0.6099365750528541,
+        "f1-score": 0.7350318471337579,
+        "support": 946.0
+      },
+      "1": {
+        "precision": 0.20985010706638116,
+        "recall": 0.6758620689655173,
+        "f1-score": 0.3202614379084967,
+        "support": 145.0
+      },
+      "accuracy": 0.618698441796517,
+      "macro avg": {
+        "precision": 0.5672647971229342,
+        "recall": 0.6428993220091856,
+        "f1-score": 0.5276466425211273,
+        "support": 1091.0
+      },
+      "weighted avg": {
+        "precision": 0.8296746658079013,
+        "recall": 0.618698441796517,
+        "f1-score": 0.6799065406831044,
+        "support": 1091.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        577,
+        369
+      ],
+      [
+        47,
+        98
+      ]
+    ]
+  },
+  "limitations": "Internal evaluation on the same source dataset and original split; not external validation. Percentages are not clinically calibrated. Accuracy and recall trade off; majority baseline reported explicitly."
+}

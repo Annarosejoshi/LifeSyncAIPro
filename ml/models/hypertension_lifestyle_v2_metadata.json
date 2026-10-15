@@ -1,0 +1,63 @@
+{
+  "model_name": "LogisticRegression",
+  "model_version": "lifestyle_v2",
+  "features": [
+    "age",
+    "sex",
+    "bmi",
+    "smoking_status",
+    "total_activity_minutes_week",
+    "sedentary_minutes_day",
+    "sleep_hours"
+  ],
+  "target": "hypertension",
+  "selected_threshold": 0.5690310718958015,
+  "threshold_selection": "Maximum validation sensitivity minus false-positive rate (Youden J); test set untouched",
+  "dataset_rows": 6203,
+  "random_state": 42,
+  "test_rows": 1241,
+  "comparison": [
+    {
+      "model": "LogisticRegression",
+      "validation_roc_auc": 0.7709168495231666
+    },
+    {
+      "model": "RandomForest",
+      "validation_roc_auc": 0.7684509241286185
+    }
+  ],
+  "test_metrics": {
+    "roc_auc": 0.7762469406700988,
+    "average_precision": 0.7828832980147881,
+    "positive_prevalence": 0.5616438356164384,
+    "threshold": 0.5690310718958015,
+    "classification": {
+      "0": {
+        "precision": 0.6702317290552585,
+        "recall": 0.6911764705882353,
+        "f1-score": 0.6805429864253394,
+        "support": 544.0
+      },
+      "1": {
+        "precision": 0.7529411764705882,
+        "recall": 0.7345767575322812,
+        "f1-score": 0.7436456063907044,
+        "support": 697.0
+      },
+      "accuracy": 0.7155519742143432,
+      "macro avg": {
+        "precision": 0.7115864527629234,
+        "recall": 0.7128766140602583,
+        "f1-score": 0.7120942964080219,
+        "support": 1241.0
+      },
+      "weighted avg": {
+        "precision": 0.7166849803433204,
+        "recall": 0.7155519742143432,
+        "f1-score": 0.7159841839401335,
+        "support": 1241.0
+      }
+    }
+  },
+  "limitations": "Population screening, not diagnosis. Activity and sitting time must use matching units. Self-reported targets and a single dataset limit generalization."
+}

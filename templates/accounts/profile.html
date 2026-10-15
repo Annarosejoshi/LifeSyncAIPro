@@ -1,0 +1,7 @@
+﻿{% extends 'base.html' %}
+{% block title %}My Profile | LifeSync AI{% endblock %}
+{% block content %}
+<div class="project-intro"><h2>👤 {{ request.user.get_full_name|default:request.user.username }}</h2><p>Your personal starting point for meaningful wellness insights.</p></div>
+<div class="report-cards"><div class="report-stat">📏 Height<strong>{{ profile.height_cm|default_if_none:'—' }} <small>cm</small></strong></div><div class="report-stat">⚖️ Weight<strong>{{ profile.weight_kg|default_if_none:'—' }} <small>kg</small></strong></div><div class="report-stat">🌿 BMI<strong>{{ profile.bmi|default_if_none:'—' }}</strong></div></div>
+<section class="card"><h2>Your profile</h2><dl class="row"><dt class="col-sm-4">Date of birth</dt><dd class="col-sm-8">{{ profile.date_of_birth|default:'Not added' }}</dd><dt class="col-sm-4">Gender</dt><dd class="col-sm-8">{{ profile.get_gender_display|default:'Not added' }}</dd><dt class="col-sm-4">Occupation</dt><dd class="col-sm-8">{{ profile.occupation|default:'Not added' }}</dd><dt class="col-sm-4">Smoking status</dt><dd class="col-sm-8">{{ profile.get_smoking_status_display }}</dd><dt class="col-sm-4">Family history of diabetes</dt><dd class="col-sm-8">{{ profile.get_family_diabetes_history_display }}</dd></dl><div class="d-flex flex-wrap gap-3"><a class="btn btn-success" href="{% url 'accounts:profile_edit' %}">Edit my profile</a><a class="btn btn-light" href="{% url 'dashboard:bmi' %}">Calculate BMI</a><a class="btn btn-light" href="{% url 'dashboard:risks' %}">Explore health risks</a></div></section>
+{% endblock %}

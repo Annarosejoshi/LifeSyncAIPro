@@ -1,0 +1,132 @@
+{
+  "model_version": "brfss2023_profile_v1",
+  "model_name": "XGBoost_depth4",
+  "features": [
+    "age",
+    "sex",
+    "bmi",
+    "smoking_status"
+  ],
+  "target": "hypertension",
+  "target_description": "Self-reported previously diagnosed hypertension; pregnancy-only and borderline are negative",
+  "source": "CDC BRFSS 2023 local LLCP2023.XPT",
+  "dataset_file": "ml/data/processed/brfss2023_current_profile.csv",
+  "deployed": false,
+  "missing_daily_predictors": "No sleep or current-day lifestyle observations in this comparison",
+  "source_coding": "_AGE80 imputed age capped at 80; SEXVAR 1 male/2 female; _BMI5 /100; _SMOKER3 1/2 current=2,3 former=1,4 never=0",
+  "evaluation": "Unweighted internal respondent holdout; not clinical/external validation; targets differ from NHANES",
+  "source_documentation": "https://www.cdc.gov/brfss/annual_data/annual_2023.html",
+  "dataset_rows": 382294,
+  "fit_rows": 229376,
+  "validation_rows": 76459,
+  "test_rows": 76459,
+  "split_seeds": {
+    "test": 2026,
+    "validation": 2027
+  },
+  "selected_threshold": 0.49131688475608826,
+  "selection": "Validation accuracy with recall >=50% and specificity >=60%; test never used for tuning",
+  "test_respondent_ids_sha256": "c5386cb9909d9ae765fcfe21630d3e04c694580346d08362fe6ed22d81c48f02",
+  "test_metrics": {
+    "accuracy": 0.7006631004852274,
+    "recall": 0.6474428037264719,
+    "precision": 0.6346721336936602,
+    "specificity": 0.7380681944722834,
+    "roc_auc": 0.7666851574664874,
+    "average_precision": 0.666287998464797,
+    "confusion_matrix": [
+      [
+        33140,
+        11761
+      ],
+      [
+        11126,
+        20432
+      ]
+    ],
+    "negative_only_baseline_accuracy": 0.5872559149348017
+  },
+  "comparison": [
+    {
+      "model": "Logistic_splineNone",
+      "threshold": 0.4873376159216242,
+      "accuracy": 0.7015655449325783,
+      "recall": 0.6353064199252171,
+      "specificity": 0.7481347854168059,
+      "balanced_accuracy": 0.6917206026710114,
+      "eligible": true
+    },
+    {
+      "model": "Logistic_spline4",
+      "threshold": 0.48161969516272746,
+      "accuracy": 0.7023110425195203,
+      "recall": 0.6475695544711325,
+      "specificity": 0.7407852831785484,
+      "balanced_accuracy": 0.6941774188248404,
+      "eligible": true
+    },
+    {
+      "model": "Logistic_spline6",
+      "threshold": 0.46809671636739336,
+      "accuracy": 0.7023633581396567,
+      "recall": 0.6708916914886875,
+      "specificity": 0.724482750940959,
+      "balanced_accuracy": 0.6976872212148233,
+      "eligible": true
+    },
+    {
+      "model": "HistBoost_leaves7",
+      "threshold": 0.5114656140585773,
+      "accuracy": 0.7037889587883703,
+      "recall": 0.6247861081183852,
+      "specificity": 0.7593149373065188,
+      "balanced_accuracy": 0.692050522712452,
+      "eligible": true
+    },
+    {
+      "model": "HistBoost_leaves15",
+      "threshold": 0.5003929997160627,
+      "accuracy": 0.7041420892242902,
+      "recall": 0.6435769060143228,
+      "specificity": 0.746709427406962,
+      "balanced_accuracy": 0.6951431667106425,
+      "eligible": true
+    },
+    {
+      "model": "HistBoost_leaves31",
+      "threshold": 0.4959479186222585,
+      "accuracy": 0.7044559829451078,
+      "recall": 0.6489955003485646,
+      "specificity": 0.7434355582281018,
+      "balanced_accuracy": 0.6962155292883332,
+      "eligible": true
+    },
+    {
+      "model": "XGBoost_depth2",
+      "threshold": 0.48806947469711304,
+      "accuracy": 0.7032265658719052,
+      "recall": 0.6533050256670258,
+      "specificity": 0.7383131778802254,
+      "balanced_accuracy": 0.6958091017736256,
+      "eligible": true
+    },
+    {
+      "model": "XGBoost_depth3",
+      "threshold": 0.5028275847434998,
+      "accuracy": 0.7039197478387109,
+      "recall": 0.6361619874516763,
+      "specificity": 0.7515422819090889,
+      "balanced_accuracy": 0.6938521346803825,
+      "eligible": true
+    },
+    {
+      "model": "XGBoost_depth4",
+      "threshold": 0.49131688475608826,
+      "accuracy": 0.7044690618501419,
+      "recall": 0.6571392356930097,
+      "specificity": 0.7377341261887262,
+      "balanced_accuracy": 0.697436680940868,
+      "eligible": true
+    }
+  ]
+}

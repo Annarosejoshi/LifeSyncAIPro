@@ -1,0 +1,17 @@
+{% if user.is_authenticated %}
+<div class="wellness-chat" id="wellnessChat">
+  <button class="chat-launcher" type="button" data-open-chat aria-expanded="false" aria-controls="wellnessChatPanel">💬 Ask LifeSync</button>
+  <section class="chat-panel" id="wellnessChatPanel" aria-label="LifeSync wellness chatbot" hidden>
+    <header class="chat-header"><div><strong>🌿 LifeSync Assistant</strong><p>Small steps for a healthier day</p></div><button type="button" id="closeWellnessChat" aria-label="Close chatbot">×</button></header>
+    <div class="chat-messages" id="wellnessChatMessages" role="log" aria-live="polite" aria-relevant="additions">
+      <p class="chat-bubble assistant">Hi! 👋 Ask me about sleep, water, exercise, food or stress.</p>
+    </div>
+    <div class="chat-suggestions"><button type="button" data-chat-question="How can I improve my sleep?">🌙 Sleep</button><button type="button" data-chat-question="How can I improve exercise?">🚶 Exercise</button><button type="button" data-chat-question="Help me manage stress">💛 Stress</button></div>
+    <form id="wellnessChatForm" action="{% url 'recommendations:chat' %}" method="post">
+      {% csrf_token %}<label class="visually-hidden" for="wellnessChatQuestion">Your wellness question</label>
+      <div class="chat-input-row"><input id="wellnessChatQuestion" name="question" maxlength="500" placeholder="Ask a question…" autocomplete="off" required><button type="submit" aria-label="Send question">Send ➤</button></div>
+    </form>
+    <p class="chat-disclaimer">General wellness guidance, not a medical diagnosis.</p>
+  </section>
+</div>
+{% endif %}

@@ -1,0 +1,21 @@
+{
+    "lifestyle_v9":  {
+                         "model":  "AccuracyTop3",
+                         "accuracy":  0.7488542621448213,
+                         "positive_recall":  0.503448275862069,
+                         "positive_precision":  0.26545454545454544,
+                         "specificity":  0.7864693446088795,
+                         "roc_auc":  0.7127761172267988,
+                         "majority_baseline_accuracy":  0.8670944087992667,
+                         "above_80_percent":  false,
+                         "deployed":  false,
+                         "eligible":  true
+                     },
+    "lifestyle_v9_screening":  {
+                                   "eligible":  false,
+                                   "deployed":  false,
+                                   "reason":  "No candidate met 70% positive recall and 60% specificity in validation."
+                               },
+    "base_configurations":  40,
+    "ensemble_comparisons":  3
+}

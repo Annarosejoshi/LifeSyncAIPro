@@ -1,0 +1,324 @@
+{
+  "model_name": "XGBoost_Depth4",
+  "model_version": "lifestyle_v7",
+  "features": [
+    "age",
+    "sex",
+    "bmi",
+    "smoking_status",
+    "sleep_hours"
+  ],
+  "target": "diabetes",
+  "selected_threshold": 0.2251594513654709,
+  "random_state": 42,
+  "dataset_rows": 7876,
+  "test_rows": 1576,
+  "fit_rows": 4725,
+  "validation_rows": 1575,
+  "comparison": [
+    {
+      "model": "Logistic_C0.03",
+      "threshold": 0.20307189719806867,
+      "accuracy": 0.7733333333333333,
+      "recall": 0.5233644859813084,
+      "specificity": 0.8126377663482733,
+      "balanced_accuracy": 0.6680011261647909,
+      "eligible": true,
+      "validation_roc_auc": 0.7619517671860301
+    },
+    {
+      "model": "Logistic_C0.3",
+      "threshold": 0.20985423739370496,
+      "accuracy": 0.7746031746031745,
+      "recall": 0.5,
+      "specificity": 0.8177810433504775,
+      "balanced_accuracy": 0.6588905216752388,
+      "eligible": true,
+      "validation_roc_auc": 0.7612719481964196
+    },
+    {
+      "model": "Logistic_C3",
+      "threshold": 0.2104049137969483,
+      "accuracy": 0.773968253968254,
+      "recall": 0.5,
+      "specificity": 0.8170462894930198,
+      "balanced_accuracy": 0.6585231447465099,
+      "eligible": true,
+      "validation_roc_auc": 0.7611723787484463
+    },
+    {
+      "model": "Polynomial_C0.01",
+      "threshold": 0.20087943014082105,
+      "accuracy": 0.773968253968254,
+      "recall": 0.5186915887850467,
+      "specificity": 0.8141072740631888,
+      "balanced_accuracy": 0.6663994314241177,
+      "eligible": true,
+      "validation_roc_auc": 0.7624770818598199
+    },
+    {
+      "model": "Polynomial_C0.1",
+      "threshold": 0.21366322805844104,
+      "accuracy": 0.7784126984126984,
+      "recall": 0.5,
+      "specificity": 0.8221895664952241,
+      "balanced_accuracy": 0.6610947832476121,
+      "eligible": true,
+      "validation_roc_auc": 0.7677233617392378
+    },
+    {
+      "model": "Polynomial_C1",
+      "threshold": 0.22335069272055014,
+      "accuracy": 0.7961904761904762,
+      "recall": 0.5,
+      "specificity": 0.8427626745040412,
+      "balanced_accuracy": 0.6713813372520205,
+      "eligible": true,
+      "validation_roc_auc": 0.7733129845427016
+    },
+    {
+      "model": "Spline_K3_C1",
+      "threshold": 0.22073983249545936,
+      "accuracy": 0.7904761904761903,
+      "recall": 0.514018691588785,
+      "specificity": 0.8339456282145481,
+      "balanced_accuracy": 0.6739821599016665,
+      "eligible": true,
+      "validation_roc_auc": 0.776104362515193
+    },
+    {
+      "model": "Spline_K3_C10",
+      "threshold": 0.22078289397718562,
+      "accuracy": 0.7898412698412698,
+      "recall": 0.514018691588785,
+      "specificity": 0.8332108743570904,
+      "balanced_accuracy": 0.6736147829729378,
+      "eligible": true,
+      "validation_roc_auc": 0.7761283965198761
+    },
+    {
+      "model": "Spline_K5_C1",
+      "threshold": 0.22179994159561917,
+      "accuracy": 0.7866666666666666,
+      "recall": 0.5,
+      "specificity": 0.8317413666421749,
+      "balanced_accuracy": 0.6658706833210875,
+      "eligible": true,
+      "validation_roc_auc": 0.7758949233315251
+    },
+    {
+      "model": "Spline_K5_C10",
+      "threshold": 0.22214412422953356,
+      "accuracy": 0.7866666666666666,
+      "recall": 0.5,
+      "specificity": 0.8317413666421749,
+      "balanced_accuracy": 0.6658706833210875,
+      "eligible": true,
+      "validation_roc_auc": 0.7760322605011434
+    },
+    {
+      "model": "HistBoost_Leaves7",
+      "threshold": 0.2270933803734678,
+      "accuracy": 0.7898412698412698,
+      "recall": 0.5046728971962616,
+      "specificity": 0.8346803820720059,
+      "balanced_accuracy": 0.6696766396341338,
+      "eligible": true,
+      "validation_roc_auc": 0.7707413460415995
+    },
+    {
+      "model": "HistBoost_Leaves15",
+      "threshold": 0.21895278209649538,
+      "accuracy": 0.7828571428571428,
+      "recall": 0.5,
+      "specificity": 0.8273328434974283,
+      "balanced_accuracy": 0.6636664217487142,
+      "eligible": true,
+      "validation_roc_auc": 0.7650126693538973
+    },
+    {
+      "model": "HistBoost_Leaves31",
+      "threshold": 0.21488847643234407,
+      "accuracy": 0.766984126984127,
+      "recall": 0.5,
+      "specificity": 0.8089639970609845,
+      "balanced_accuracy": 0.6544819985304923,
+      "eligible": true,
+      "validation_roc_auc": 0.7560737363263681
+    },
+    {
+      "model": "RandomForest_Leaf5",
+      "threshold": 0.21620597056471033,
+      "accuracy": 0.7815873015873016,
+      "recall": 0.5,
+      "specificity": 0.8258633357825129,
+      "balanced_accuracy": 0.6629316678912565,
+      "eligible": true,
+      "validation_roc_auc": 0.7575775783336882
+    },
+    {
+      "model": "ExtraTrees_Leaf5",
+      "threshold": 0.2076916967282559,
+      "accuracy": 0.7676190476190476,
+      "recall": 0.5,
+      "specificity": 0.8096987509184423,
+      "balanced_accuracy": 0.6548493754592212,
+      "eligible": true,
+      "validation_roc_auc": 0.7598745424955538
+    },
+    {
+      "model": "RandomForest_Leaf20",
+      "threshold": 0.22502967805023308,
+      "accuracy": 0.780952380952381,
+      "recall": 0.5,
+      "specificity": 0.8251285819250551,
+      "balanced_accuracy": 0.6625642909625276,
+      "eligible": true,
+      "validation_roc_auc": 0.766250420595082
+    },
+    {
+      "model": "ExtraTrees_Leaf20",
+      "threshold": 0.19754715137061327,
+      "accuracy": 0.7796825396825396,
+      "recall": 0.5747663551401869,
+      "specificity": 0.8119030124908155,
+      "balanced_accuracy": 0.6933346838155012,
+      "eligible": true,
+      "validation_roc_auc": 0.7649388506252275
+    },
+    {
+      "model": "XGBoost_Depth1",
+      "threshold": 0.21195966005325317,
+      "accuracy": 0.7949206349206348,
+      "recall": 0.514018691588785,
+      "specificity": 0.8390889052167524,
+      "balanced_accuracy": 0.6765537984027687,
+      "eligible": true,
+      "validation_roc_auc": 0.7702280483701511
+    },
+    {
+      "model": "XGBoost_Depth2",
+      "threshold": 0.22789373993873596,
+      "accuracy": 0.7955555555555556,
+      "recall": 0.5,
+      "specificity": 0.8420279206465834,
+      "balanced_accuracy": 0.6710139603232916,
+      "eligible": true,
+      "validation_roc_auc": 0.7739001009428197
+    },
+    {
+      "model": "XGBoost_Depth3",
+      "threshold": 0.22239241003990173,
+      "accuracy": 0.7873015873015872,
+      "recall": 0.5046728971962616,
+      "specificity": 0.8317413666421749,
+      "balanced_accuracy": 0.6682071319192182,
+      "eligible": true,
+      "validation_roc_auc": 0.7730074093403009
+    },
+    {
+      "model": "XGBoost_Depth4",
+      "threshold": 0.2251594513654709,
+      "accuracy": 0.7980952380952381,
+      "recall": 0.5,
+      "specificity": 0.8449669360764144,
+      "balanced_accuracy": 0.6724834680382072,
+      "eligible": true,
+      "validation_roc_auc": 0.7715018506183606
+    },
+    {
+      "model": "RBF_SVM_C0.3",
+      "threshold": 0.13465690977147435,
+      "accuracy": 0.6241269841269841,
+      "recall": 0.5,
+      "specificity": 0.6436443791329904,
+      "balanced_accuracy": 0.5718221895664952,
+      "eligible": true,
+      "validation_roc_auc": 0.6004295219979812
+    },
+    {
+      "model": "RBF_SVM_C3",
+      "threshold": 0.1346073043235306,
+      "accuracy": 0.6514285714285715,
+      "recall": 0.5,
+      "specificity": 0.6752387950036738,
+      "balanced_accuracy": 0.5876193975018369,
+      "eligible": true,
+      "validation_roc_auc": 0.6080208340486312
+    },
+    {
+      "model": "RBF_SVM_C30",
+      "threshold": 0.1363795982124781,
+      "accuracy": 0.6514285714285715,
+      "recall": 0.5,
+      "specificity": 0.6752387950036738,
+      "balanced_accuracy": 0.5876193975018369,
+      "eligible": true,
+      "validation_roc_auc": 0.6168241466211623
+    }
+  ],
+  "selected_validation_metrics": {
+    "model": "XGBoost_Depth4",
+    "threshold": 0.2251594513654709,
+    "accuracy": 0.7980952380952381,
+    "recall": 0.5,
+    "specificity": 0.8449669360764144,
+    "balanced_accuracy": 0.6724834680382072,
+    "eligible": true,
+    "validation_roc_auc": 0.7715018506183606
+  },
+  "test_metrics": {
+    "roc_auc": 0.7552415289715154,
+    "average_precision": 0.3037067559057984,
+    "positive_prevalence": 0.13642131979695432,
+    "threshold": 0.2251594513654709,
+    "majority_baseline_accuracy": 0.8635786802030456,
+    "classification": {
+      "0": {
+        "precision": 0.9020242914979757,
+        "recall": 0.8185157972079353,
+        "f1-score": 0.8582434514637904,
+        "support": 1361.0
+      },
+      "1": {
+        "precision": 0.2756598240469208,
+        "recall": 0.4372093023255814,
+        "f1-score": 0.3381294964028777,
+        "support": 215.0
+      },
+      "accuracy": 0.766497461928934,
+      "macro avg": {
+        "precision": 0.5888420577724482,
+        "recall": 0.6278625497667584,
+        "f1-score": 0.598186473933334,
+        "support": 1576.0
+      },
+      "weighted avg": {
+        "precision": 0.8165748241743863,
+        "recall": 0.766497461928934,
+        "f1-score": 0.7872888192695668,
+        "support": 1576.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        1114,
+        247
+      ],
+      [
+        121,
+        94
+      ]
+    ]
+  },
+  "threshold_selection": "Validation accuracy maximized with positive recall >=50% and specificity >=60%; no test tuning.",
+  "excluded_inputs": [
+    "sedentary_minutes_day",
+    "total_activity_minutes_week",
+    "blood_pressure",
+    "waist",
+    "laboratory_measurements"
+  ],
+  "deployment_target_met": false,
+  "limitations": "Previously evaluated internal test split, not independent external validation. Accuracy is not clinical reliability. Report recall, precision and majority baseline; probabilities are not clinically calibrated."
+}

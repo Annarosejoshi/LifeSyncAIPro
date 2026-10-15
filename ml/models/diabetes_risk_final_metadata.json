@@ -1,0 +1,53 @@
+{
+    "model_name": "XGBoost",
+    "version": "4.0-final",
+    "problem_type": "binary_risk_screening",
+    "target": "Diabetes_Risk",
+    "features": [
+        "HighBP",
+        "HighChol",
+        "CholCheck",
+        "BMI",
+        "Smoker",
+        "Stroke",
+        "HeartDiseaseorAttack",
+        "PhysActivity",
+        "Fruits",
+        "Veggies",
+        "HvyAlcoholConsump",
+        "AnyHealthcare",
+        "NoDocbcCost",
+        "GenHlth",
+        "MentHlth",
+        "PhysHlth",
+        "DiffWalk",
+        "Sex",
+        "Age",
+        "Education",
+        "Income"
+    ],
+    "threshold": 0.5600000000000003,
+    "labels": {
+        "0": "Lower Risk",
+        "1": "Elevated Risk"
+    },
+    "validation_metrics": {
+        "threshold": 0.5600000000000003,
+        "accuracy": 0.7569115946599391,
+        "precision": 0.3623053486797563,
+        "recall": 0.7139759839893263,
+        "specificity": 0.7649426004492139,
+        "f1": 0.48068717718392096,
+        "roc_auc": 0.8215516837362502
+    },
+    "test_metrics": {
+        "threshold": 0.5600000000000003,
+        "accuracy": 0.7633238725953958,
+        "precision": 0.3708029197080292,
+        "recall": 0.72002668000667,
+        "specificity": 0.7714241148026829,
+        "f1": 0.48951366058270035,
+        "roc_auc": 0.8254406983037091
+    },
+    "disclaimer": "This is a statistical risk-screening estimate, not a medical diagnosis."
+}

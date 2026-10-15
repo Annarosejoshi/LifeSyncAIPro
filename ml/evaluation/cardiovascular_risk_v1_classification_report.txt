@@ -1,0 +1,11 @@
+Model: Random Forest
+Threshold: 0.38
+
+              precision    recall  f1-score   support
+
+      No CVD       0.96      0.70      0.81       790
+         CVD       0.28      0.81      0.42       116
+
+    accuracy                           0.71       906
+   macro avg       0.62      0.75      0.61       906
+weighted avg       0.87      0.71      0.76       906

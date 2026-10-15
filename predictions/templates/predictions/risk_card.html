@@ -1,0 +1,72 @@
+<div class="col-xl-6 col-lg-6">
+    <div class="card border-0 shadow-sm rounded-4 h-100">
+        <div class="card-body p-4">
+
+            <div class="d-flex align-items-center gap-3 mb-3">
+                <div>
+                    <i class="bi {{ icon }}"></i>
+                </div>
+
+                <div>
+                    <small class="text-muted">
+                        AI RISK SCREENING
+                    </small>
+
+                    <h4 class="mb-0">
+                        {{ title }}
+                    </h4>
+                </div>
+            </div>
+
+            {% if risk and risk.prediction_available %}
+
+                <h2>
+                    {{ risk.percentage }}%
+                </h2>
+
+                <p>
+                    {{ risk.risk_level }} Risk
+                </p>
+
+                {% if risk.readiness %}
+                    <p>
+                        Data readiness:
+                        {{ risk.readiness.completeness_percentage }}%
+                    </p>
+                {% endif %}
+
+            {% else %}
+
+                <div class="alert alert-warning">
+                    <strong>
+                        More health data required
+                    </strong>
+
+                    <p class="mb-0">
+                        {{ risk.reason|default:"Complete your health profile and lifestyle check-in." }}
+                    </p>
+                </div>
+
+                {% if risk.readiness %}
+
+                    <p>
+                        Data readiness:
+                        {{ risk.readiness.completeness_percentage }}%
+                    </p>
+
+                    {% if risk.readiness.missing_features %}
+                        <p>
+                            Missing:
+                            {% for feature in risk.readiness.missing_features %}
+                                {{ feature }}{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        </p>
+                    {% endif %}
+
+                {% endif %}
+
+            {% endif %}
+
+        </div>
+    </div>
+</div>

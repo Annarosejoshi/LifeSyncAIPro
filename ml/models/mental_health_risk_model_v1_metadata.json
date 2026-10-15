@@ -1,0 +1,52 @@
+{
+    "model_name": "Random Forest",
+    "model_version": "v1",
+    "prediction_type": "mental_health_risk",
+    "target": "depression_risk",
+    "target_definition": "Elevated depressive symptom burden defined as complete NHANES PHQ-9 score >= 10.",
+    "features": [
+        "age",
+        "sex",
+        "income_ratio",
+        "bmi",
+        "waist_circumference",
+        "obesity_flag",
+        "ever_smoked_100",
+        "smoking_status",
+        "current_smoker",
+        "moderate_sessions_week",
+        "moderate_minutes_session",
+        "vigorous_sessions_week",
+        "vigorous_minutes_session",
+        "total_activity_minutes_week",
+        "sedentary_minutes_day",
+        "sleep_hours",
+        "short_sleep_flag",
+        "total_cholesterol",
+        "hdl_cholesterol",
+        "alcohol_past_year",
+        "alcohol_frequency",
+        "average_drinks"
+    ],
+    "selected_threshold": 0.38000000000000017,
+    "dataset_rows": 5455,
+    "training_rows": 3818,
+    "validation_rows": 818,
+    "test_rows": 819,
+    "positive_prevalence": 0.13253895508707608,
+    "test_metrics": {
+        "accuracy": 0.6349206349206349,
+        "precision": 0.23163841807909605,
+        "recall": 0.7522935779816514,
+        "specificity": 0.6169014084507042,
+        "f1": 0.3542116630669546,
+        "roc_auc": 0.7408192272903475,
+        "pr_auc": 0.2693834251357746
+    },
+    "notes": [
+        "DPQ010-DPQ090 are used only to construct the target.",
+        "PHQ-9 score is not included as a predictor.",
+        "mental_symptom_score is excluded to prevent target leakage.",
+        "This model estimates elevated depressive symptom burden and is not a clinical diagnosis."
+    ]
+}

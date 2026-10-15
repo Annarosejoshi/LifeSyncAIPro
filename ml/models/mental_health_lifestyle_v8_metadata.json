@@ -1,0 +1,449 @@
+{
+  "model_name": "AccuracyTop3",
+  "model_version": "lifestyle_v8",
+  "features": [
+    "age",
+    "sex",
+    "bmi",
+    "smoking_status",
+    "sleep_hours"
+  ],
+  "target": "depression_risk",
+  "selected_threshold": 0.16434968680196413,
+  "random_state": 42,
+  "dataset_rows": 5455,
+  "test_rows": 1091,
+  "fit_rows": 4364,
+  "validation_method": "3-fold out-of-fold on training rows, seed 127",
+  "comparison": [
+    {
+      "model": "CategoricalLogistic_C0.03",
+      "threshold": 0.15654044660006225,
+      "accuracy": 0.7108157653528873,
+      "recall": 0.5,
+      "specificity": 0.743000528262018,
+      "balanced_accuracy": 0.621500264131009,
+      "eligible": true,
+      "validation_roc_auc": 0.667804075111913
+    },
+    {
+      "model": "CategoricalLogistic_C0.3",
+      "threshold": 0.15903057356118744,
+      "accuracy": 0.7172318973418882,
+      "recall": 0.5,
+      "specificity": 0.7503961965134707,
+      "balanced_accuracy": 0.6251980982567353,
+      "eligible": true,
+      "validation_roc_auc": 0.6694820838748475
+    },
+    {
+      "model": "CategoricalLogistic_C3",
+      "threshold": 0.15906322468870493,
+      "accuracy": 0.7170027497708524,
+      "recall": 0.5017301038062284,
+      "specificity": 0.7498679344955097,
+      "balanced_accuracy": 0.6257990191508691,
+      "eligible": true,
+      "validation_roc_auc": 0.6695259533849897
+    },
+    {
+      "model": "CategoricalLogistic_C30",
+      "threshold": 0.15907520856712234,
+      "accuracy": 0.7167736021998167,
+      "recall": 0.5,
+      "specificity": 0.7498679344955097,
+      "balanced_accuracy": 0.6249339672477549,
+      "eligible": true,
+      "validation_roc_auc": 0.669541947477229
+    },
+    {
+      "model": "Interaction_D2_C0.01",
+      "threshold": 0.161120823105051,
+      "accuracy": 0.7534372135655363,
+      "recall": 0.5017301038062284,
+      "specificity": 0.7918647649234021,
+      "balanced_accuracy": 0.6467974343648153,
+      "eligible": true,
+      "validation_roc_auc": 0.6985680260731122
+    },
+    {
+      "model": "Interaction_D2_C0.1",
+      "threshold": 0.163047819069988,
+      "accuracy": 0.7538955087076077,
+      "recall": 0.5,
+      "specificity": 0.7926571579503434,
+      "balanced_accuracy": 0.6463285789751717,
+      "eligible": true,
+      "validation_roc_auc": 0.6978830219512061
+    },
+    {
+      "model": "Interaction_D2_C1",
+      "threshold": 0.16196408985275593,
+      "accuracy": 0.7502291475710358,
+      "recall": 0.5017301038062284,
+      "specificity": 0.7881669307976756,
+      "balanced_accuracy": 0.644948517301952,
+      "eligible": true,
+      "validation_roc_auc": 0.6976984044293582
+    },
+    {
+      "model": "Interaction_D3_C0.01",
+      "threshold": 0.16228476655684693,
+      "accuracy": 0.75,
+      "recall": 0.5,
+      "specificity": 0.7881669307976756,
+      "balanced_accuracy": 0.6440834653988379,
+      "eligible": true,
+      "validation_roc_auc": 0.6926031436159809
+    },
+    {
+      "model": "Interaction_D3_C0.1",
+      "threshold": 0.15940933100957053,
+      "accuracy": 0.7428964252978918,
+      "recall": 0.5,
+      "specificity": 0.7799788695192815,
+      "balanced_accuracy": 0.6399894347596408,
+      "eligible": true,
+      "validation_roc_auc": 0.6862512041266586
+    },
+    {
+      "model": "Interaction_D3_C1",
+      "threshold": 0.1588365625196535,
+      "accuracy": 0.7392300641613199,
+      "recall": 0.5,
+      "specificity": 0.7757527733755942,
+      "balanced_accuracy": 0.6378763866877971,
+      "eligible": true,
+      "validation_roc_auc": 0.6846595634618162
+    },
+    {
+      "model": "CategoricalSpline_K3_C0.1",
+      "threshold": 0.16243575371896044,
+      "accuracy": 0.7442713107241063,
+      "recall": 0.5017301038062284,
+      "specificity": 0.7812995245641838,
+      "balanced_accuracy": 0.6415148141852061,
+      "eligible": true,
+      "validation_roc_auc": 0.7036806519009208
+    },
+    {
+      "model": "CategoricalSpline_K3_C1",
+      "threshold": 0.16431868047289566,
+      "accuracy": 0.7451879010082494,
+      "recall": 0.5,
+      "specificity": 0.7826201796090861,
+      "balanced_accuracy": 0.6413100898045431,
+      "eligible": true,
+      "validation_roc_auc": 0.7034768414683856
+    },
+    {
+      "model": "CategoricalSpline_K5_C0.1",
+      "threshold": 0.16616292535677338,
+      "accuracy": 0.7513748854262146,
+      "recall": 0.5,
+      "specificity": 0.7897517168515584,
+      "balanced_accuracy": 0.6448758584257792,
+      "eligible": true,
+      "validation_roc_auc": 0.6999106158730855
+    },
+    {
+      "model": "CategoricalSpline_K5_C1",
+      "threshold": 0.16394551656746603,
+      "accuracy": 0.7431255728689276,
+      "recall": 0.5,
+      "specificity": 0.780243000528262,
+      "balanced_accuracy": 0.640121500264131,
+      "eligible": true,
+      "validation_roc_auc": 0.6982581976577337
+    },
+    {
+      "model": "CategoricalSpline_K7_C0.1",
+      "threshold": 0.16320471471883513,
+      "accuracy": 0.7431255728689277,
+      "recall": 0.5034602076124568,
+      "specificity": 0.7797147385103012,
+      "balanced_accuracy": 0.641587473061379,
+      "eligible": true,
+      "validation_roc_auc": 0.6959326566461395
+    },
+    {
+      "model": "CategoricalSpline_K7_C1",
+      "threshold": 0.16454313108399127,
+      "accuracy": 0.7447296058661778,
+      "recall": 0.5,
+      "specificity": 0.7820919175911252,
+      "balanced_accuracy": 0.6410459587955626,
+      "eligible": true,
+      "validation_roc_auc": 0.6944219003906215
+    },
+    {
+      "model": "HistBoost_L7_BalancedFalse",
+      "threshold": 0.16072772894829704,
+      "accuracy": 0.7225022914757103,
+      "recall": 0.5,
+      "specificity": 0.7564712097200211,
+      "balanced_accuracy": 0.6282356048600106,
+      "eligible": true,
+      "validation_roc_auc": 0.6848016823957139
+    },
+    {
+      "model": "HistBoost_L7_BalancedTrue",
+      "threshold": 0.5478190278416161,
+      "accuracy": 0.731897341888176,
+      "recall": 0.5017301038062284,
+      "specificity": 0.7670364500792393,
+      "balanced_accuracy": 0.6343832769427338,
+      "eligible": true,
+      "validation_roc_auc": 0.6795967478069815
+    },
+    {
+      "model": "HistBoost_L15_BalancedFalse",
+      "threshold": 0.15299988448074617,
+      "accuracy": 0.6991292392300642,
+      "recall": 0.5,
+      "specificity": 0.7295298468040148,
+      "balanced_accuracy": 0.6147649234020074,
+      "eligible": true,
+      "validation_roc_auc": 0.6696258022179693
+    },
+    {
+      "model": "HistBoost_L15_BalancedTrue",
+      "threshold": 0.5127610470887247,
+      "accuracy": 0.7078368469294225,
+      "recall": 0.5,
+      "specificity": 0.739566825145272,
+      "balanced_accuracy": 0.619783412572636,
+      "eligible": true,
+      "validation_roc_auc": 0.664486900381482
+    },
+    {
+      "model": "HistBoost_L31_BalancedFalse",
+      "threshold": 0.15273623205303466,
+      "accuracy": 0.6984417965169569,
+      "recall": 0.5,
+      "specificity": 0.7287374537770734,
+      "balanced_accuracy": 0.6143687268885367,
+      "eligible": true,
+      "validation_roc_auc": 0.6550549557009343
+    },
+    {
+      "model": "HistBoost_L31_BalancedTrue",
+      "threshold": 0.4728701931047777,
+      "accuracy": 0.6979835013748854,
+      "recall": 0.5,
+      "specificity": 0.7282091917591125,
+      "balanced_accuracy": 0.6141045958795562,
+      "eligible": true,
+      "validation_roc_auc": 0.6543925717951952
+    },
+    {
+      "model": "RandomForest_Leaf5_BalancedFalse",
+      "threshold": 0.1740381950122649,
+      "accuracy": 0.7257103574702107,
+      "recall": 0.5,
+      "specificity": 0.7601690438457475,
+      "balanced_accuracy": 0.6300845219228737,
+      "eligible": true,
+      "validation_roc_auc": 0.6732187607960124
+    },
+    {
+      "model": "RandomForest_Leaf5_BalancedTrue",
+      "threshold": 0.39662932554527003,
+      "accuracy": 0.7046287809349221,
+      "recall": 0.5034602076124568,
+      "specificity": 0.7353407290015848,
+      "balanced_accuracy": 0.6194004683070208,
+      "eligible": true,
+      "validation_roc_auc": 0.6622938818484418
+    },
+    {
+      "model": "BalancedExtraTrees_Leaf5",
+      "threshold": 0.5165567822744503,
+      "accuracy": 0.7176901924839597,
+      "recall": 0.5017301038062284,
+      "specificity": 0.7506603275224512,
+      "balanced_accuracy": 0.6261952156643398,
+      "eligible": true,
+      "validation_roc_auc": 0.6753324943289519
+    },
+    {
+      "model": "RandomForest_Leaf20_BalancedFalse",
+      "threshold": 0.1765248611911496,
+      "accuracy": 0.7307516040329973,
+      "recall": 0.5,
+      "specificity": 0.7659799260433175,
+      "balanced_accuracy": 0.6329899630216588,
+      "eligible": true,
+      "validation_roc_auc": 0.682626714338201
+    },
+    {
+      "model": "RandomForest_Leaf20_BalancedTrue",
+      "threshold": 0.5047063742701222,
+      "accuracy": 0.7117323556370302,
+      "recall": 0.5,
+      "specificity": 0.7440570522979397,
+      "balanced_accuracy": 0.6220285261489699,
+      "eligible": true,
+      "validation_roc_auc": 0.6756436936665223
+    },
+    {
+      "model": "BalancedExtraTrees_Leaf20",
+      "threshold": 0.5250039676271591,
+      "accuracy": 0.7115032080659945,
+      "recall": 0.5,
+      "specificity": 0.7437929212889594,
+      "balanced_accuracy": 0.6218964606444797,
+      "eligible": true,
+      "validation_roc_auc": 0.6688370649835397
+    },
+    {
+      "model": "WeightedXGBoost_D2",
+      "threshold": 0.32866406440734863,
+      "accuracy": 0.7346471127406049,
+      "recall": 0.5017301038062284,
+      "specificity": 0.7702060221870047,
+      "balanced_accuracy": 0.6359680629966166,
+      "eligible": true,
+      "validation_roc_auc": 0.6931994947694748
+    },
+    {
+      "model": "WeightedXGBoost_D3",
+      "threshold": 0.32759320735931396,
+      "accuracy": 0.7346471127406049,
+      "recall": 0.5,
+      "specificity": 0.7704701531959852,
+      "balanced_accuracy": 0.6352350765979926,
+      "eligible": true,
+      "validation_roc_auc": 0.6876525150938534
+    },
+    {
+      "model": "NeuralNetwork_16",
+      "threshold": 0.3015651128521765,
+      "accuracy": 0.5985334555453713,
+      "recall": 0.5051903114186851,
+      "specificity": 0.612783940834654,
+      "balanced_accuracy": 0.5589871261266696,
+      "eligible": true,
+      "validation_roc_auc": 0.5638520720118009
+    },
+    {
+      "model": "NeuralNetwork_32_16",
+      "threshold": 0.15915074945840033,
+      "accuracy": 0.7241063244729606,
+      "recall": 0.5034602076124568,
+      "specificity": 0.7577918647649234,
+      "balanced_accuracy": 0.6306260361886902,
+      "eligible": true,
+      "validation_roc_auc": 0.6865966765190274
+    },
+    {
+      "model": "AccuracyTop3",
+      "members": [
+        "Interaction_D2_C0.1",
+        "Interaction_D2_C0.01",
+        "CategoricalSpline_K5_C0.1"
+      ],
+      "threshold": 0.16434968680196413,
+      "accuracy": 0.7557286892758938,
+      "recall": 0.5,
+      "specificity": 0.7947702060221871,
+      "balanced_accuracy": 0.6473851030110935,
+      "eligible": true,
+      "validation_roc_auc": 0.7024582462797742
+    },
+    {
+      "model": "AccuracyTop5",
+      "members": [
+        "Interaction_D2_C0.1",
+        "Interaction_D2_C0.01",
+        "CategoricalSpline_K5_C0.1",
+        "Interaction_D2_C1",
+        "Interaction_D3_C0.01"
+      ],
+      "threshold": 0.163130350250998,
+      "accuracy": 0.7516040329972503,
+      "recall": 0.5017301038062284,
+      "specificity": 0.7897517168515584,
+      "balanced_accuracy": 0.6457409103288934,
+      "eligible": true,
+      "validation_roc_auc": 0.7016032478060675
+    },
+    {
+      "model": "AUCTop3",
+      "members": [
+        "CategoricalSpline_K3_C0.1",
+        "CategoricalSpline_K3_C1",
+        "CategoricalSpline_K5_C0.1"
+      ],
+      "threshold": 0.1639992201041808,
+      "accuracy": 0.7449587534372135,
+      "recall": 0.5,
+      "specificity": 0.7823560486001057,
+      "balanced_accuracy": 0.6411780243000529,
+      "eligible": true,
+      "validation_roc_auc": 0.7031501050126399
+    }
+  ],
+  "selected_validation_metrics": {
+    "model": "AccuracyTop3",
+    "members": [
+      "Interaction_D2_C0.1",
+      "Interaction_D2_C0.01",
+      "CategoricalSpline_K5_C0.1"
+    ],
+    "threshold": 0.16434968680196413,
+    "accuracy": 0.7557286892758938,
+    "recall": 0.5,
+    "specificity": 0.7947702060221871,
+    "balanced_accuracy": 0.6473851030110935,
+    "eligible": true,
+    "validation_roc_auc": 0.7024582462797742
+  },
+  "test_metrics": {
+    "roc_auc": 0.7109535612743312,
+    "average_precision": 0.2952886572363112,
+    "positive_prevalence": 0.13290559120073328,
+    "threshold": 0.16434968680196413,
+    "majority_baseline_accuracy": 0.8670944087992667,
+    "classification": {
+      "0": {
+        "precision": 0.9135802469135802,
+        "recall": 0.7822410147991543,
+        "f1-score": 0.8428246013667426,
+        "support": 946.0
+      },
+      "1": {
+        "precision": 0.2669039145907473,
+        "recall": 0.5172413793103449,
+        "f1-score": 0.352112676056338,
+        "support": 145.0
+      },
+      "accuracy": 0.7470210815765352,
+      "macro avg": {
+        "precision": 0.5902420807521638,
+        "recall": 0.6497411970547495,
+        "f1-score": 0.5974686387115403,
+        "support": 1091.0
+      },
+      "weighted avg": {
+        "precision": 0.8276333466506922,
+        "recall": 0.7470210815765352,
+        "f1-score": 0.7776062428241132,
+        "support": 1091.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        740,
+        206
+      ],
+      [
+        70,
+        75
+      ]
+    ]
+  },
+  "deployment_target_met": false,
+  "threshold_selection": "OOF accuracy maximum subject to positive recall >=50% and specificity >=60%, then refit on all training rows.",
+  "limitations": "Repeatedly evaluated internal test split, not external validation. OOF cutoff may transfer imperfectly after final refit. Probabilities are not clinically calibrated; report minority recall and precision."
+}

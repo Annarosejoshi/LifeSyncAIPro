@@ -1,0 +1,8 @@
+                 precision    recall  f1-score   support
+
+No Hypertension       0.64      0.71      0.67       408
+   Hypertension       0.75      0.69      0.72       523
+
+       accuracy                           0.70       931
+      macro avg       0.69      0.70      0.69       931
+   weighted avg       0.70      0.70      0.70       931

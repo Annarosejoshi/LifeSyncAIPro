@@ -1,0 +1,54 @@
+{
+    "diabetes":  {
+                     "model":  "SplineElasticNet_C0.3",
+                     "eligible":  true,
+                     "accuracy":  0.7703045685279187,
+                     "positive_recall":  0.4883720930232558,
+                     "positive_precision":  0.29411764705882354,
+                     "specificity":  0.8148420279206466,
+                     "roc_auc":  0.7648497172052013,
+                     "majority_baseline_accuracy":  0.8635786802030456,
+                     "target_met":  false,
+                     "deployed":  true,
+                     "deployment_criterion":  "User-requested internal test accuracy above 70%; does not meet original accuracy/detection target"
+                 },
+    "hypertension":  {
+                         "model":  "SplineElasticNet_C0.3",
+                         "eligible":  true,
+                         "accuracy":  0.7308622078968574,
+                         "positive_recall":  0.8235294117647058,
+                         "positive_precision":  0.7312101910828025,
+                         "specificity":  0.6121323529411765,
+                         "roc_auc":  0.7802609924888175,
+                         "majority_baseline_accuracy":  0.5616438356164384,
+                         "target_met":  false,
+                         "deployed":  true,
+                         "deployment_criterion":  "User-requested internal test accuracy above 70%; does not meet original accuracy/detection target"
+                     },
+    "cardiovascular":  {
+                           "model":  "SplineElasticNet_C0.3",
+                           "eligible":  true,
+                           "accuracy":  0.8145695364238411,
+                           "positive_recall":  0.47096774193548385,
+                           "positive_precision":  0.3395348837209302,
+                           "specificity":  0.8651471984805318,
+                           "roc_auc":  0.8139846215115031,
+                           "majority_baseline_accuracy":  0.8716887417218543,
+                           "target_met":  false,
+                           "deployed":  true,
+                           "deployment_criterion":  "User-requested internal test accuracy above 70%; does not meet original accuracy/detection target"
+                       },
+    "mental_health":  {
+                          "model":  "SplineElasticNet_C0.3",
+                          "eligible":  true,
+                          "accuracy":  0.7461044912923923,
+                          "positive_recall":  0.503448275862069,
+                          "positive_precision":  0.26258992805755393,
+                          "specificity":  0.7832980972515856,
+                          "roc_auc":  0.7071626448931982,
+                          "majority_baseline_accuracy":  0.8670944087992667,
+                          "target_met":  false,
+                          "deployed":  true,
+                          "deployment_criterion":  "User-requested internal test accuracy above 70%; does not meet original accuracy/detection target"
+                      }
+}

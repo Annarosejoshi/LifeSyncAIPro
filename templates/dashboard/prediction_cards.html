@@ -1,0 +1,31 @@
+<div class="risk-card-grid">
+{% for title,result in risk_cards %}
+<article class="risk-mini-card" data-risk="{{ result.risk_level }}" data-condition="{{ forloop.counter }}">
+<h3>{% if forloop.counter == 1 %}🍃{% elif forloop.counter == 2 %}💚{% elif forloop.counter == 3 %}❤️{% else %}💛{% endif %} {{ title }}</h3>
+{% if forloop.counter == 4 %}
+<div class="daily-mental-result" style="padding:14px;margin:12px 0;background:#edf7f0;border-radius:12px">
+  <h4>Today's mental wellness</h4>
+  {% if mental_assessment_result %}
+  <strong>{{ mental_assessment_result.score|floatformat:1 }} / 100 · {{ mental_assessment_result.category }}</strong>
+  <p>Based on your eight assessment answers. Higher scores mean better reported wellbeing.</p>
+  <a class="text-btn" href="{% url 'mental_health:assessment_edit' today_mental_assessment.pk %}">Update assessment →</a>
+  {% else %}
+  <p>No mental wellness assessment saved today.</p>
+  <a class="text-btn" href="{% url 'mental_health:assessment_create' %}">Complete today's assessment →</a>
+  {% endif %}
+</div>
+<details class="mental-lifestyle-estimate"><summary>Profile and sleep risk estimate</summary>
+{% endif %}
+{% if result.prediction_available %}
+<div class="prediction-result-layout"><div class="prediction-result-summary">
+<div class="risk-number">{{ result.percentage }}<span style="font-size:16px">%</span></div><p>Lifestyle screening estimate</p>
+<strong>{{ result.label }}</strong>
+<div class="risk-meter" aria-hidden="true"><span data-risk-percent="{{ result.percentage }}"></span></div>
+</div>
+<aside class="prediction-input-note" aria-label="Inputs used for {{ title }}"><h4>Based on your inputs</h4><dl>{% for input in result.display_inputs %}<div><dt>{{ input.label }}</dt><dd>{{ input.value }}</dd></div>{% endfor %}</dl></aside></div>
+{% if result.model == 'mental_health' %}<p class="mental-screening-note">The lifestyle risk estimate uses your profile and sleep. Assessment edits update today's wellness score above.</p>{% endif %}
+{% else %}{% if prediction_profile_form %}<strong class="prediction-pending">Awaiting your details</strong><p>Complete the details above to see your result.</p>{% else %}<p>{{ result.reason|default:"Complete your profile and today's check-in to see today's result." }}</p><a class="text-btn" href="{% url 'accounts:profile_edit' %}">Update profile →</a> <a class="text-btn" href="{% url 'dashboard:checkin' %}">Daily check-in →</a>{% endif %}{% endif %}
+{% if forloop.counter == 4 %}</details>{% endif %}
+</article>
+{% endfor %}
+</div>

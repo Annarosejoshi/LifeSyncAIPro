@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lifestyle History | LifeSync AI Pro
+{% endblock %}
+
+
+{% block content %}
+
+
+<header class="page-header">
+
+    <div class="eyebrow">
+        Lifestyle Analytics
+    </div>
+
+    <h1 class="page-title">
+        Health History
+    </h1>
+
+    <p class="page-description">
+        Review your previous lifestyle records,
+        health scores and wellness insights.
+    </p>
+
+</header>
+
+
+<div class="actions">
+
+    <a
+        href="{% url 'lifestyle:checkin_create' %}"
+        class="btn btn-primary"
+    >
+        + New Check-In
+    </a>
+
+</div>
+
+<br>
+
+
+{% for item in checkin_data %}
+
+<section class="history-card">
+
+    <div class="history-date">
+        {{ item.checkin.date }}
+    </div>
+
+
+    <div class="stat-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-label">
+                Health Score
+            </div>
+
+            <div class="stat-value">
+                {{ item.scores.overall }}/100
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-label">
+                Sleep
+            </div>
+
+            <div class="stat-value">
+                {{ item.checkin.sleep_hours }}h
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-label">
+                Water
+            </div>
+
+            <div class="stat-value">
+                {{ item.checkin.water_liters }}L
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-label">
+                Exercise
+            </div>
+
+            <div class="stat-value">
+                {{ item.checkin.exercise_minutes }}m
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-label">
+                Stress
+            </div>
+
+            <div class="stat-value">
+                {{ item.checkin.stress_level }}/5
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-label">
+                Steps
+            </div>
+
+            <div class="stat-value">
+                {{ item.checkin.steps }}
+            </div>
+
+        </div>
+
+    </div>
+
+
+    {% if item.insights %}
+
+    <h3>
+        Wellness Insights
+    </h3>
+
+    <ul class="insight-list">
+
+        {% for insight in item.insights %}
+
+        <li>
+            {{ insight }}
+        </li>
+
+        {% endfor %}
+
+    </ul>
+
+    {% endif %}
+
+
+    <div class="actions">
+
+        <a
+            href="{% url 'lifestyle:checkin_edit' item.checkin.pk %}"
+            class="btn btn-secondary"
+        >
+            Edit Record
+        </a>
+
+        <form method="post" action="{% url 'lifestyle:checkin_delete' item.checkin.pk %}" onsubmit="return confirm('Delete this check-in?')">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-danger">Delete Record</button>
+        </form>
+
+    </div>
+
+</section>
+
+
+{% empty %}
+
+<div class="empty-state">
+
+    <h2>
+        No lifestyle history yet
+    </h2>
+
+    <p>
+        Complete your first daily check-in.
+    </p>
+
+    <a
+        href="{% url 'lifestyle:checkin_create' %}"
+        class="btn btn-primary"
+    >
+        Start Check-In
+    </a>
+
+</div>
+
+{% endfor %}
+
+
+{% endblock %}

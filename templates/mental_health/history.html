@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title %}
+Wellness History | LifeSync AI Pro
+{% endblock %}
+
+
+{% block content %}
+
+
+<header class="page-header">
+
+    <div class="eyebrow">
+        Mental Health Analytics
+    </div>
+
+    <h1 class="page-title">
+        Mental Wellness History
+    </h1>
+
+    <p class="page-description">
+        Review your emotional wellbeing and identify
+        changes in mood, stress, anxiety and energy.
+    </p>
+
+</header>
+
+
+<div class="actions">
+
+    <a
+        href="{% url 'mental_health:assessment_create' %}"
+        class="btn btn-primary"
+    >
+        + Today's Assessment
+    </a>
+
+</div>
+
+<br>
+
+
+{% for item in assessment_data %}
+
+<section class="history-card">
+
+    <div class="history-date">
+        {{ item.assessment.date }}
+    </div>
+
+
+    <span class="badge badge-purple">
+        Wellness Score {{ item.score }}
+    </span>
+
+
+    <div class="stat-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-label">
+                Mood
+            </div>
+
+            <div class="stat-value">
+                {{ item.assessment.mood }}/5
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-label">
+                Stress
+            </div>
+
+            <div class="stat-value">
+                {{ item.assessment.stress }}/5
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-label">
+                Anxiety
+            </div>
+
+            <div class="stat-value">
+                {{ item.assessment.anxiety }}/5
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-label">
+                Energy
+            </div>
+
+            <div class="stat-value">
+                {{ item.assessment.energy }}/5
+            </div>
+
+        </div>
+
+    </div>
+
+
+    {% if item.insights %}
+
+    <h3>
+        Wellness Insights
+    </h3>
+
+    <ul class="insight-list">
+
+        {% for insight in item.insights %}
+
+        <li>
+            {{ insight }}
+        </li>
+
+        {% endfor %}
+
+    </ul>
+
+    {% endif %}
+
+
+    <div class="actions">
+
+        <a
+            href="{% url 'mental_health:assessment_edit' item.assessment.pk %}"
+            class="btn btn-secondary"
+        >
+            Edit Assessment
+        </a>
+
+    </div>
+
+</section>
+
+
+{% empty %}
+
+<div class="empty-state">
+
+    <h2>
+        No assessments yet
+    </h2>
+
+    <p>
+        Complete your first mental wellness assessment.
+    </p>
+
+</div>
+
+{% endfor %}
+
+
+{% endblock %}

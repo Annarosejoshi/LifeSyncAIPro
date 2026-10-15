@@ -1,0 +1,45 @@
+{
+  "diabetes": {
+    "model": "XGBoost_Depth4",
+    "accuracy": 0.766497461928934,
+    "positive_recall": 0.4372093023255814,
+    "positive_precision": 0.2756598240469208,
+    "specificity": 0.8185157972079353,
+    "roc_auc": 0.7552415289715154,
+    "majority_baseline_accuracy": 0.8635786802030456,
+    "target_met": false
+  },
+  "hypertension": {
+    "model": "XGBoost_Depth4",
+    "accuracy": 0.7195809830781628,
+    "positive_recall": 0.7833572453371592,
+    "positive_precision": 0.7348586810228802,
+    "specificity": 0.6378676470588235,
+    "roc_auc": 0.7759119967929784,
+    "majority_baseline_accuracy": 0.5616438356164384,
+    "target_met": false
+  },
+  "cardiovascular": {
+    "model": "RandomForest_Leaf20",
+    "accuracy": 0.8129139072847682,
+    "positive_recall": 0.45806451612903226,
+    "positive_precision": 0.3333333333333333,
+    "specificity": 0.8651471984805318,
+    "roc_auc": 0.7976993536133321,
+    "majority_baseline_accuracy": 0.8716887417218543,
+    "target_met": false
+  },
+  "mental_health": {
+    "model": "Spline_K5_C1",
+    "accuracy": 0.7580201649862511,
+    "positive_recall": 0.4689655172413793,
+    "positive_precision": 0.26666666666666666,
+    "specificity": 0.8023255813953488,
+    "roc_auc": 0.702934315083473,
+    "majority_baseline_accuracy": 0.8670944087992667,
+    "target_met": false
+  },
+  "average_accuracy": 0.764253129319529,
+  "all_models_above_80_percent": false,
+  "deployed": false
+}

@@ -1,0 +1,7 @@
+{% load tz %}
+{% timezone "Asia/Kolkata" %}
+<div class="prediction-timing" aria-label="Prediction timing">
+  {% if predictions_calculated_at %}<p><strong>Results calculated:</strong> <time datetime="{{ predictions_calculated_at|date:'c' }}">{{ predictions_calculated_at|date:"d M Y, h:i:s A" }} IST (UTC+05:30)</time></p>{% endif %}
+  {% if today_checkin %}<p><strong>Today's check-in saved:</strong> <time datetime="{{ today_checkin.updated_at|date:'c' }}">{{ today_checkin.updated_at|date:"d M Y, h:i:s A" }} IST (UTC+05:30)</time></p>{% endif %}
+</div>
+{% endtimezone %}

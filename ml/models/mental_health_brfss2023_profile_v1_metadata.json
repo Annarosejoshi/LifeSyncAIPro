@@ -1,0 +1,132 @@
+{
+  "model_version": "brfss2023_profile_v1",
+  "model_name": "XGBoost_depth3",
+  "features": [
+    "age",
+    "sex",
+    "bmi",
+    "smoking_status"
+  ],
+  "target": "mental_health",
+  "target_description": "Self-reported previously diagnosed depressive disorder; not PHQ screening or today's mood",
+  "source": "CDC BRFSS 2023 local LLCP2023.XPT",
+  "dataset_file": "ml/data/processed/brfss2023_current_profile.csv",
+  "deployed": false,
+  "missing_daily_predictors": "No sleep or current-day lifestyle observations in this comparison",
+  "source_coding": "_AGE80 imputed age capped at 80; SEXVAR 1 male/2 female; _BMI5 /100; _SMOKER3 1/2 current=2,3 former=1,4 never=0",
+  "evaluation": "Unweighted internal respondent holdout; not clinical/external validation; targets differ from NHANES",
+  "source_documentation": "https://www.cdc.gov/brfss/annual_data/annual_2023.html",
+  "dataset_rows": 381627,
+  "fit_rows": 228975,
+  "validation_rows": 76326,
+  "test_rows": 76326,
+  "split_seeds": {
+    "test": 2026,
+    "validation": 2027
+  },
+  "selected_threshold": 0.24007180333137512,
+  "selection": "Validation accuracy with recall >=50% and specificity >=60%; test never used for tuning",
+  "test_respondent_ids_sha256": "a08d19a9c77cca270bac0e3f761a51427de36bdfa3e30417914304f2f10e7df4",
+  "test_metrics": {
+    "accuracy": 0.6942719387888793,
+    "recall": 0.49499687304565354,
+    "precision": 0.3415318230852211,
+    "specificity": 0.7470830018562715,
+    "roc_auc": 0.6746733080034276,
+    "average_precision": 0.36541935118462243,
+    "confusion_matrix": [
+      [
+        45076,
+        15260
+      ],
+      [
+        8075,
+        7915
+      ]
+    ],
+    "negative_only_baseline_accuracy": 0.7905038912035217
+  },
+  "comparison": [
+    {
+      "model": "Logistic_splineNone",
+      "threshold": 0.24418254697410033,
+      "accuracy": 0.6860309724078295,
+      "recall": 0.5,
+      "specificity": 0.735332140015911,
+      "balanced_accuracy": 0.6176660700079555,
+      "eligible": true
+    },
+    {
+      "model": "Logistic_spline4",
+      "threshold": 0.24456191215925063,
+      "accuracy": 0.6900269894924402,
+      "recall": 0.5,
+      "specificity": 0.7403871652081676,
+      "balanced_accuracy": 0.6201935826040839,
+      "eligible": true
+    },
+    {
+      "model": "Logistic_spline6",
+      "threshold": 0.24518082222391388,
+      "accuracy": 0.6894243115059089,
+      "recall": 0.5,
+      "specificity": 0.7396247679660568,
+      "balanced_accuracy": 0.6198123839830284,
+      "eligible": true
+    },
+    {
+      "model": "HistBoost_leaves7",
+      "threshold": 0.23516625306487535,
+      "accuracy": 0.6926473285643161,
+      "recall": 0.5,
+      "specificity": 0.7437019358260408,
+      "balanced_accuracy": 0.6218509679130204,
+      "eligible": true
+    },
+    {
+      "model": "HistBoost_leaves15",
+      "threshold": 0.2369144144595774,
+      "accuracy": 0.6927914472132694,
+      "recall": 0.5001250781738587,
+      "specificity": 0.7438511005038451,
+      "balanced_accuracy": 0.6219880893388519,
+      "eligible": true
+    },
+    {
+      "model": "HistBoost_leaves31",
+      "threshold": 0.2381492381878645,
+      "accuracy": 0.6932369048554883,
+      "recall": 0.5002501563477173,
+      "specificity": 0.7443814638027049,
+      "balanced_accuracy": 0.6223158100752111,
+      "eligible": true
+    },
+    {
+      "model": "XGBoost_depth2",
+      "threshold": 0.24135267734527588,
+      "accuracy": 0.6930796845111757,
+      "recall": 0.5000625390869293,
+      "specificity": 0.7442322991249006,
+      "balanced_accuracy": 0.622147419105915,
+      "eligible": true
+    },
+    {
+      "model": "XGBoost_depth3",
+      "threshold": 0.24007180333137512,
+      "accuracy": 0.6942457353981604,
+      "recall": 0.5,
+      "specificity": 0.7457239459029434,
+      "balanced_accuracy": 0.6228619729514717,
+      "eligible": true
+    },
+    {
+      "model": "XGBoost_depth4",
+      "threshold": 0.23946373164653778,
+      "accuracy": 0.6935775489348321,
+      "recall": 0.5,
+      "specificity": 0.7448786793953859,
+      "balanced_accuracy": 0.6224393396976929,
+      "eligible": true
+    }
+  ]
+}

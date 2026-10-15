@@ -1,0 +1,36 @@
+{% extends 'dashboard/layout.html' %}
+{% block title %}My Health Dashboard{% endblock %}
+{% block content %}
+<section class="page active main-overview introduction-dashboard" id="overview">
+  <header class="overview-welcome"><div><span class="dashboard-greeting">Hello, {{ display_name }} 👋</span></div><span class="dashboard-date">{{ today|date:"j M Y" }}</span></header>
+  <div class="dashboard-intro-grid">
+    <section class="dashboard-purpose" aria-label="What LifeSync AI helps you do">
+      <span class="purpose-label">🌿 YOUR DAILY WELLNESS COMPANION</span>
+      <h1>Understand your habits.<br>Know your health risks.</h1>
+      <p>LifeSync AI uses your profile and daily habits to estimate health risks and suggest ways to improve your routine.</p>
+      <div class="habit-topics" aria-label="Habits you can record"><span>🌙 Sleep</span><span>🥗 Food</span><span>💧 Water</span><span>🚶 Movement</span><span>💛 Mood</span></div>
+      <div class="purpose-action">
+        {% if not today_checkin %}<a class="btn" href="{% url 'dashboard:checkin' %}">Start today's check-in →</a><p>Begin by recording your daily habits.</p>
+        {% elif not risk_ready_count %}<a class="btn" href="{% url 'dashboard:risks' %}">Finish your prediction details →</a><p>✓ Today's check-in is saved. Add the missing details to see your results.</p>
+        {% else %}<a class="btn" href="{% url 'dashboard:risks' %}">View today's predictions →</a><p>✓ Your daily check-in is saved and your results are ready.</p>{% endif %}
+      </div>
+    </section>
+    <section class="total-score-card" aria-label="Total health score">
+      <span class="total-score-icon" aria-hidden="true">💚</span><h2>Total Health Score</h2>
+      {% if ai_health_score is not None %}<div class="total-score-value"><strong id="healthScore">{{ ai_health_score }}</strong><span>/ 100</span></div><span class="total-score-category">{{ ai_health_category }}</span><p>Today's habit-based wellness score, not a measure of prediction accuracy.</p>
+      {% else %}<div class="total-score-value"><strong>—</strong><span>/ 100</span></div><span class="total-score-category">Ready when you are</span><p>Complete today's check-in to calculate your score.</p>{% endif %}
+      <a class="score-checkin-link" href="{% url 'dashboard:checkin' %}">{% if today_checkin %}Update your check-in{% else %}Record your first check-in{% endif %} →</a>
+    </section>
+  </div>
+  <section class="daily-workflow" aria-label="How to use LifeSync AI">
+    <div class="workflow-heading"><h2>Your daily routine, in three simple steps</h2><p>Record → Understand → Improve</p></div>
+    <div class="daily-workflow-grid">
+      <a class="workflow-card" href="{% url 'dashboard:checkin' %}"><span class="workflow-card-number">01</span><span class="workflow-card-icon" aria-hidden="true">📝</span><h3>Record your day</h3><p>Enter your sleep, food, water, exercise and mood.</p><strong>{% if today_checkin %}✓ Saved today · Update{% else %}Daily check-in{% endif %} →</strong></a>
+      <a class="workflow-card" href="{% url 'dashboard:risks' %}"><span class="workflow-card-number">02</span><span class="workflow-card-icon" aria-hidden="true">💚</span><h3>See your predictions</h3><p>Review diabetes, hypertension, heart and mental wellness screening estimates.</p><strong>{% if risk_ready_count == 4 %}✓ Today's results are ready{% else %}Health Predictions{% endif %} →</strong></a>
+      <a class="workflow-card" href="{% url 'dashboard:reports' %}"><span class="workflow-card-number">03</span><span class="workflow-card-icon" aria-hidden="true">🌱</span><h3>Build healthier habits</h3><p>See simple actions to improve your routine. Use the chat button whenever you need help.</p><strong>Daily Wellness →</strong></a>
+    </div>
+  </section>
+  <p class="dashboard-awareness-note">Health scores and screening estimates support awareness. They do not diagnose a condition.</p>
+  {% if coach_answer %}<div class="card coach-answer" role="status">{{ coach_answer }}</div>{% endif %}
+</section>
+{% endblock %}

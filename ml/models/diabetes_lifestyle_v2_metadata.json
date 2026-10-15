@@ -1,0 +1,63 @@
+{
+  "model_name": "RandomForest",
+  "model_version": "lifestyle_v2",
+  "features": [
+    "age",
+    "sex",
+    "bmi",
+    "smoking_status",
+    "total_activity_minutes_week",
+    "sedentary_minutes_day",
+    "sleep_hours"
+  ],
+  "target": "diabetes",
+  "selected_threshold": 0.12816175719258588,
+  "threshold_selection": "Maximum validation sensitivity minus false-positive rate (Youden J); test set untouched",
+  "dataset_rows": 7876,
+  "random_state": 42,
+  "test_rows": 1576,
+  "comparison": [
+    {
+      "model": "LogisticRegression",
+      "validation_roc_auc": 0.7708597993503952
+    },
+    {
+      "model": "RandomForest",
+      "validation_roc_auc": 0.7878930418123014
+    }
+  ],
+  "test_metrics": {
+    "roc_auc": 0.7729337183671378,
+    "average_precision": 0.3205063283664725,
+    "positive_prevalence": 0.13642131979695432,
+    "threshold": 0.12816175719258588,
+    "classification": {
+      "0": {
+        "precision": 0.9485458612975392,
+        "recall": 0.6230712711241734,
+        "f1-score": 0.7521064301552106,
+        "support": 1361.0
+      },
+      "1": {
+        "precision": 0.24780058651026393,
+        "recall": 0.786046511627907,
+        "f1-score": 0.37681159420289856,
+        "support": 215.0
+      },
+      "accuracy": 0.6453045685279187,
+      "macro avg": {
+        "precision": 0.5981732239039015,
+        "recall": 0.7045588913760401,
+        "f1-score": 0.5644590121790546,
+        "support": 1576.0
+      },
+      "weighted avg": {
+        "precision": 0.8529492660695797,
+        "recall": 0.6453045685279187,
+        "f1-score": 0.7009082133216147,
+        "support": 1576.0
+      }
+    }
+  },
+  "limitations": "Population screening, not diagnosis. Activity and sitting time must use matching units. Self-reported targets and a single dataset limit generalization."
+}

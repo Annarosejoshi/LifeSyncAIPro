@@ -1,0 +1,46 @@
+{
+    "model_name": "Random Forest",
+    "version": "3.0-risk-screening",
+    "problem_type": "binary_classification",
+    "source_target": "Diabetes_012",
+    "target": "Diabetes_Risk",
+    "target_mapping": {
+        "0": "Original class 0: No Diabetes",
+        "1": "Original classes 1 and 2: Prediabetes or Diabetes"
+    },
+    "prediction_labels": {
+        "0": "Lower Risk",
+        "1": "Elevated Risk"
+    },
+    "features": [
+        "HighBP",
+        "HighChol",
+        "CholCheck",
+        "BMI",
+        "Smoker",
+        "Stroke",
+        "HeartDiseaseorAttack",
+        "PhysActivity",
+        "Fruits",
+        "Veggies",
+        "HvyAlcoholConsump",
+        "AnyHealthcare",
+        "NoDocbcCost",
+        "GenHlth",
+        "MentHlth",
+        "PhysHlth",
+        "DiffWalk",
+        "Sex",
+        "Age",
+        "Education",
+        "Income"
+    ],
+    "metrics": {
+        "accuracy": 0.7599140649637338,
+        "precision": 0.3631489472995946,
+        "recall": 0.6946841776110069,
+        "f1": 0.4769633732663489,
+        "roc_auc": 0.8178237817062936
+    },
+    "disclaimer": "This model provides a statistical risk-screening estimate based on survey health indicators. It is not a medical diagnosis."
+}

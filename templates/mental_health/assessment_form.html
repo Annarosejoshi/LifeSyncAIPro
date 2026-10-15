@@ -1,0 +1,635 @@
+{% extends "base.html" %}
+
+{% block title %}
+Mental Wellness | LifeSync AI Pro
+{% endblock %}
+
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+
+        <div class="eyebrow">
+            💛 MENTAL WELLNESS
+        </div>
+
+        <h2>
+            {{ page_title }}
+        </h2>
+
+        <p>
+            Take a moment for yourself.
+            Your answers help LifeSync understand
+            your recent mental wellbeing patterns.
+        </p>
+
+    </div>
+
+
+    <a
+        href="{% url 'mental_health:history' %}"
+        class="btn btn-soft"
+    >
+        <i class="bi bi-clock-history me-1"></i>
+        View History
+    </a>
+
+</div>
+
+
+<div class="mental-intro-card">
+
+    <div class="mental-intro-icon">
+        <i class="bi bi-heart-pulse"></i>
+    </div>
+
+    <div>
+
+        <strong>
+            How are you feeling today?
+        </strong>
+
+        <p>
+            Select one value from 1 to 5 for each area.
+            There are no right or wrong answers.
+            Higher mood, energy, motivation, concentration and social wellbeing
+            raise the wellness score. Higher stress, anxiety and workload lower it.
+        </p>
+
+    </div>
+
+</div>
+
+
+{% if form.non_field_errors %}
+
+<div class="form-error-banner">
+
+    <i class="bi bi-exclamation-triangle"></i>
+
+    <div>
+
+        {% for error in form.non_field_errors %}
+            {{ error }}
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endif %}
+
+
+<form method="POST" novalidate>
+
+    {% csrf_token %}
+
+
+    <!-- MOOD -->
+
+    <section class="wellness-question-card">
+
+        <div class="wellness-question-header">
+
+            <div class="wellness-question-icon mood-icon">
+                <i class="bi bi-emoji-smile"></i>
+            </div>
+
+            <div>
+                <h3>Mood</h3>
+                <p>
+                    How positive or comfortable
+                    does your mood feel today?
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="wellness-scale">
+
+            <span class="scale-edge">
+                Low
+            </span>
+
+            {% for radio in form.mood %}
+
+                <label class="wellness-choice">
+
+                    {{ radio.tag }}
+
+                    <span>
+                        {{ radio.choice_label }}
+                    </span>
+
+                </label>
+
+            {% endfor %}
+
+            <span class="scale-edge">
+                High
+            </span>
+
+        </div>
+
+        {% for error in form.mood.errors %}
+            <div class="field-error">
+                {{ error }}
+            </div>
+        {% endfor %}
+
+    </section>
+
+
+
+    <!-- STRESS -->
+
+    <section class="wellness-question-card">
+
+        <div class="wellness-question-header">
+
+            <div class="wellness-question-icon stress-icon">
+                <i class="bi bi-lightning-charge"></i>
+            </div>
+
+            <div>
+                <h3>Stress</h3>
+                <p>
+                    How stressed do you feel today?
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="wellness-scale">
+
+            <span class="scale-edge">
+                Low
+            </span>
+
+            {% for radio in form.stress %}
+
+                <label class="wellness-choice">
+
+                    {{ radio.tag }}
+
+                    <span>
+                        {{ radio.choice_label }}
+                    </span>
+
+                </label>
+
+            {% endfor %}
+
+            <span class="scale-edge">
+                High
+            </span>
+
+        </div>
+
+        {% for error in form.stress.errors %}
+            <div class="field-error">
+                {{ error }}
+            </div>
+        {% endfor %}
+
+    </section>
+
+
+
+    <!-- ANXIETY -->
+
+    <section class="wellness-question-card">
+
+        <div class="wellness-question-header">
+
+            <div class="wellness-question-icon anxiety-icon">
+                <i class="bi bi-cloud-drizzle"></i>
+            </div>
+
+            <div>
+                <h3>Anxiety</h3>
+                <p>
+                    How anxious or worried
+                    do you feel today?
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="wellness-scale">
+
+            <span class="scale-edge">
+                Low
+            </span>
+
+            {% for radio in form.anxiety %}
+
+                <label class="wellness-choice">
+
+                    {{ radio.tag }}
+
+                    <span>
+                        {{ radio.choice_label }}
+                    </span>
+
+                </label>
+
+            {% endfor %}
+
+            <span class="scale-edge">
+                High
+            </span>
+
+        </div>
+
+        {% for error in form.anxiety.errors %}
+            <div class="field-error">
+                {{ error }}
+            </div>
+        {% endfor %}
+
+    </section>
+
+
+
+    <div class="row g-4">
+
+
+        <!-- ENERGY -->
+
+        <div class="col-lg-6">
+
+            <section class="wellness-question-card h-100">
+
+                <div class="wellness-question-header">
+
+                    <div class="wellness-question-icon energy-icon">
+                        <i class="bi bi-battery-charging"></i>
+                    </div>
+
+                    <div>
+                        <h3>Energy</h3>
+                        <p>
+                            How energetic do you feel?
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="compact-wellness-scale">
+
+                    {% for radio in form.energy %}
+
+                        <label class="wellness-choice">
+
+                            {{ radio.tag }}
+
+                            <span>
+                                {{ radio.choice_label }}
+                            </span>
+
+                        </label>
+
+                    {% endfor %}
+
+                </div>
+
+                <div class="scale-footer">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+
+                {% for error in form.energy.errors %}
+                    <div class="field-error">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+
+            </section>
+
+        </div>
+
+
+
+        <!-- MOTIVATION -->
+
+        <div class="col-lg-6">
+
+            <section class="wellness-question-card h-100">
+
+                <div class="wellness-question-header">
+
+                    <div class="wellness-question-icon motivation-icon">
+                        <i class="bi bi-stars"></i>
+                    </div>
+
+                    <div>
+                        <h3>Motivation</h3>
+                        <p>
+                            How motivated do you feel today?
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="compact-wellness-scale">
+
+                    {% for radio in form.motivation %}
+
+                        <label class="wellness-choice">
+
+                            {{ radio.tag }}
+
+                            <span>
+                                {{ radio.choice_label }}
+                            </span>
+
+                        </label>
+
+                    {% endfor %}
+
+                </div>
+
+                <div class="scale-footer">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+
+                {% for error in form.motivation.errors %}
+                    <div class="field-error">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+
+            </section>
+
+        </div>
+
+
+
+        <!-- CONCENTRATION -->
+
+        <div class="col-lg-6">
+
+            <section class="wellness-question-card h-100">
+
+                <div class="wellness-question-header">
+
+                    <div class="wellness-question-icon concentration-icon">
+                        <i class="bi bi-bullseye"></i>
+                    </div>
+
+                    <div>
+                        <h3>Concentration</h3>
+                        <p>
+                            How well can you focus today?
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="compact-wellness-scale">
+
+                    {% for radio in form.concentration %}
+
+                        <label class="wellness-choice">
+
+                            {{ radio.tag }}
+
+                            <span>
+                                {{ radio.choice_label }}
+                            </span>
+
+                        </label>
+
+                    {% endfor %}
+
+                </div>
+
+                <div class="scale-footer">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+
+                {% for error in form.concentration.errors %}
+                    <div class="field-error">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+
+            </section>
+
+        </div>
+
+
+
+        <!-- SOCIAL -->
+
+        <div class="col-lg-6">
+
+            <section class="wellness-question-card h-100">
+
+                <div class="wellness-question-header">
+
+                    <div class="wellness-question-icon social-icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+
+                    <div>
+                        <h3>Social Wellbeing</h3>
+                        <p>
+                            How connected do you feel socially?
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="compact-wellness-scale">
+
+                    {% for radio in form.social_wellbeing %}
+
+                        <label class="wellness-choice">
+
+                            {{ radio.tag }}
+
+                            <span>
+                                {{ radio.choice_label }}
+                            </span>
+
+                        </label>
+
+                    {% endfor %}
+
+                </div>
+
+                <div class="scale-footer">
+                    <span>Low</span>
+                    <span>High</span>
+                </div>
+
+                {% for error in form.social_wellbeing.errors %}
+                    <div class="field-error">
+                        {{ error }}
+                    </div>
+                {% endfor %}
+
+            </section>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- WORKLOAD -->
+
+    <section class="wellness-question-card mt-4">
+
+        <div class="wellness-question-header">
+
+            <div class="wellness-question-icon workload-icon">
+                <i class="bi bi-briefcase"></i>
+            </div>
+
+            <div>
+                <h3>Workload</h3>
+                <p>
+                    How heavy does your current
+                    study or work load feel?
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="wellness-scale">
+
+            <span class="scale-edge">
+                Low
+            </span>
+
+            {% for radio in form.workload %}
+
+                <label class="wellness-choice">
+
+                    {{ radio.tag }}
+
+                    <span>
+                        {{ radio.choice_label }}
+                    </span>
+
+                </label>
+
+            {% endfor %}
+
+            <span class="scale-edge">
+                High
+            </span>
+
+        </div>
+
+        {% for error in form.workload.errors %}
+            <div class="field-error">
+                {{ error }}
+            </div>
+        {% endfor %}
+
+    </section>
+
+
+
+    <!-- NOTES -->
+
+    <section class="ls-form-card">
+
+        <div class="ls-form-header compact-header">
+
+            <div class="ls-form-icon note-icon">
+                <i class="bi bi-journal-text"></i>
+            </div>
+
+            <div>
+
+                <h3>
+                    Optional Note
+                </h3>
+
+                <p>
+                    Add a short note only if it helps
+                    explain today's wellness check-in.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="modern-field">
+
+            {{ form.notes }}
+
+            {% for error in form.notes.errors %}
+                <div class="field-error">
+                    {{ error }}
+                </div>
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+
+
+    <div class="mental-form-actions">
+
+        <a
+            href="{% url 'dashboard:home' %}"
+            class="btn btn-soft"
+        >
+            Cancel
+        </a>
+
+
+        <button
+            type="submit"
+            class="btn btn-lifesync"
+        >
+            <i class="bi bi-check2-circle me-1"></i>
+            Save Wellness Check-In
+        </button>
+
+    </div>
+
+
+</form>
+
+
+<div class="medical-notice mt-4">
+
+    <i class="bi bi-info-circle"></i>
+
+    <div>
+
+        <strong>
+            Wellness tracking only
+        </strong>
+
+        <p>
+            This check-in helps LifeSync track wellness patterns.
+            It is not a mental-health diagnosis or clinical assessment.
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

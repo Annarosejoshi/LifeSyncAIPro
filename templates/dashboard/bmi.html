@@ -1,0 +1,32 @@
+{% extends 'dashboard/layout.html' %}
+{% block title %}BMI Calculator{% endblock %}
+{% block content %}
+<section class="card dashboard-panel" id="bmi-calculator" style="margin-top:18px">
+  <div class="section-head" style="margin-top:0">
+    <div><h2>BMI calculator</h2><p>Calculate BMI from your profile measurements. This is a screening measure, not a diagnosis.</p></div>
+  </div>
+  <form id="dashboardBmiForm" method="post" action="{{ request.path }}" novalidate>
+    {% csrf_token %}
+    <input type="hidden" name="action" value="bmi_calculation">
+    <div class="checkin-grid">
+      <div class="field">{{ bmi_form.height_cm.label_tag }}{{ bmi_form.height_cm }}{% for error in bmi_form.height_cm.errors %}<div class="form-error">{{ error }}</div>{% endfor %}</div>
+      <div class="field">{{ bmi_form.weight_kg.label_tag }}{{ bmi_form.weight_kg }}{% for error in bmi_form.weight_kg.errors %}<div class="form-error">{{ error }}</div>{% endfor %}</div>
+    </div>
+    <button class="btn" type="submit">Save BMI result</button>
+    <p class="bmi-result" id="dashboardBmiResult" aria-live="polite">
+      {% if latest_bmi %}Latest saved: {{ latest_bmi.bmi }} · {{ latest_bmi.category }} · {{ latest_bmi.date|date:"M j, Y" }}{% else %}Enter your measurements to preview and save BMI.{% endif %}
+    </p>
+  </form>
+  {% if bmi_history %}
+    <h3 class="h6 mt-4">Recent BMI history</h3>
+    <ul class="list-group list-group-flush">
+      {% for record in bmi_history %}
+        <li class="list-group-item px-0 d-flex flex-wrap justify-content-between gap-2"><span>{{ record.date|date:"M j, Y" }} · {{ record.bmi }}</span><span class="text-secondary">{{ record.category }}</span></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <div class="chart-wrap mt-4"><canvas id="bmiHistoryChart"></canvas></div>
+  {% if not bmi_history %}<p class="metric-desc">Your saved BMI trend will appear here after your first calculation.</p>{% endif %}
+  <p class="smallprint">{% if profile_age is None %}Add your date of birth to determine whether adult BMI ranges apply.{% elif profile_age < 18 %}Adult BMI categories are not applied to users under 18; an age-specific chart is required.{% else %}Adult BMI categories are screening ranges, not a diagnosis.{% endif %}</p>
+</section>
+{% endblock %}

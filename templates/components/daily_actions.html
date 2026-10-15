@@ -1,0 +1,9 @@
+<div class="daily-action-grid">
+{% for item in daily_actions %}
+<article class="daily-action-card {% if item.needs_attention %}needs-attention{% endif %}">
+  <div class="daily-action-heading"><h3>{{ item.emoji }} {{ item.title }}</h3><span class="habit-action-status">{% if item.needs_attention %}Focus today{% else %}Keep it up{% endif %}</span></div>
+  <p class="habit-recorded-value">Recorded: {{ item.value }}</p>
+  <p class="habit-next-action">{{ item.action }}</p>
+</article>
+{% endfor %}
+</div>

@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block title %}
+Health Goals | LifeSync AI Pro
+{% endblock %}
+
+
+{% block content %}
+
+
+<header class="page-header">
+
+    <div class="eyebrow">
+        Smart Habit Builder
+    </div>
+
+    <h1 class="page-title">
+        My Health Goals
+    </h1>
+
+    <p class="page-description">
+        Build healthier routines with measurable daily goals.
+    </p>
+
+</header>
+
+
+<div class="actions">
+
+    <a
+        href="{% url 'lifestyle:habit_create' %}"
+        class="btn btn-primary"
+    >
+        + Create Health Goal
+    </a>
+
+</div>
+
+<br>
+
+
+{% if habit_results %}
+
+<div class="card-grid-3">
+
+{% for item in habit_results %}
+
+<section class="card">
+
+    <div class="section-icon">
+        🎯
+    </div>
+
+    <h2 style="margin-top:15px;">
+        {{ item.habit }}
+    </h2>
+
+
+    <div class="stat-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-label">
+                Target
+            </div>
+
+            <div class="stat-value">
+                {{ item.target }}
+                {{ item.unit }}
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-label">
+                Today
+            </div>
+
+            <div class="stat-value">
+                {{ item.actual }}
+                {{ item.unit }}
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <br>
+
+
+    {% if item.achieved %}
+
+    <span class="badge badge-success">
+        ✓ Goal Achieved
+    </span>
+
+    {% else %}
+
+    <span class="badge badge-warning">
+        Keep Going
+    </span>
+
+    {% endif %}
+
+</section>
+
+{% endfor %}
+
+</div>
+
+{% endif %}
+
+
+<h2 style="margin-top:35px;">
+    Active Goals
+</h2>
+
+
+{% for goal in goals %}
+
+<section class="history-card">
+
+    <h3>
+        {{ goal.get_habit_type_display }}
+    </h3>
+
+    <p style="color:#64748b;">
+        Daily target:
+        <strong>
+            {{ goal.target_value }}
+        </strong>
+    </p>
+
+
+    <form
+        method="POST"
+        action="{% url 'lifestyle:habit_delete' goal.pk %}"
+    >
+
+        {% csrf_token %}
+
+        <button
+            class="btn btn-danger"
+            type="submit"
+        >
+            Delete Goal
+        </button>
+
+    </form>
+
+</section>
+
+{% empty %}
+
+<div class="empty-state">
+
+    <h3>
+        No active goals
+    </h3>
+
+    <p>
+        Create your first lifestyle goal.
+    </p>
+
+</div>
+
+{% endfor %}
+
+
+{% endblock %}

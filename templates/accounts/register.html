@@ -1,0 +1,1103 @@
+
+{% extends "base.html" %}
+
+{% block title %}Create Account | LifeSync AI{% endblock %}
+
+{% block content %}
+
+<style>
+/* ================= PAGE DESIGN ================= */
+
+.auth-shell, .auth-shell * {
+    box-sizing: border-box;
+}
+
+.auth-shell {
+    --teal: #10998e;
+    --teal-dark: #087c79;
+    --dark: #123b43;
+    --muted: #607b83;
+    --border: #d8ece9;
+
+    min-height: 85vh;
+    padding: 38px 20px 55px;
+    background:
+        radial-gradient(ellipse at 8% 10%, #d8f5e9 0, transparent 36%),
+        radial-gradient(ellipse at 90% 90%, #d9f5f4 0, transparent 38%),
+        #f6fcfa;
+}
+
+.auth-layout {
+    max-width: 1120px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: .85fr 1.15fr;
+    gap: 38px;
+    align-items: center;
+}
+
+.auth-intro {
+    padding: 20px 5px;
+}
+
+.auth-pill {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 30px;
+    background: #dff5ed;
+    color: #087c70;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.auth-intro h1 {
+    margin: 22px 0 14px;
+    font-size: clamp(34px, 4vw, 52px);
+    line-height: 1.1;
+    color: var(--dark);
+    font-weight: 800;
+}
+
+.auth-intro h1 span {
+    color: var(--teal);
+    display: block;
+}
+
+.auth-intro > p {
+    max-width: 430px;
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.auth-benefits {
+    display: grid;
+    gap: 22px;
+    margin-top: 32px;
+}
+
+.auth-benefit {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.auth-benefit-icon {
+    width: 49px;
+    height: 49px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    background: #ddf5eb;
+    color: #138c78;
+    font-size: 23px;
+}
+
+.auth-benefit:nth-child(2) .auth-benefit-icon {
+    background: #e6eaff;
+    color: #5368c9;
+}
+
+.auth-benefit:nth-child(3) .auth-benefit-icon {
+    background: #ffe8ed;
+    color: #d45c78;
+}
+
+.auth-benefit strong {
+    display: block;
+    color: var(--dark);
+    margin-bottom: 4px;
+}
+
+.auth-benefit p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ================= REGISTRATION CARD ================= */
+
+.auth-card-wide {
+    background: rgba(255,255,255,.97);
+    border: 1px solid #e2f0ed;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 18px 55px rgba(28,103,88,.10);
+    min-width: 0;
+    transition: box-shadow .3s ease;
+}
+
+.auth-card-wide:hover {
+    box-shadow: 0 22px 65px rgba(28,103,88,.15);
+}
+
+.eyebrow {
+    color: var(--teal);
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+.auth-card-wide h2 {
+    margin: 10px 0;
+    color: var(--dark);
+    font-size: 31px;
+    font-weight: 800;
+}
+
+.auth-subtitle {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 16px;
+    margin-bottom: 22px;
+}
+
+.auth-security {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 13px 15px;
+    border-radius: 12px;
+    background: #edf9f6;
+    color: #187c70;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 23px;
+}
+
+.security-icon {
+    font-size: 24px;
+}
+
+/* ================= FORM SECTIONS ================= */
+
+.form-section-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--dark);
+    padding-bottom: 11px;
+    border-bottom: 1px solid var(--border);
+    margin: 25px 0 17px;
+}
+
+.section-help {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: -7px 0 16px;
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.auth-card-wide .field {
+    min-width: 0;
+    margin-bottom: 16px;
+}
+
+.auth-card-wide .field label {
+    display: block;
+    font-size: 16px;
+    color: var(--dark);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.auth-card-wide .field input,
+.auth-card-wide .field select {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: 47px;
+    padding: 12px 13px;
+    border: 1px solid #d5e8e9;
+    border-radius: 10px;
+    background: #fcfefe;
+    color: #173d44;
+    font-family: inherit;
+    font-size: 16px;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s, background .2s;
+}
+
+.auth-card-wide .field input:hover,
+.auth-card-wide .field select:hover {
+    border-color: #9bcfc8;
+}
+
+.auth-card-wide .field input:focus,
+.auth-card-wide .field select:focus {
+    border-color: var(--teal);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(16,153,142,.12);
+}
+
+.auth-card-wide .field input::placeholder {
+    color: #91a6ad;
+}
+
+.field-help {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 5px;
+}
+
+/* ================= PASSWORD FEATURES ================= */
+
+.password-wrap {
+    position: relative;
+}
+
+.password-wrap input {
+    padding-right: 53px !important;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #64858a;
+    cursor: pointer;
+    font-size: 17px;
+    padding: 8px;
+    border-radius: 7px;
+}
+
+.password-toggle:hover {
+    background: #edf9f6;
+    color: var(--teal-dark);
+}
+
+.password-meter {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.password-meter span {
+    height: 5px;
+    flex: 1;
+    border-radius: 5px;
+    background: #e3ecea;
+    transition: background .25s;
+}
+
+.password-feedback,
+.password-match {
+    font-size: 16px;
+    margin-top: 7px;
+    min-height: 16px;
+}
+
+.password-feedback {
+    color: var(--muted);
+}
+
+.password-match.good {
+    color: #11815e;
+}
+
+.password-match.bad {
+    color: #c34d58;
+}
+
+.password-rules {
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 10px;
+    background: #f0f9f7;
+    color: #52756f;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.password-rules div::before {
+    content: "○";
+    display: inline-block;
+    width: 20px;
+    color: #91aaa5;
+}
+
+.password-rules div.valid::before {
+    content: "✓";
+    color: #0c9a70;
+    font-weight: 800;
+}
+
+/* ================= ERRORS ================= */
+
+.auth-error {
+    color: #bd3848;
+    font-size: 16px;
+    margin-top: 7px;
+    line-height: 1.5;
+}
+
+.form-errors {
+    padding: 11px 13px;
+    background: #fff0f0;
+    border: 1px solid #ffd7d7;
+    color: #a52e3d;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    font-size: 16px;
+}
+
+.form-errors ul {
+    padding-left: 18px;
+    margin: 4px 0;
+}
+
+input.input-error,
+select.input-error {
+    border-color: #d64f5d !important;
+    background: #fff9f9 !important;
+}
+
+/* ================= BUTTON ================= */
+
+.auth-submit {
+    width: 100%;
+    border: none;
+    border-radius: 11px;
+    padding: 15px 18px;
+    margin-top: 18px;
+    background: linear-gradient(110deg, #10998e, #087c79);
+    color: white;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 7px 18px rgba(16,153,142,.18);
+    transition: transform .2s, box-shadow .2s, opacity .2s;
+}
+
+.auth-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(16,153,142,.28);
+}
+
+.auth-submit:active {
+    transform: translateY(0);
+}
+
+.auth-submit:disabled {
+    opacity: .7;
+    cursor: wait;
+    transform: none;
+}
+
+/* ================= FOOTER ================= */
+
+.auth-footer {
+    text-align: center;
+    margin-top: 22px;
+    font-size: 16px;
+    color: var(--muted);
+}
+
+.auth-footer a {
+    color: #087f75;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+.auth-disclaimer {
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #80969a;
+    margin: 22px 0 0;
+}
+
+.auth-benefit-footer {
+    max-width: 1120px;
+    margin: 38px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 16px;
+}
+
+.auth-footer-item {
+    padding: 16px;
+    text-align: center;
+    border-radius: 14px;
+    background: rgba(255,255,255,.75);
+    border: 1px solid #e2f0ed;
+    transition: transform .2s, box-shadow .2s;
+}
+
+.auth-footer-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(28,103,88,.08);
+}
+
+.auth-footer-item strong {
+    display: block;
+    color: var(--dark);
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.auth-footer-item span {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+    .auth-layout {
+        grid-template-columns: 1fr;
+        max-width: 570px;
+        gap: 22px;
+    }
+
+    .auth-intro {
+        padding: 5px 0;
+    }
+
+    .auth-intro h1 {
+        font-size: 37px;
+    }
+
+    .auth-benefit-footer {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .auth-shell {
+        padding: 24px 12px 35px;
+    }
+
+    .auth-card-wide {
+        padding: 23px 17px;
+        border-radius: 17px;
+    }
+
+    .auth-card-wide h2 {
+        font-size: 27px;
+    }
+
+    .field-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .auth-shell *,
+    .auth-shell *::before,
+    .auth-shell *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+</style>
+
+<div class="auth-shell">
+    <div class="auth-layout">
+
+        <!-- LEFT INTRODUCTION -->
+
+        <section class="auth-intro">
+            <div class="auth-pill">✦ LIFE SYNC AI</div>
+
+            <h1>
+                Build healthier habits.
+                <span>One day at a time.</span>
+            </h1>
+
+            <p>
+                Create your account to record lifestyle information
+                and explore personalized wellness insights.
+            </p>
+
+            <div class="auth-benefits">
+
+                <div class="auth-benefit">
+                    <div class="auth-benefit-icon">▥</div>
+                    <div>
+                        <strong>Track Your Lifestyle</strong>
+                        <p>Record everyday wellness information.</p>
+                    </div>
+                </div>
+
+                <div class="auth-benefit">
+                    <div class="auth-benefit-icon">✧</div>
+                    <div>
+                        <strong>Explore AI Health Insights</strong>
+                        <p>View estimates from supported machine-learning models.</p>
+                    </div>
+                </div>
+
+                <div class="auth-benefit">
+                    <div class="auth-benefit-icon">♡</div>
+                    <div>
+                        <strong>Improve Your Well-being</strong>
+                        <p>Use your profile to support healthier routines.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- REGISTRATION FORM -->
+
+        <section class="auth-card-wide">
+
+            <div class="eyebrow">YOUR WELLNESS JOURNEY BEGINS</div>
+            <h2>Create your account</h2>
+
+            <p class="auth-subtitle">
+                Enter your account details and optional health information.
+                You can update your profile later.
+            </p>
+
+            <div class="auth-security">
+                <span class="security-icon">♢</span>
+                <div>
+                    <strong>Your information matters</strong><br>
+                    Health information is optional during registration.
+                </div>
+            </div>
+
+            <form id="registerForm" method="POST">
+                {% csrf_token %}
+
+                {% if form.non_field_errors %}
+                    <div class="form-errors">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+
+                <!-- PERSONAL DETAILS -->
+
+                <div class="form-section-title">1. Personal details</div>
+
+                <div class="field-row">
+                    <div class="field">
+                        {{ form.first_name.label_tag }}
+                        {{ form.first_name }}
+                        {% for error in form.first_name.errors %}
+                            <div class="auth-error">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="field">
+                        {{ form.last_name.label_tag }}
+                        {{ form.last_name }}
+                        {% for error in form.last_name.errors %}
+                            <div class="auth-error">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="field-row">
+                    <div class="field">
+                        {{ form.username.label_tag }}
+                        {{ form.username }}
+                        {% for error in form.username.errors %}
+                            <div class="auth-error">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="field">
+                        {{ form.email.label_tag }}
+                        {{ form.email }}
+                        {% for error in form.email.errors %}
+                            <div class="auth-error">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+                        
+<!-- PASSWORDS -->
+
+                <div class="form-section-title">2. Secure your account</div>
+
+                <div class="field-row">
+
+                    <div class="field">
+                        {{ form.password1.label_tag }}
+
+                        <div class="password-wrap">
+                            {{ form.password1 }}
+                            <button
+                                class="password-toggle"
+                                type="button"
+                                data-target="id_password1"
+                                aria-label="Show password"
+                                aria-pressed="false">◉</button>
+                        </div>
+
+                        <div class="password-meter">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div id="passwordFeedback"
+                             class="password-feedback"
+                             aria-live="polite">
+                            Choose a strong password.
+                        </div>
+
+                        <div class="password-rules">
+                            <div id="ruleLength">At least 8 characters</div>
+                            <div id="ruleLetter">Contains a letter</div>
+                            <div id="ruleNumber">Contains a number</div>
+                        </div>
+
+                        {% for error in form.password1.errors %}
+                            <div class="auth-error">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="field">
+                        {{ form.password2.label_tag }}
+
+                        <div class="password-wrap">
+                            {{ form.password2 }}
+                            <button
+                                class="password-toggle"
+                                type="button"
+                                data-target="id_password2"
+                                aria-label="Show confirmation password"
+                                aria-pressed="false">◉</button>
+                        </div>
+
+                        <div id="passwordMatch"
+                             class="password-match"
+                             aria-live="polite"></div>
+
+                        {% for error in form.password2.errors %}
+                            <div class="auth-error">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+                <!-- HEALTH INFORMATION -->
+
+                <div class="form-section-title">3. Health information</div>
+
+                <p class="section-help">
+                    These fields help populate your health profile.
+                    Leave unknown information blank and update it later.
+                </p>
+
+                <div class="field-row">
+                    <div class="field">
+                        {{ form.date_of_birth.label_tag }}
+                        {{ form.date_of_birth }}
+                        {% for error in form.date_of_birth.errors %}
+                            <div class="auth-error">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="field">
+                        {{ form.gender.label_tag }}
+                        {{ form.gender }}
+                        {% for error in form.gender.errors %}
+                            <div class="auth-error">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                {% if form.occupation %}
+                    <div class="field">
+                        {{ form.occupation.label_tag }}
+                        {{ form.occupation }}
+                        {% for error in form.occupation.errors %}
+                            <div class="auth-error">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <div class="field-row">
+                    <div class="field">
+                        {{ form.height_cm.label_tag }}
+                        {{ form.height_cm }}
+                        <div class="field-help">
+                            Height in centimetres (cm).
+                        </div>
+                        {% for error in form.height_cm.errors %}
+                            <div class="auth-error">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="field">
+                        {{ form.weight_kg.label_tag }}
+                        {{ form.weight_kg }}
+                        <div class="field-help">
+                            Weight in kilograms (kg).
+                        </div>
+                        {% for error in form.weight_kg.errors %}
+                            <div class="auth-error">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="field">
+                    {{ form.smoking_status.label_tag }}
+                    {{ form.smoking_status }}
+                    {% for error in form.smoking_status.errors %}
+                        <div class="auth-error">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <!-- HEALTH HISTORY -->
+
+                <div class="form-section-title">4. Health history</div>
+
+                <p class="section-help">
+                    Optional. Choose “Unknown” if you are unsure.
+                </p>
+
+                {% if form.diabetes_history %}
+                    <div class="field">
+                        {{ form.diabetes_history.label_tag }}
+                        {{ form.diabetes_history }}
+                        {% for error in form.diabetes_history.errors %}
+                            <div class="auth-error">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {% if form.family_diabetes_history %}
+                    <div class="field">
+                        {{ form.family_diabetes_history.label_tag }}
+                        {{ form.family_diabetes_history }}
+                        {% for error in form.family_diabetes_history.errors %}
+                            <div class="auth-error">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {% if form.heart_disease_history %}
+                    <div class="field">
+                        {{ form.heart_disease_history.label_tag }}
+                        {{ form.heart_disease_history }}
+                        {% for error in form.heart_disease_history.errors %}
+                            <div class="auth-error">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <!-- SUBMIT -->
+
+                <button id="registerButton"
+                        class="auth-submit"
+                        type="submit">
+                    Create Account &amp; Get Started →
+                </button>
+
+            </form>
+
+            <div class="auth-footer">
+                Already have an account?
+                <a href="{% url 'accounts:login' %}">Sign in here →</a>
+            </div>
+
+            <p class="auth-disclaimer">
+                Life Sync AI provides wellness information and health-risk
+                estimates, not a medical diagnosis.
+            </p>
+
+        </section>
+    </div>
+
+    <!-- BOTTOM BENEFITS -->
+
+    <div class="auth-benefit-footer">
+
+        <div class="auth-footer-item">
+            <strong>◇ Privacy-conscious</strong>
+            <span>Keep your account credentials secure.</span>
+        </div>
+
+        <div class="auth-footer-item">
+            <strong>✧ AI-powered insights</strong>
+            <span>Explore results from supported ML models.</span>
+        </div>
+
+        <div class="auth-footer-item">
+            <strong>♡ Everyday wellness</strong>
+            <span>Build better habits with consistent tracking.</span>
+        </div>
+
+    </div>
+</div>
+
+<!-- INTERACTIVE JAVASCRIPT -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.getElementById("registerForm");
+    const password1 = document.getElementById("id_password1");
+    const password2 = document.getElementById("id_password2");
+    const passwordFeedback = document.getElementById("passwordFeedback");
+    const passwordMatch = document.getElementById("passwordMatch");
+    const meterBars = document.querySelectorAll(".password-meter span");
+    const submitButton = document.getElementById("registerButton");
+
+    if (!form || !submitButton) return;
+
+    // Set validation rules for fields if they exist.
+    function setRule(id, rules) {
+        const field = document.getElementById(id);
+        if (!field) return;
+
+        if (rules.required !== undefined) {
+            field.required = rules.required;
+        }
+
+        if (rules.min !== undefined) field.min = rules.min;
+        if (rules.max !== undefined) field.max = rules.max;
+        if (rules.minLength !== undefined) field.minLength = rules.minLength;
+        if (rules.maxLength !== undefined) field.maxLength = rules.maxLength;
+        if (rules.pattern !== undefined) field.pattern = rules.pattern;
+        if (rules.type !== undefined) field.type = rules.type;
+    }
+
+    // Required account fields.
+    setRule("id_first_name", { required: true, minLength: 2, maxLength: 150 });
+    setRule("id_last_name", { required: true, minLength: 1, maxLength: 150 });
+    setRule("id_username", {
+        required: true,
+        minLength: 3,
+        maxLength: 150,
+        pattern: "[A-Za-z0-9@.+_-]+"
+    });
+    setRule("id_email", { required: true, type: "email" });
+    setRule("id_password1", { required: true, minLength: 8 });
+    setRule("id_password2", { required: true });
+
+    // Optional health information: validate only when entered.
+    setRule("id_height_cm", { min: 50, max: 250 });
+    setRule("id_weight_kg", { min: 10, max: 350 });
+
+    const dob = document.getElementById("id_date_of_birth");
+
+    if (dob) {
+        const today = new Date();
+        const latestDate = today.toISOString().split("T")[0];
+
+        dob.max = latestDate;
+
+        // Allow ages up to 100 years if a DOB is entered.
+        const earliestDate = new Date();
+        earliestDate.setFullYear(earliestDate.getFullYear() - 100);
+        dob.min = earliestDate.toISOString().split("T")[0];
+    }
+
+    // Show/hide password.
+    document.querySelectorAll(".password-toggle").forEach(function (button) {
+        button.addEventListener("click", function () {
+            const input = document.getElementById(button.dataset.target);
+            if (!input) return;
+
+            const show = input.type === "password";
+            input.type = show ? "text" : "password";
+
+            button.textContent = show ? "◎" : "◉";
+            button.setAttribute("aria-pressed", String(show));
+            button.setAttribute(
+                "aria-label",
+                show ? "Hide password" : "Show password"
+            );
+        });
+    });
+
+    // Password strength validation.
+    function updatePasswordStrength() {
+        if (!password1) return;
+
+        const value = password1.value;
+
+        const rules = {
+            ruleLength: value.length >= 8,
+            ruleLetter: /[A-Za-z]/.test(value),
+            ruleNumber: /\d/.test(value)
+        };
+
+        Object.entries(rules).forEach(function ([id, passed]) {
+            const element = document.getElementById(id);
+            if (element) element.classList.toggle("valid", passed);
+        });
+
+        let score = Object.values(rules).filter(Boolean).length;
+
+        if (value.length >= 12) score++;
+
+        let color = "#e3ecea";
+
+        if (score <= 1) color = "#dc6470";
+        else if (score === 2) color = "#e9ad50";
+        else if (score === 3) color = "#54b99a";
+        else color = "#10998e";
+
+        meterBars.forEach(function (bar, index) {
+            bar.style.background =
+                value && index < score ? color : "#e3ecea";
+        });
+
+        if (passwordFeedback) {
+            if (!value) {
+                passwordFeedback.textContent = "Enter a password.";
+            } else if (score <= 1) {
+                passwordFeedback.textContent =
+                    "Weak password. Add a letter and a number.";
+            } else if (score === 2) {
+                passwordFeedback.textContent =
+                    "Getting stronger. Try a longer password.";
+            } else if (score === 3) {
+                passwordFeedback.textContent = "Good password strength.";
+            } else {
+                passwordFeedback.textContent = "Strong password!";
+            }
+        }
+    }
+
+    // Password confirmation validation.
+    function validatePasswordMatch() {
+        if (!password1 || !password2) return true;
+
+        password2.setCustomValidity("");
+
+        if (!password2.value) {
+            if (passwordMatch) {
+                passwordMatch.textContent = "";
+                passwordMatch.className = "password-match";
+            }
+            return false;
+        }
+
+        if (password1.value !== password2.value) {
+            password2.setCustomValidity("Passwords do not match.");
+
+            if (passwordMatch) {
+                passwordMatch.textContent = "Passwords do not match.";
+                passwordMatch.className = "password-match bad";
+            }
+            return false;
+        }
+
+        if (passwordMatch) {
+            passwordMatch.textContent = "✓ Passwords match";
+            passwordMatch.className = "password-match good";
+        }
+
+        return true;
+    }
+
+    if (password1) {
+        password1.addEventListener("input", function () {
+            updatePasswordStrength();
+            validatePasswordMatch();
+        });
+    }
+
+    if (password2) {
+        password2.addEventListener("input", validatePasswordMatch);
+    }
+
+    // Validate field values and remove error styling when corrected.
+    form.querySelectorAll("input, select").forEach(function (field) {
+        field.addEventListener("input", function () {
+            field.classList.remove("input-error");
+            field.setCustomValidity("");
+
+            if (field === password1) {
+                updatePasswordStrength();
+                validatePasswordMatch();
+            }
+
+            if (field === password2) {
+                validatePasswordMatch();
+            }
+        });
+
+        field.addEventListener("change", function () {
+            field.classList.remove("input-error");
+        });
+    });
+
+    // Final validation before sending the form to Django.
+    form.addEventListener("submit", function (event) {
+
+        if (password1 && password1.value.length < 8) {
+            event.preventDefault();
+            password1.setCustomValidity(
+                "Password must contain at least 8 characters."
+            );
+            password1.reportValidity();
+            password1.focus();
+            return;
+        }
+
+        if (password1) password1.setCustomValidity("");
+
+        if (!validatePasswordMatch()) {
+            event.preventDefault();
+            password2.reportValidity();
+            password2.focus();
+            return;
+        }
+
+        let valid = true;
+
+        form.querySelectorAll("input, select").forEach(function (field) {
+            if (!field.checkValidity()) {
+                field.classList.add("input-error");
+                valid = false;
+            }
+        });
+
+        if (!valid) {
+            event.preventDefault();
+
+            const firstInvalid = form.querySelector(":invalid");
+            if (firstInvalid) {
+                firstInvalid.focus();
+                firstInvalid.reportValidity();
+            }
+
+            return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Creating your account...";
+    });
+
+    // Allow the user to try submitting again if browser validation blocks it.
+    form.addEventListener("invalid", function () {
+        submitButton.disabled = false;
+        submitButton.textContent = "Create Account & Get Started →";
+    }, true);
+
+    updatePasswordStrength();
+    validatePasswordMatch();
+
+});
+</script>
+
+
+{% endblock %}

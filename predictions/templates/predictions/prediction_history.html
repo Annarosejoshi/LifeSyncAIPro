@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-4">
+
+    <div class="mb-4">
+        <h2>Health Risk Prediction History</h2>
+        <p class="text-muted">
+            Previous LifeSync AI health screening results.
+        </p>
+    </div>
+
+    {% if history %}
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-hover align-middle">
+
+                <thead class="table-light">
+                    <tr>
+                        <th>Date</th>
+                        <th>Prediction</th>
+                        <th>Probability</th>
+                        <th>Risk Level</th>
+                        <th>Model</th>
+                        <th>Version</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for item in history %}
+
+                    <tr>
+
+                        <td>
+                            {{ item.created_at|date:"d M Y, h:i A" }}
+                        </td>
+
+                        <td>
+                            {{ item.get_prediction_type_display }}
+                        </td>
+
+                        <td>
+                            {{ item.probability|floatformat:2 }}
+                        </td>
+
+                        <td>
+
+                            {% if item.risk_level == "low" %}
+
+                                <span class="badge bg-success">
+                                    Low Risk
+                                </span>
+
+                            {% elif item.risk_level == "moderate" %}
+
+                                <span class="badge bg-warning text-dark">
+                                    Moderate Risk
+                                </span>
+
+                            {% elif item.risk_level == "high" %}
+
+                                <span class="badge bg-danger">
+                                    High Risk
+                                </span>
+
+                            {% else %}
+
+                                {{ item.risk_level }}
+
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+                            {{ item.model_name }}
+                        </td>
+
+                        <td>
+                            {{ item.model_version }}
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    {% else %}
+
+        <div class="alert alert-info">
+            No prediction history is available yet.
+            Run a health-risk screening first.
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

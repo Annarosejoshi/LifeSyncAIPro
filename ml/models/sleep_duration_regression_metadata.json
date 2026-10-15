@@ -1,0 +1,58 @@
+{
+    "model_name": "Gradient Boosting",
+    "model_version": "1.0",
+    "prediction_type": "sleep_duration_regression",
+    "target": "SLD012",
+    "target_description": "Usual weekday/workday sleep duration in hours",
+    "features": [
+        "age",
+        "sex",
+        "bmi",
+        "income_ratio",
+        "obesity_flag",
+        "moderate_sessions_week",
+        "moderate_minutes_session",
+        "vigorous_sessions_week",
+        "vigorous_minutes_session",
+        "total_activity_minutes_week",
+        "sedentary_minutes_day",
+        "high_sedentary_flag",
+        "little_interest",
+        "depressed_mood",
+        "low_energy",
+        "appetite_problem",
+        "negative_self_view",
+        "concentration_problem",
+        "movement_problem",
+        "mental_symptom_score",
+        "ever_smoked_100",
+        "current_smoking_status",
+        "alcohol_past_year",
+        "alcohol_frequency",
+        "average_drinks",
+        "heavy_drinking_frequency",
+        "work_hours_week",
+        "long_work_week"
+    ],
+    "records": 6272,
+    "train_records": 5017,
+    "test_records": 1255,
+    "cross_validation": {
+        "folds": 5
+    },
+    "test_metrics": {
+        "mae_hours": 1.1509580296767556,
+        "rmse_hours": 1.55621463606591,
+        "r2": 0.03223791579317037,
+        "within_30_minutes": 0.3083665338645418,
+        "within_1_hour": 0.5617529880478087,
+        "within_2_hours": 0.8278884462151395
+    },
+    "baseline": {
+        "mean_sleep_hours": 7.721945385688659,
+        "mae": 1.1820856101208084,
+        "rmse": 1.5819673691633518,
+        "r2": -5.677022693806322e-05
+    },
+    "data_source": "NHANES 2021-2023"
+}

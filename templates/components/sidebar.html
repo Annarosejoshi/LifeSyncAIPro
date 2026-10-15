@@ -1,0 +1,13 @@
+<aside class="lifesync-sidebar" id="lifesyncSidebar" aria-label="Main navigation">
+<div class="sidebar-brand"><div class="brand-icon">🌿</div><div><h1>LifeSync AI</h1><span>YOUR WELLNESS COMPANION</span></div><button class="sidebar-close" type="button" onclick="closeSidebar()" aria-label="Close navigation">×</button></div>
+<div class="sidebar-label">MY WELLNESS</div>
+<a class="sidebar-link" href="{% url 'dashboard:home' %}"><span aria-hidden="true">🏡</span><span>Dashboard</span></a>
+<a class="sidebar-link" href="{% url 'dashboard:risks' %}"><span aria-hidden="true">🔎</span><span>Health Predictions</span></a>
+<a class="sidebar-link" href="{% url 'dashboard:checkin' %}"><span aria-hidden="true">📝</span><span>Daily Check-In</span></a>
+<a class="sidebar-link" href="{% url 'dashboard:bmi' %}"><span aria-hidden="true">⚖️</span><span>BMI Calculator</span></a>
+<a class="sidebar-link" href="{% url 'notifications:medication_list' %}"><span aria-hidden="true">💊</span><span>Medication</span></a>
+<a class="sidebar-link" href="{% url 'mental_health:assessment_create' %}"><span aria-hidden="true">💛</span><span>Mental Wellness</span></a>
+
+<a class="sidebar-link" href="{% url 'dashboard:reports' %}"><span aria-hidden="true">📈</span><span>Daily Wellness</span></a>
+<a class="sidebar-link" href="{% url 'accounts:profile' %}"><span aria-hidden="true">👤</span><span>My Profile</span></a>
+<div class="sidebar-footer"><p>Small habits. Meaningful progress. 🌱</p><form method="post" action="{% url 'accounts:logout' %}">{% csrf_token %}<button class="sidebar-logout-btn" type="submit">Log out</button></form></div></aside><div id="sidebarOverlay" class="sidebar-overlay" style="display:none;pointer-events:none"></div>

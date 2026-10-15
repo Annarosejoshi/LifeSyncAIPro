@@ -1,0 +1,10 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/venv/Scripts/python.exe",
+  "python.analysis.exclude": ["**/venv", "**/venv_old", "**/artifacts", "**/staticfiles"],
+  "files.exclude": {"**/__pycache__": true, "**/*.pyc": true},
+  "search.exclude": {"**/venv": true, "**/venv_old": true, "**/artifacts": true, "**/staticfiles": true, "**/ml/data": true},
+  "files.encoding": "utf8",
+  "editor.insertSpaces": true,
+  "editor.tabSize": 4,
+  "editor.formatOnSave": false
+}

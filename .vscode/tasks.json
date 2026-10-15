@@ -1,0 +1,31 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "LifeSync: check",
+      "type": "process",
+      "command": "${workspaceFolder}/venv/Scripts/python.exe",
+      "args": ["manage.py", "check"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": [],
+      "group": {"kind": "build", "isDefault": true}
+    },
+    {
+      "label": "LifeSync: test",
+      "type": "process",
+      "command": "${workspaceFolder}/venv/Scripts/python.exe",
+      "args": ["manage.py", "test", "--noinput"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": [],
+      "group": "test"
+    },
+    {
+      "label": "LifeSync: audit models",
+      "type": "process",
+      "command": "${workspaceFolder}/venv/Scripts/python.exe",
+      "args": ["ml/evaluation/audit_saved_models.py", "--version", "lifestyle_v10"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": []
+    }
+  ]
+}

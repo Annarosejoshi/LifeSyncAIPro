@@ -1,0 +1,67 @@
+LifeSync AI Pro - Setup Notes
+==============================
+
+Recommended environment
+-----------------------
+Python: 3.13.x
+Database: SQLite for the current project/demo build
+
+Fresh Windows setup
+-------------------
+1. Copy the complete LifeSyncAIPro project folder to the new computer.
+2. Make sure Python 3.13 is installed and available as `python`.
+3. Open Command Prompt inside the LifeSyncAIPro folder.
+4. Run:
+
+   setup_windows.bat
+
+The script will:
+- create the virtual environment
+- install the exact tested dependencies
+- apply migrations
+- collect static files
+- run `python manage.py check`
+- run the full automated test suite
+
+Start the project
+-----------------
+venv\Scripts\activate
+python manage.py runserver
+
+Open:
+http://127.0.0.1:8000/
+
+Important ML note
+-----------------
+The GitHub package includes the four active `*_lifestyle_v10.joblib` models
+and matching metadata. These are sufficient to run the dashboard. Older model
+binaries and raw source datasets remain local and are excluded from Git.
+
+Optional private AI coach
+-------------------------
+The coach always has reviewed local wellness guidance. To enable generated
+answers without sending health data to a cloud provider:
+
+1. Install Ollama for Windows and download a model suitable for your computer.
+2. In PowerShell, set the exact installed model name before starting Django:
+
+   $env:LIFESYNC_OLLAMA_MODEL="your-installed-model-name"
+   ollama serve
+
+3. Start Django from another PowerShell window with the same environment
+   variable set. The coach contacts only the local Ollama service at
+   127.0.0.1:11434. If it is not available, the coach uses reviewed local
+   guidance instead.
+
+The coach never sends emergency, disease-diagnosis, risk-prediction, or
+medication-change questions to the generative model.
+
+Production
+----------
+Do not use the development fallback secret key in production.
+Set at minimum:
+DJANGO_DEBUG=False
+DJANGO_SECRET_KEY=<a new strong secret>
+DJANGO_ALLOWED_HOSTS=<your host/domain>
+
+Configure HTTPS before enabling the production SSL/HSTS options.
