@@ -52,4 +52,4 @@ def download(item):
 if __name__ == "__main__":
     with ThreadPoolExecutor(max_workers=4) as executor:
         manifest = dict(executor.map(download, FILES.items()))
-    (ROOT / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    (ROOT / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8", newline="\n")
